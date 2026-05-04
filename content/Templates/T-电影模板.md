@@ -18,7 +18,6 @@ progress:
 我的评价: <% tp.system.suggester(["有","无"],["有","无"],false, "是否自己写了感受/评价") %>
 scoreStar: {{scoreStar}}
 我的评分: {{myRating}}
-我的评价: {{myComment}}
 tags:
   - Movie
   - 影视
