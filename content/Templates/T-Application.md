@@ -1,0 +1,87 @@
+<%*
+/* ==========================================
+ * 1. 交互收集信息（所有弹窗放在最前面）
+ * ========================================== */
+
+// 获取基础信息
+const talent = await tp.system.prompt("请输入【人才姓名】");
+const client = await tp.system.prompt("请输入【客户名称】");
+const project = await tp.system.prompt("请输入【项目名称】");
+
+// 防错检查：如果用户点击取消，则停止脚本
+if (!talent || !client || !project) {
+    new Notice("❌ 未输入必要信息，操作已取消");
+    return;
+}
+
+// 选择招聘进度
+const statusList = ["潜在人选","初步沟通","顾问评估","推荐简历","简历初筛","一面","二面","三面","HR面","谈Offer","已入职","简历淘汰","面试淘汰","人选放弃","客户放弃","项目暂停"];
+const status = await tp.system.suggester(statusList, statusList, false, "选择当前进度");
+
+// 选择评估维度
+const match = await tp.system.suggester(["高","中","低"], ["高","中","低"], false, "选择人才匹配度");
+const willingness = await tp.system.suggester(["强","中","弱"], ["强","中","弱"], false, "选择人才意愿度");
+const offerStatus = await tp.system.suggester(["无","口头","书面","已接受","已拒绝"], ["无","口头","书面","已接受","已拒绝"], false, "选择 Offer 状态");
+const stars = await tp.system.suggester(["3星级","4星级","5星级"], ["3星级","4星级","5星级"], false, "选择关注级别");
+
+/* ==========================================
+ * 2. 处理文件系统（重命名）
+ * ========================================== */
+const today = tp.date.now("YYYY-MM-DD");
+const fileDate = tp.date.now("YYYYMMDD");
+
+// 执行重命名：格式为 人才_项目_日期
+await tp.file.rename(`${talent}_${project}_${fileDate}`);
+
+/* ==========================================
+ * 3. 定义输出内容（在这里修改模板样式）
+ * ========================================== */
+const content = `---
+area: 商业
+category: 猎头
+tags: application
+talent: "[[${talent}]]"
+project: "[[${project}]]"
+client: "[[${client}]]"
+status: ${status || "未定"}
+pipeline: 招聘中
+match: ${match || "未定"}
+willingness: ${willingness || "未定"}
+offer_status: ${offerStatus || "无"}
+entry_date: 
+last_contact: ${today}
+created: ${today}
+modified: ${today}
+stars: ${stars || "无"}
+number headings: auto, first-level 2, max 6, contents ^toc, skip ^skipped, start-at 1, _.1.1
+---
+
+## 任务清单^skipped
+
+## 1 候选人评估
+
+- 专业/技术：
+- 行业经验：
+- 稳定性：
+- 风险点：
+
+## 2 跟进记录
+
+### 2.1 ${today} 联系记录
+- 联系方式：
+- 记录内容：
+
+## 3 面试记录
+
+### 3.1 面试反馈
+- 面试轮次：
+- 结论：
+
+## 4 推进策略 / 备注
+`;
+
+/* ==========================================
+ * 4. 最终执行输出
+ * ========================================== */
+tR += content;
+%>
