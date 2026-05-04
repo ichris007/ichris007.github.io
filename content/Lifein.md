@@ -1,22 +1,12 @@
 ---
-area:
-  - 商业
-category:
-  - 人生管理系统
-status:
-  - 已完成
+title: Lifein人生管理系统
+draft: "false"
 tags:
-  - note
-project:
-  - "[[Lifein]]"
+  - homepage
 aliases:
-stars: 3星级
-number headings: auto, first-level 2, max 6, contents ^toc, skip ^skipped, start-at 1, _.1.1
-created date: 2026-02-26 01:59
-modified date: 2026-02-26 01:59
 Summary:
-modified: 2026-03-02 00:54:11
-created: 2026-02-26 01:59:18
+modified: 2026-05-05T01:33:11
+created: 2026-05-05T01:33:18
 ---
 
 ## 1 缘起

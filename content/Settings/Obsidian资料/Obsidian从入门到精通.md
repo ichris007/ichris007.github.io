@@ -1,5 +1,5 @@
 ---
-area: 个人成长
+draft: "false"
 category:
   - Obsidian
 status:
@@ -7,7 +7,7 @@ status:
 tags:
   - note
   - Obsidian
-aliases: 
+aliases:
 stars: 3星级
 modified date: 2025-05-10 02:23:23
 cssclasses:

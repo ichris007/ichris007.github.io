@@ -1,5 +1,5 @@
 ---
-area: 个人成长
+draft: "false"
 category:
   - Obsidian
 status:
