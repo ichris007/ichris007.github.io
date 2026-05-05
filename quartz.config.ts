@@ -9,7 +9,7 @@ import { PublishFilter } from "./quartz/plugins/filters/publishFilter"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Lifein",
+    pageTitle: "Lifein OS",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
