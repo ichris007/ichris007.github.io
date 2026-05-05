@@ -23,8 +23,6 @@ comments: "true"
 ### 1.2 Obsidian发展历程（2020–2025）
 %%以下内容有AI生成%%
 
-[list2timeline]
-
 - 2025
   **平台生态深化与 AI 可能性**
   > [!note]- 点击看详情
