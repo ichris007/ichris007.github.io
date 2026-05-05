@@ -6,23 +6,9 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
-      Component.Comments({
-        provider: "giscus",
-        options: {
-          repo: "ichris007/ichris007.github.io",
-          repoId: "R_kgDOSUGAuw",     // 替换成你的
-          category: "Announcements",
-          categoryId: "DIC_kwDOSUGAu84C8VHC", // 替换成你的
-          mapping: "pathname",
-          strict: "0",
-          reactionsEnabled: "1",
-          emitMetadata: "0",
-          inputPosition: "bottom",
-          theme: "preferred_color_scheme",
-          lang: "zh-CN",
-        },
-      }),
-    ],
+    // 这里只放全局共享的组件（如果有的话）
+    // 为了控制顺序，把 Comments 移到了 defaultContentPageLayout.afterBody
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
@@ -40,7 +26,26 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.ArticleTitle(),
     Component.ContentMeta(),
-    Component.TagList(),
+    // Component.TagList(), // 删除，移到底部
+  ],
+  afterBody: [
+    Component.TagList(),  // 1. 先显示标签
+    Component.Comments({  // 2. 再显示评论区
+      provider: "giscus",
+      options: {
+        repo: "ichris007/ichris007.github.io",
+        repoId: "R_kgDOSUGAuw",
+        category: "Announcements",
+        categoryId: "DIC_kwDOSUGAu84C8VHC",
+        mapping: "pathname",
+        strict: "0",
+        reactionsEnabled: "1",
+        emitMetadata: "0",
+        inputPosition: "bottom",
+        theme: "preferred_color_scheme",
+        lang: "zh-CN",
+      },
+    }),
   ],
   left: [
     Component.PageTitle(),
@@ -64,9 +69,12 @@ export const defaultContentPageLayout: PageLayout = {
   ],
 }
 
-// components for pages that display lists of pages  (e.g. tags or folders)
+// components for pages that display lists of pages (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  afterBody: [
+    Component.TagList(),  // 列表页也把标签移到底部
+  ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),

@@ -1,259 +1,334 @@
 @use "./base.scss";
 
+/* ======================================== */
+/* 标签和评论区之间的分割线                 */
+/* ======================================== */
 
-/* quartz/styles/custom.scss */
-/* MCL Multi Column Layout for Quartz */
-/* Adapted from https://github.com/efemkay/obsidian-modular-css-layout */
-
-/* ===== Variables ===== */
-:root {
-  --callout-min-width: 200px;
-  --callout-nowrap-min-width: 250px;
-  --callout-gap: 0.5rem;
-  --callout-margin: 5px;
-  --list-min-width: 200px;
-  --col-rule-color: var(--border);
-  --col-rule-width: 1px;
-  --list-grid-min-width: 250px;
-  --list-grid-wide-min-width: 350px;
-  --mcl-card-header-border-width: 1px;
-  --mcl-card-bg-color: var(--bg);
-  --mcl-card-gap: 0.2em;
-  --mcl-card-border-width: 1px;
-  --mcl-card-border-color: var(--border);
-  --float-small-width: 300px;
-  --float-medium-width: 400px;
-  --float-large-width: 600px;
-  --float-left-callout-margin: 0 15px 0 0;
-  --float-right-callout-margin: 0 0 0 15px;
-  --float-callout-top-margin: 0em;
-  --float-callout-bottom-margin: 0em;
+ul.tags {
+  border-bottom: none !important;
+  margin-bottom: 4rem !important;
+  padding-bottom: 0 !important;
+  position: relative;
 }
 
-/* ===== Multi Column Using Callout ===== */
-
-div[data-callout="multi-column"].callout > .callout-title { 
-  display: none; 
+ul.tags::after {
+  content: "";
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--lightgray);
 }
 
-div[data-callout="multi-column"].callout > .callout-content { 
-  display: contents; 
+/* ======================================== */
+/* 1. 通用卡片样式（右侧悬浮信息卡）        */
+/* ======================================== */
+
+/* 使用方法：在 Obsidian 中使用 > [!info-card] */
+.callout {
+  &[data-callout="info-card"] {
+    --color: #000;
+    --border: #a2a9b1;
+    --bg: #222;
+
+    width: 300px;
+    border: 1px solid var(--border);
+    background-color: var(--bg);
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: var(--color);
+    float: right;
+    margin: -10px 10px 10px 10px;
+  }
+
+  /* 隐藏默认图标 */
+  &[data-callout="info-card"] .callout-icon {
+    display: none;
+  }
+
+  /* 卡片标题样式 */
+  &[data-callout="info-card"] .callout-title {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #84beff;
+    padding: 5px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    margin: -10px -10px 10px -10px;
+  }
+
+  /* 卡片内容样式 */
+  &[data-callout="info-card"] .callout-content {
+    padding: 5px 0;
+  }
+
+  &[data-callout="info-card"] .callout-content h3 {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  &[data-callout="info-card"] .callout-content p {
+    margin: 5px 0;
+  }
+
+  /* 卡片内图片 */
+  &[data-callout="info-card"] .callout-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 600px) {
+    &[data-callout="info-card"] {
+      float: none;
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    &[data-callout="info-card"] .callout-title {
+      margin: 0;
+    }
+  }
 }
 
-div[data-callout="multi-column"].callout {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--callout-gap);
-  background: unset;
-  border: unset;
-  margin: unset;
-  padding: unset;
-  clear: both;
+
+
+/* ======================================== */
+/* 2. 首页网格布局                          */
+/* ======================================== */
+
+/* 使用方法：在笔记中使用 <div class="grid-container"> 包裹网格项 */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
 }
 
-div[data-callout="multi-column"].callout .callout {
+.grid-item {
+  background-color: #2a2a2a;
+  color: white;
+  padding: 15px !important;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-}
-
-div[data-callout="multi-column"].callout:not(.is-collapsed) .callout {
-  margin-inline: var(--callout-margin);
-  margin-block: var(--callout-margin);
-}
-
-div[data-callout="multi-column"].callout .callout .callout-content {
-  flex-grow: 1;
-}
-
-div[data-callout="multi-column"].callout > .callout-content > *:is(div, ul) {
-  flex: 1 1 var(--callout-min-width);
-  margin: 0;
-}
-
-/* Width control metadata */
-div[data-callout="multi-column"].callout > .callout-content > div[data-callout-metadata*="min-0"] { 
-  flex-basis: 0; 
-}
-
-div[data-callout="multi-column"].callout > .callout-content > div[data-callout-metadata*="wide-2"] { 
-  flex-grow: 2; 
-}
-
-div[data-callout="multi-column"].callout > .callout-content > div[data-callout-metadata*="wide-3"] { 
-  flex-grow: 3; 
-}
-
-div[data-callout="multi-column"].callout > .callout-content > div[data-callout-metadata*="wide-4"] { 
-  flex-grow: 4; 
-}
-
-div[data-callout="multi-column"].callout > .callout-content > div[data-callout-metadata*="wide-5"] { 
-  flex-grow: 5; 
-}
-
-/* Fixed Width Option */
-div[data-callout="multi-column"][data-callout-metadata*="center-fixed"].callout {
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
 }
 
-div[data-callout="multi-column"][data-callout-metadata*="left-fixed"].callout {
-  justify-content: flex-start;
+.grid-item:hover {
+  background-color: #333333;
 }
 
-div[data-callout="multi-column"][data-callout-metadata*="right-fixed"].callout {
-  justify-content: flex-end;
+.grid-item .icon {
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
-div[data-callout="multi-column"][data-callout-metadata*="fixed"].callout > .callout-content > *:is(div, ul) {
-  flex-grow: 0;
+.grid-item .icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin: 5px;
 }
 
-/* No-Wrap Option (horizontal scroll) */
-div[data-callout="multi-column"][data-callout-metadata*="no-wrap"].callout {
-  flex-wrap: nowrap;
-  overflow-x: scroll;
+.grid-item .title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-div[data-callout="multi-column"][data-callout-metadata*="no-wrap"].callout > .callout-content > *:is(div, ul) {
-  flex-shrink: 0;
-  flex-basis: var(--callout-nowrap-min-width);
+.grid-item .description {
+  font-size: 1em;
 }
 
-/* Center alignment */
-div[data-callout="multi-column"] .callout[data-callout-metadata*="center"] { 
-  text-align: center; 
+/* 不同样式的网格项（可选，用于区分不同类型） */
+.grid-item.type-1 { background-color: #2b2b2b; }
+.grid-item.type-2 { background-color: #2c2c2c; }
+.grid-item.type-3 { background-color: #2d2d2d; }
+.grid-item.type-4 { background-color: #2e2e2e; }
+.grid-item.type-5 { background-color: #2f2f2f; }
+.grid-item.type-6 { background-color: #303030; }
+
+
+/* ======================================== */
+/* 3. 图片高级控制                          */
+/* ======================================== */
+
+/* 基础变量定义 */
+body {
+  --micro: 70px;
+  --tiny: 65px;
+  --small: 200px;
+  --small-med: 300px;
+  --med-small: 400px;
+  --medium: 500px;
+  --med-tall: 600px;
+  --tall: 700px;
+  --image-border-color: var(--border);
+  --image-border-width: 1px;
+  --image-border-padding: 8px;
+  --image-border-background: var(--td);
 }
 
-/* ===== Blank Container ===== */
-div[data-callout*="blank"].callout {
-  --callout-blend-mode: normal;
-}
-
-div[data-callout*="blank"].callout > .callout-title { 
-  display: none; 
-}
-
-div[data-callout*="blank"].callout > .callout-content {
-  display: contents;
-}
-
-div[data-callout*="blank"].callout {
-  border: 0;
-  padding-top: 0;
-  padding-inline: 5px;
-  background: unset;
-  box-shadow: unset;
-}
-
-div[data-callout-metadata*="no-margin"]:is(.callout, .callout .callout-content) {
-  margin: 0;
-  padding: 0;
-}
-
-/* ===== Floating Callout ===== */
-@media (min-width: 500px) {
-  div[data-callout-metadata*="float-left"].callout {
-    float: left;
-    margin: var(--float-callout-top-margin) var(--float-left-callout-margin) var(--float-callout-bottom-margin) 0;
-    z-index: 30;
-  }
-  
-  div[data-callout-metadata*="float-right"].callout {
-    float: right;
-    margin: var(--float-callout-top-margin) 0 var(--float-callout-bottom-margin) var(--float-right-callout-margin);
-    z-index: 30;
-  }
-}
-
-/* Float Size Options */
-@media (min-width: 500px) {
-  div[data-callout-metadata*="-small"].callout {
-    width: var(--float-small-width);
-  }
-  div[data-callout-metadata*="-medium"].callout {
-    width: var(--float-medium-width);
-  }
-}
-@media (min-width: 750px) {
-  div[data-callout-metadata*="-large"].callout {
-    width: var(--float-large-width);
+/* 移动端适配 */
+@media (max-width: 500px) {
+  body {
+    --micro: 70px;
+    --tiny: 100px;
+    --small: 150px;
+    --small-med: 200px;
+    --med-small: 250px;
+    --medium: 300px;
+    --med-tall: 450px;
+    --tall: 500px;
   }
 }
 
-/* Clear floats */
-.embedded-backlinks { 
-  clear: both; 
+/* ----- 固定尺寸 ----- */
+/* 高度控制 */
+img[alt*="hmicro"] { height: var(--micro); }
+img[alt*="htiny"] { height: var(--tiny); }
+img[alt*="hsmall"] { height: var(--small); }
+img[alt*="hs-med"] { height: var(--small-med); }
+img[alt*="hm-sm"] { height: var(--med-small); }
+img[alt*="hmed"] { height: var(--medium); }
+img[alt*="hm-tl"] { height: var(--med-tall); }
+img[alt*="htall"] { height: var(--tall); }
+img[alt*="hfull"] { height: 100%; }
+
+/* 宽度控制 */
+img[alt*="wmicro"] { width: var(--micro); }
+img[alt*="wtiny"] { width: var(--tiny); }
+img[alt*="wsmall"] { width: var(--small); }
+img[alt*="ws-med"] { width: var(--small-med); }
+img[alt*="wm-sm"] { width: var(--med-small); }
+img[alt*="wmed"] { width: var(--medium); }
+img[alt*="wm-tl"] { width: var(--med-tall); }
+img[alt*="wtall"] { width: var(--tall); }
+img[alt*="wfull"] { width: 100%; }
+
+/* ----- 相对尺寸（百分比）----- */
+img[alt*="relative"][alt*="wmicro"] { width: 10%; }
+img[alt*="relative"][alt*="wtiny"] { width: 20%; }
+img[alt*="relative"][alt*="wsmall"] { width: 30%; }
+img[alt*="relative"][alt*="ws-med"] { width: 40%; }
+img[alt*="relative"][alt*="wm-sm"] { width: 50%; }
+img[alt*="relative"][alt*="wmed"] { width: 60%; }
+img[alt*="relative"][alt*="wm-tl"] { width: 70%; }
+img[alt*="relative"][alt*="wtall"] { width: 85%; }
+
+img[alt*="relative"] {
+  display: block;
+  margin: auto;
+  max-height: 100%;
+  object-fit: cover;
 }
 
-/* ===== List Column ===== */
-.two-column-list div > ul,
-.three-column-list div > ul,
-.multi-column-list div > ul {
-  column-gap: 2rem;
-  column-rule: var(--col-rule-width) solid var(--col-rule-color);
+/* ----- 对齐方式 ----- */
+/* 居中 */
+img[alt*="center"], img[alt*="ctr"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (min-width: 500px) {
-  .two-column-list div > ul { columns: 2; }
-  .three-column-list div > ul { columns: 3; }
+/* 左浮动 */
+img[alt*="left"], img[alt*="locl"] {
+  float: left;
+  margin-right: 2%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.multi-column-list div > ul {
-  column-width: var(--list-min-width);
+/* 右浮动 */
+img[alt*="right"], img[alt*="locr"] {
+  float: right;
+  margin-left: 2%;
+  margin-bottom: 0;
 }
 
-/* ===== List Grid ===== */
-ul:has([href*="#mcl/list-grid"]),
-[class*="mcllist-grid"] ul:first-child {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--list-grid-min-width), 1fr));
+/* 清除浮动 */
+img[alt*="clear"] { clear: both; }
+
+/* ----- 图片裁剪位置 ----- */
+img[alt*="p+c"] { object-position: center; }
+img[alt*="p+t"] { object-position: top; }
+img[alt*="p+b"] { object-position: bottom; }
+img[alt*="p+l"] { object-position: left; }
+img[alt*="p+r"] { object-position: right; }
+img[alt*="p+cl"] { object-position: 15%; }
+img[alt*="p+cr"] { object-position: 60%; }
+img[alt*="p+tc"] { object-position: 50% 10%; }
+img[alt*="p+ct"] { object-position: 50% 40%; }
+img[alt*="p+cb"] { object-position: 50% 60%; }
+img[alt*="p+bc"] { object-position: 50% 80%; }
+
+/* 覆盖模式（不拉伸） */
+img[alt*="cover"], img[alt*="cvr"] {
+  object-fit: cover;
 }
 
-ul:has([href*="#mcl/list-grid-wide"]),
-[class*="mcllist-grid-wide"] ul:first-child {
-  grid-template-columns: repeat(auto-fit, minmax(var(--list-grid-wide-min-width), 1fr));
+/* ----- 图片形状与特效 ----- */
+/* 圆形 */
+img[alt*="circle"] { border-radius: 50%; }
+
+/* 方形 */
+img[alt*="square"] { border-radius: 0; }
+
+/* 边框 */
+img[alt*="border"] {
+  border: var(--image-border-width) solid var(--image-border-color);
+  padding: var(--image-border-padding);
+  background: var(--image-border-background);
 }
 
-/* ===== List Card ===== */
-:is(div:has([data-heading*="#mcl/list-card"]), [class*="mcllist-card"]) ul:first-child {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--list-grid-min-width), 1fr));
+/* 颜色反转（暗色模式） */
+.theme-dark img[alt*="invertb"] {
+  filter: invert(1) hue-rotate(180deg);
 }
 
-:is(div:has([data-heading*="#mcl/list-card-wide"]), [class*="mcllist-card-wide"]) ul:first-child {
-  grid-template-columns: repeat(auto-fit, minmax(var(--list-grid-wide-min-width), 1fr));
+/* 颜色反转（亮色模式） */
+.theme-light img[alt*="invertw"] {
+  filter: invert(1) hue-rotate(180deg);
 }
 
-/* Card styling */
-:is(div:has([data-heading*="#mcl/list-card"]), [class*="mcllist-card"]) ul:not(ul ul) > li {
-  margin-inline: var(--mcl-card-gap);
-  margin-bottom: calc(var(--mcl-card-gap) * 2);
-  padding: 0.5em 0.8em;
-  border: var(--mcl-card-border-width) solid var(--mcl-card-border-color);
-  border-radius: 8px;
-  background-color: var(--mcl-card-bg-color);
-  list-style: none;
+/* 镜像翻转 */
+img[alt*="flip-x"] { transform: scale(-1, 1); }
+img[alt*="flip-y"] { transform: scale(1, -1); }
+img[alt*="flip-xy"] { transform: scale(-1, -1); }
+
+/* ----- 特殊用途 ----- */
+/* 头像（圆形 + 固定小尺寸） */
+img[alt*="profile"] {
+  object-fit: cover;
+  border-radius: 50%;
+  height: var(--tiny);
+  width: var(--tiny);
 }
 
-/* Card header border */
-:is(div:has([data-heading*="#mcl/list-card"]), [class*="mcllist-card"]) > ul > li:not(.is-collapsed) > [data-heading] {
-  border-bottom: var(--mcl-card-header-border-width) solid var(--mcl-card-border-color);
-  margin-bottom: 0.2em;
-}
-
-/* Hide list bullets for cards */
-:is(div:has([data-heading*="#mcl/list-card"]), [class*="mcllist-card"]) li > .list-bullet::after {
-  visibility: hidden;
-}
-
-/* Nested lists keep bullets */
-:is(div:has([data-heading*="#mcl/list-card"]), [class*="mcllist-card"]) li li li {
-  list-style: circle;
-}
-
-/* Card images */
-:is(div:has([data-heading*="#mcl/list-card"]), [class*="mcllist-card"]) ul img {
+/* Banner 横幅 */
+img[alt*="banner"] {
+  display: block;
+  object-fit: cover;
   width: 100%;
-  margin: 0;
-  float: none;
+  margin-bottom: 0;
+  clear: both;
+  height: var(--small);
+}
+
+img[alt*="banner+small"] { height: var(--tiny); }
+img[alt*="banner+tall"] { height: var(--medium); }
+
+/* 肖像 */
+img[alt*="portrait"] {
+  object-fit: cover;
+  height: var(--small-med);
+  width: 40%;
 }

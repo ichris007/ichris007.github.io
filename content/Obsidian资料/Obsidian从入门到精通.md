@@ -7,6 +7,11 @@ status:
 tags:
   - note
   - Obsidian
+  - 插件
+  - 样式
+  - 主题
+  - theme
+  - css
 aliases:
 stars: 3星级
 modified date: 2025-05-10 02:23:23
@@ -21,10 +26,9 @@ comments: "true"
 - [[黑曜石崇拜：为什么人们痴迷于此款笔记应用程序]]
 - Obsidian编辑必读[[MarkDown超级教程]]
 ### 1.2 Obsidian发展历程（2020–2025）
-%%以下内容有AI生成%%
+（以下内容由AI生成）
 
-- 2025
-  **平台生态深化与 AI 可能性**
+- 2025：**平台生态深化与 AI 可能性**
   > [!note]- 点击看详情
   > - AI Agent 初步探索：
   >   - 集成 GPT 等大模型，用于写作建议、任务管理自动化、内容生成。
@@ -42,8 +46,7 @@ comments: "true"
   >   - 截至 2025 年初，Obsidian 社区插件数量已接近 2,000 个。
   >   - 截至 2025 年，Obsidian 社区提供了超过 200 个主题，用户可以根据个人喜好自定义界面风格。 
 
-- 2024
-  **集成与效率工具完善**
+- 2024：**集成与效率工具完善**
   > [!note]- 点击看详情
   > - 插件与自动化能力增强：
   >   - Templater、QuickAdd、Tasks 插件持续优化。
@@ -58,8 +61,7 @@ comments: "true"
   >    - 多语言翻译持续推进，支持 RTL 语言。
   >    - 增强 Obsidian Sync 稳定性与性能。
 
-- 2023
-  **Canvas 面板与模块化思维革新**
+- 2023：**Canvas 面板与模块化思维革新**
   > [!note]- 点击看详情
   > - 2023 年 1 月：发布 Canvas 功能（v1.1）：
   >   - 支持卡片视图与自由布局，适用于项目管理、思维导图等。
@@ -71,8 +73,7 @@ comments: "true"
   >   - 插件 API 更新，支持更复杂交互与 UI 控件。
   >   - 推动全新类型插件出现，如 AI 辅助、看板、数据库型插件。
 
-- 2022
-  **性能优化与核心体验打磨**
+- 2022：**性能优化与核心体验打磨**
   > [!note]- 点击看详情
   >   - 编辑器架构升级：
   >     - 引入 Live Preview 模式，结合所见即所得与纯文本体验。
@@ -85,8 +86,7 @@ comments: "true"
   >   - 文件管理增强：
   >     - 支持批量重命名、自动嵌入预览、嵌套 vault 更安全。
 
-- 2021
-  **插件生态与移动端问世**
+- 2021：**插件生态与移动端问世**
   > [!note]- 点击看详情
   >   - 2021 年 1 月：推出插件系统（v0.9.7）：
   >     - 开启社区插件生态，允许用户按需拓展功能。
@@ -101,8 +101,7 @@ comments: "true"
   >     - 提供内测版本优先访问权。
   >     - 通过支持者资金支持产品迭代。
 
-- 2020
-  **Obsidian 的诞生与早期测试**
+- 2020：**Obsidian 的诞生与早期测试**
   > [!note]- 点击看详情
   >   - 2020 年 3 月：由 Shida Li 和 Erica Xu 共同开发的 Obsidian 首个版本开始内测。
   >   - 2020 年 5 月：Obsidian 正式推出公开测试版本（v0.6 左右），核心特性：
@@ -113,7 +112,7 @@ comments: "true"
   >     - Discord 社群和官方论坛启动。
   >     - 初期用户积极反馈，激发插件系统构想。
 ### 1.3 Obsidian的主要特点
-%%以下内容有AI生成%%
+(以下内容由AI生成)
 #### 1.3.1 Obsidian 的主要优点
 
 - **本地优先、安全隐私**
@@ -173,34 +172,39 @@ Obsidian 是一款**极为强大、高度自由、隐私优先** 的知识管�
 ### 1.4 Obsidian目录说明
 
 一个成熟的Obsidian库目录大概如下：
-```fold
-Obsidian
-├── .obsidian
-│   ├── app.json
-│   ├── appearance.json
-│   ├── community-plugins.json
-│   ├── core-plugins.json
-│   ├── daily-notes.json
-│   ├── graph.json
-│   ├── hotkeys.json
-│   ├── multicolor.json
-│   ├── page-preview.json
-│   ├── plugins
-│   ├── snippets
-│   ├── switcher.json
-│   ├── templates.json
-│   ├── themes
-│   ├── workspace
-│   └── workspaces.json
-├── .trash
-├── .vault-stats
-├── 00Dashboard
-│   └── homepage.md
-├── Attachments
-├── Settings
-├── Templates
-└── 从这里开始.md
-```
+
+>[!note]- 目录详情
+>
+> 
+> ```
+> Obsidian
+> ├── .obsidian
+> │   ├── app.json
+> │   ├── appearance.json
+> │   ├── community-plugins.json
+> │   ├── core-plugins.json
+> │   ├── daily-notes.json
+> │   ├── graph.json
+> │   ├── hotkeys.json
+> │   ├── multicolor.json
+> │   ├── page-preview.json
+> │   ├── plugins
+> │   ├── snippets
+> │   ├── switcher.json
+> │   ├── templates.json
+> │   ├── themes
+> │   ├── workspace
+> │   └── workspaces.json
+> ├── .trash
+> ├── .vault-stats
+> ├── 00Dashboard
+> │   └── homepage.md
+> ├── Attachments
+> ├── Settings
+> ├── Templates
+> └── 从这里开始.md
+> ```
+> 
 
 其中带`.`的是隐藏文件，在Obsidian打开之后是看不到的，不过都非常重要，我简单介绍一下各个文件目录以及用途：
 
@@ -221,7 +225,7 @@ Obsidian
 另外，通过AI工具可以解决大部分问题。
 <u>科叔不是程序员，但是用AI实现了很多定制化配置。</u>
 
-### 官方资源
+### 2.1 官方资源
 - [obsidian开发计划](https://trello.com/b/Psqfqp7I/obsidian-roadmap)：用来查看 Obsidian 团队现在在干嘛，有什么计划。
 - [obsidian英文论坛](https://forum.obsidian.md/)：最早成立的论坛，积累的资源数量和质量都是最高的，也是 Obsidian 提出功能需求，反馈 Bug 最主要的平台。
 - [obsidian中文论坛](https://forum-zh.obsidian.md/)：后续成立的论坛，但活跃度比英文论坛差上不少，主要用于国内用户自发交流。
@@ -229,16 +233,17 @@ Obsidian
 - [Obsidian Hub](https://publish.obsidian.md/hub/00+-+Start+here)：由 Obsidian社区维护的实验 Vault。有丰富的资源。
 - [Obsidian中文帮助](https://publish.obsidian.md/help-zh/) 非官方，但是内容很翔实。
 
-### 社群
+### 2.2 社群
 - [discord官方讨论群](https://discord.com/invite/veuWUTm)：Obsidian 信息资源时效性最高的地方，可以在这获取最新的版本更新，插件更新，插件上架信息等。目前有近 10 万人，可惜不好访问。
 - [Obsidian@reddit](https://www.reddit.com/r/ObsidianMD/) 很活跃，全球网友分享自己的使用技巧、心得和实例。
 
-### YouTube资源
-[Linking Your Thinking with Nick Milo - YouTube](https://www.youtube.com/@linkingyourthinking)
-[August Bradley - YouTube](https://www.youtube.com/user/augustbradley)
-[Obsidian LifeOS Series (Journal, Habit Tracking, Cycles and Reviews) - YouTube](https://www.youtube.com/playlist?list=PLJJdpQJ7fSkZAakFPUYdndOdPU73bkxwn) 非常强大的日记和习惯追踪系统，有详细的设置教程
-[LeanProductivity - Sascha D. Kasper - YouTube](https://www.youtube.com/@leanproductivity/videos) 一步步教你教你建库（CRM、旅游等库），插件使用方法详解
-[Paul Dickson - YouTube](https://www.youtube.com/@PaulDickson7) 高质量视频
+### 2.3 YouTube资源
+- [Linking Your Thinking with Nick Milo - YouTube](https://www.youtube.com/@linkingyourthinking)
+- [August Bradley - YouTube](https://www.youtube.com/user/augustbradley)
+- [Obsidian LifeOS Series (Journal, Habit Tracking, Cycles and Reviews) - YouTube](https://www.youtube.com/playlist?list=PLJJdpQJ7fSkZAakFPUYdndOdPU73bkxwn) 非常强大的日记和习惯追踪系统，有详细的设置教程
+- [LeanProductivity - Sascha D. Kasper - YouTube](https://www.youtube.com/@leanproductivity/videos) 一步步教你教你建库（CRM、旅游等库），插件使用方法详解
+- [Paul Dickson - YouTube](https://www.youtube.com/@PaulDickson7) 高质量视频
+
 油管上几位讲 Obsidian最好的 youtuber
 * 最好的是 [Nicole van der Hoeven](https://www.youtube.com/@nicolevdh)，先讲要解决一个什么问题，然后讲有几种方式解决，然后介绍插件，循序渐进。
 * [FromSergio](https://www.youtube.com/@FromSergio) 没有废话，直接讲 use case，很实用。
@@ -246,13 +251,13 @@ Obsidian
 * [Vicky Zhao](https://www.youtube.com/@VickyZhaoBEEAMP) 讲 ob 与卡片写作思路最清晰的。
 * [Danny Hatcher](https://www.youtube.com/@DannyHatcherTech) 语速非常快，不讲解决什么问题，上手直接讲插件怎么设置，适合已经会使用插件，从他那借鉴一些其他思路的使用者。
 
-### 其它资源
+### 2.4 其它资源
 - [PKMer知识管理爱好者社区](https://pkmer.cn)：国内 Obsidian 爱好者组建的知识管理平台，用于收集、汇总、分享和展示最有价值的知识管理信息，包括教程，工具使用和用法，工作流程，心得体会等。
 	- [PKMer社区总结的资源](https://pkmer.cn/Pkmer-Docs/10-obsidian/obsidian/)
 - [Obsidian文档咖啡豆版](https://coffeetea.top/) Obsidian入门指南及教程。
 - [简睿学堂_B站](https://space.bilibili.com/1119961064/video) 、[簡睿隨筆_个人网站](https://jdev.tw/blog/category/software-and-tools/markdown) ：长期活跃和更新的简睿，分享了大量 Obsidian 初级和高级的用法，非常值得探索。
 - [Johnny学-B站](https://space.bilibili.com/432408734)：优秀的 obsidian 教程。
-[15 Example #Obsidian Vaults from Around the Internet \| Amerpie by Lou Plummer](https://amerpie.lol/2024/05/13/example-obsidian-vaults.html) 收集的网上Obsidian示例库（15个）
+- [15 Example #Obsidian Vaults from Around the Internet \| Amerpie by Lou Plummer](https://amerpie.lol/2024/05/13/example-obsidian-vaults.html) 收集的网上Obsidian示例库（15个）
 - [笔记软件 Obsidian 使用教程 & 学习资源汇总：从入门到精通](https://zhuanlan.zhihu.com/p/619960525)：搜集了大量不同类型的 Obsidian 资源类型，部分已经过时，瑕不掩瑜。
 - [Obsidian周报-英文](https://www.obsidianroundup.org/)：由社区成员 Eleanorkonik 自发建立的 Obsidian 社区周报，总结和归纳最近一周在论坛，Discord 讨论和发布的最有价值的信息。同时也组织一些大佬做分享。
 - [Obsidian Hub-英文](https://publish.obsidian.md/hub/00+-+Start+here)：国外 Obsidian 爱好者组建的知识管理平台，共建关于 Obsidian 的各种用法和技巧，分享使用心得，资源非常丰富。
@@ -263,9 +268,9 @@ Obsidian
 - [我们看看 Obsidian CEO 怎么使用 Obsidian](https://mp.weixin.qq.com/s/ejzKlvHhflGVqa3pcXvEoA)
 - [Obsidian Journey \| Tips, Workflows & Plugins for Power Users](https://obsidianjourney.com/) 大神级别
 
-### 主题与CSS片段
+### 2.5 主题与CSS片段
 Obsidian 可以通过主题（Theme）或 Snippets（CSS 片段）来美化界面或实现定制化布局。
-[PKMer\_Obsidian 优秀外观分享](https://pkmer.cn/Pkmer-Docs/10-obsidian/obsidian%E5%A4%96%E8%A7%82/obsidian%E4%BC%98%E7%A7%80%E5%A4%96%E8%A7%82%E5%88%86%E4%BA%AB/)
+- [PKMer\_Obsidian 优秀外观分享](https://pkmer.cn/Pkmer-Docs/10-obsidian/obsidian%E5%A4%96%E8%A7%82/obsidian%E4%BC%98%E7%A7%80%E5%A4%96%E8%A7%82%E5%88%86%E4%BA%AB/)
 - [kmaasrud](https://github.com/kmaasrud)的[awesome-obsidian](https://github.com/kmaasrud/awesome-obsidian)是一个非常全面的资源集合，包括但不限于CSS主题、Ob模板和插件等方面。
 - [Dmytro-Shulha](https://github.com/Dmytro-Shulha)的[obsidian-css-snippets](https://github.com/Dmitriy-Shulha/obsidian-css-snippets)一个全面但简洁的Snippets集合，有很多最基础的样式修改片段，可以满足很多方面的需求。没有效果展示图。
 - [r-u-s-h-i-k-e-s-h](https://github.com/r-u-s-h-i-k-e-s-h)的[Obsidian-CSS-Snippets](https://github.com/r-u-s-h-i-k-e-s-h/Obsidian-CSS-Snippets/tree/Collection/Snippets) 比较全的实用的css片段，每一类都给出了多种选择，并且有图片效果展示。

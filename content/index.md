@@ -20,11 +20,32 @@ permalink:
 
 ### 🚀 从这里开始  
   
->[!note]+ 快速导览
-> - 🧠 [了解 Lifein 系统](https://github.com/ichris007/Obsidian_Lifein)：人生管理系统的整体架构与方法论
->- 🧑‍💼 [查看 Lifein ATS（招聘系统）](https://github.com/ichris007/Obsidian_Lifein_ATS)：将猎头经验转化为可复用的人才管理系统
-> - 🔧 [[插件与脚本]]：[[科叔]]开发与优化的 Obsidian 插件、脚本与工作流方法
-> - ⚙️ [[Obsidian从入门到精通]]：[[科叔]]整理的关于Obsidian的资料
+<div class="grid-container">
+  <a href="https://github.com/ichris007/Obsidian_Lifein" class="grid-item" target="_blank" rel="noopener noreferrer">
+    <div class="icon">🧠</div>
+    <div class="title">了解 Lifein 系统</div>
+    <div class="description">人生管理系统的整体架构与方法论</div>
+  </a>
+  
+  <a href="https://github.com/ichris007/Obsidian_Lifein_ATS" class="grid-item" target="_blank" rel="noopener noreferrer">
+    <div class="icon">🧑‍💼</div>
+    <div class="title">查看 Lifein ATS</div>
+    <div class="description">将猎头经验转化为可复用的人才管理系统</div>
+  </a>
+  
+  <a href="/插件与脚本/插件与脚本" class="grid-item" target="_blank" rel="noopener noreferrer">
+    <div class="icon">🔧</div>
+    <div class="title">插件与脚本</div>
+    <div class="description">科叔开发与优化的 Obsidian 插件、脚本与工作流方法</div>
+  </a>
+  
+  <a href="/Obsidian资料/Obsidian从入门到精通" class="grid-item" target="_blank" rel="noopener noreferrer">
+    <div class="icon">⚙️</div>
+    <div class="title">Obsidian 从入门到精通</div>
+    <div class="description">科叔整理的关于 Obsidian 的资料</div>
+  </a>
+</div>
+
 
 ## 👤 关于[[科叔]]
 
