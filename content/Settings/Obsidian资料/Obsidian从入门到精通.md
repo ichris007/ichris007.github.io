@@ -223,19 +223,19 @@ Obsidian
 另外，通过AI工具可以解决大部分问题。
 <u>科叔不是程序员，但是用AI实现了很多定制化配置。</u>
 
-~~~tabs
-
----tab官方资源
+### 官方资源
 - [obsidian开发计划](https://trello.com/b/Psqfqp7I/obsidian-roadmap)：用来查看 Obsidian 团队现在在干嘛，有什么计划。
 - [obsidian英文论坛](https://forum.obsidian.md/)：最早成立的论坛，积累的资源数量和质量都是最高的，也是 Obsidian 提出功能需求，反馈 Bug 最主要的平台。
 - [obsidian中文论坛](https://forum-zh.obsidian.md/)：后续成立的论坛，但活跃度比英文论坛差上不少，主要用于国内用户自发交流。
 - [Home - Obsidian Help](https://help.obsidian.md/)：Obsidian 官方维护的教程和文档。
 - [Obsidian Hub](https://publish.obsidian.md/hub/00+-+Start+here)：由 Obsidian社区维护的实验 Vault。有丰富的资源。
 - [Obsidian中文帮助](https://publish.obsidian.md/help-zh/) 非官方，但是内容很翔实。
----tab社群
+
+### 社群
 - [discord官方讨论群](https://discord.com/invite/veuWUTm)：Obsidian 信息资源时效性最高的地方，可以在这获取最新的版本更新，插件更新，插件上架信息等。目前有近 10 万人，可惜不好访问。
 - [Obsidian@reddit](https://www.reddit.com/r/ObsidianMD/) 很活跃，全球网友分享自己的使用技巧、心得和实例。
----tab YouTube资源
+
+### YouTube资源
 [Linking Your Thinking with Nick Milo - YouTube](https://www.youtube.com/@linkingyourthinking)
 [August Bradley - YouTube](https://www.youtube.com/user/augustbradley)
 [Obsidian LifeOS Series (Journal, Habit Tracking, Cycles and Reviews) - YouTube](https://www.youtube.com/playlist?list=PLJJdpQJ7fSkZAakFPUYdndOdPU73bkxwn) 非常强大的日记和习惯追踪系统，有详细的设置教程
@@ -247,7 +247,8 @@ Obsidian
 * [Bryan Jenks](https://www.youtube.com/@BryanJenks) 长篇累牍，废话偏多。
 * [Vicky Zhao](https://www.youtube.com/@VickyZhaoBEEAMP) 讲 ob 与卡片写作思路最清晰的。
 * [Danny Hatcher](https://www.youtube.com/@DannyHatcherTech) 语速非常快，不讲解决什么问题，上手直接讲插件怎么设置，适合已经会使用插件，从他那借鉴一些其他思路的使用者。
----tab其它资源
+
+### 其它资源
 - [PKMer知识管理爱好者社区](https://pkmer.cn)：国内 Obsidian 爱好者组建的知识管理平台，用于收集、汇总、分享和展示最有价值的知识管理信息，包括教程，工具使用和用法，工作流程，心得体会等。
 	- [PKMer社区总结的资源](https://pkmer.cn/Pkmer-Docs/10-obsidian/obsidian/)
 - [Obsidian文档咖啡豆版](https://coffeetea.top/) Obsidian入门指南及教程。
@@ -263,7 +264,8 @@ Obsidian
 - [How to Take Smart Notes in Obsidian-英文](https://theknowledgeworker.substack.com/p/how-to-take-smart-notes-in-obsidian)：如何做笔记，针对《How to take smart notes》这本书的实践
 - [我们看看 Obsidian CEO 怎么使用 Obsidian](https://mp.weixin.qq.com/s/ejzKlvHhflGVqa3pcXvEoA)
 - [Obsidian Journey \| Tips, Workflows & Plugins for Power Users](https://obsidianjourney.com/) 大神级别
----tab 主题与CSS片段
+
+### 主题与CSS片段
 Obsidian 可以通过主题（Theme）或 Snippets（CSS 片段）来美化界面或实现定制化布局。
 [PKMer\_Obsidian 优秀外观分享](https://pkmer.cn/Pkmer-Docs/10-obsidian/obsidian%E5%A4%96%E8%A7%82/obsidian%E4%BC%98%E7%A7%80%E5%A4%96%E8%A7%82%E5%88%86%E4%BA%AB/)
 - [kmaasrud](https://github.com/kmaasrud)的[awesome-obsidian](https://github.com/kmaasrud/awesome-obsidian)是一个非常全面的资源集合，包括但不限于CSS主题、Ob模板和插件等方面。
@@ -272,8 +274,4 @@ Obsidian 可以通过主题（Theme）或 Snippets（CSS 片段）来美化界�
 * [replete](https://github.com/replete)的[GitHub - replete/obsidian-minimal-theme-css-snippets](https://github.com/replete/obsidian-minimal-theme-css-snippets) 专门为minimal主题美化的css有分类，质量高，有图片展示。
 * [ProudBenzene/Blue-Topaz-Legacy: A css snippet used to bring useful features in the BT theme to Obsidian non-Blue Topaz theme users](https://github.com/ProudBenzene/Blue-Topaz-Legacy) BT主题的样式文件css
 * [GitHub - LiamSwayne/Obsidian-CSS-Snippets: A library of CSS snippets that customize the look of obsidian.](https://github.com/LiamSwayne/Obsidian-CSS-Snippets) 还在更新，分类清晰，数量不多，质量可以。
-~~~
 
-## 3 Obsidian应用场景
-
-![[从这里开始#Obsidian的应用场景]]
