@@ -1,5 +1,5 @@
 ---
-draft: "false"
+publish: "true"
 category:
   - Obsidian
 status:
@@ -12,6 +12,7 @@ stars: 3星级
 modified date: 2025-05-10 02:23:23
 cssclasses:
   - hide-properties
+comments: "true"
 ---
 ## 1 新手入门
 

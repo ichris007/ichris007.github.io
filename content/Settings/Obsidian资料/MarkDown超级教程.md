@@ -1,5 +1,5 @@
 ---
-draft: "false"
+publish: "true"
 category:
   - Obsidian
 status:
@@ -14,6 +14,7 @@ aliases:
 stars: 3星级
 cssclasses:
   - hide-properties
+comments: "true"
 ---
 
 # 什么是 Markdown?

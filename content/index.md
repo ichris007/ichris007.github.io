@@ -1,12 +1,13 @@
 ---
 title: Lifein人生管理系统
-draft: "false"
+publish: "true"
 tags:
   - homepage
 aliases:
 Summary:
 modified: 2026-05-05T01:33:11
 created: 2026-05-05T01:33:18
+comments: "true"
 ---
 
 ## 1 缘起
@@ -15,20 +16,20 @@ created: 2026-05-05T01:33:18
 
 直到遇见了 **Obsidian**。
 
-最初，我只是想找个更好用的知识管理工具，没想到，这一用，就是`3年半多`。一步步地，我用它搭建出了一套完整的「`生产力 & 人生管理系统`」——**Lifein**，它不仅解决了信息、知识、项目、任务、关系管理的问题，也让我慢慢走上了自我掌控的轨道。
+最初，我只是想找个更好用的知识管理工具，没想到，这一用，就是`3年半多`。一步步地，我用它搭建出了一套完整的「`生产力 & 人生管理系统`」—— [Lifein](https://github.com/ichris007/Obsidian_Lifein)，它不仅解决了信息、知识、项目、任务、关系管理的问题，也让我慢慢走上了自我掌控的轨道。
 
 ![[VaultStats.png]]
 
 ## 2 Lifein是什么
 
 ![[Lifein_banner1.png]]
- Lifein是[[科叔]]出品的基于Obsidian的「个人生产力 & 人生管理系统」的名称，寓意是`进入生活核心`、`融入人生系统`，也象征着`生活在其中`。
+  [Lifein](https://github.com/ichris007/Obsidian_Lifein)是[[科叔]]出品的基于Obsidian的「个人生产力 & 人生管理系统」的名称，寓意是`进入生活核心`、`融入人生系统`，也象征着`生活在其中`。
 
-Lifein不只是为了项目、任务、知识管理这类功能性的「`个人生产力系统`」（Productivity OS），而是希望它能在长期积累中，成为真正陪伴我成长的「`人生管理的系统`」(Life OS)。 
+ [Lifein](https://github.com/ichris007/Obsidian_Lifein)不只是为了项目、任务、知识管理这类功能性的「`个人生产力系统`」（Productivity OS），而是希望它能在长期积累中，成为真正陪伴我成长的「`人生管理的系统`」(Life OS)。 
 
 >工具不仅是外部辅助，更是生活方式的有机组成部分。
 
-Lifein适合这些人：
+ [Lifein](https://github.com/ichris007/Obsidian_Lifein)适合这些人：
 
 - 想系统性提升效率和思考能力的人
 - 追求长期成长和持续精进的人
@@ -37,7 +38,7 @@ Lifein适合这些人：
 
 ![[Lifein_logo.png|center|300]]
 
-Lifein的Slogan是：<font size="5" color="#ffc000">Live in, Level Up!（栖身，精进！）</font>
+ [Lifein](https://github.com/ichris007/Obsidian_Lifein)的Slogan是：<font size="5" color="#ffc000">Live in, Level Up!（栖身，精进！）</font>
 - Live in - 打造沉浸式的使用体验；
 - Level up - 助你完成自我迭代升级。
 
@@ -65,13 +66,13 @@ Lifein Suite 是我在多年实践中一步步沉淀出来的**模块化人生�
 
 它依托 [Lifein](https://github.com/ichris007/Obsidian_Lifein) 人生管理架构，将传统招聘流程与知识管理理念深度融合，通过双向链接、动态查询、自动化模板与数据可视化能力，**打破信息孤岛，帮助猎头与招聘HR实现候选人资产沉淀与关系网络的长期复利。**
 
-Lifein ATS 的核心特点：
+[Lifein ATS](https://github.com/ichris007/Obsidian_Lifein_ATS)的核心特点：
 
 - **五大核心模块 + 三大支持模块 + 一个中央仪表盘**：覆盖企业、职位、候选人、流程、面试等全流程管理。
 - **高度模块化与可定制化**：适应不同招聘场景，猎头与HR可以根据需要自由调整操作流程。
 - **知识驱动型管理**：所有信息不仅用于当下操作，还能长期沉淀，形成可复利的人才资产库。
 
-Lifein ATS的目标是：
+[Lifein ATS](https://github.com/ichris007/Obsidian_Lifein_ATS)的目标是：
 
 > 让招聘数据，成为可复利的人才资产。
 
