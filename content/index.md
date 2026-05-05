@@ -21,14 +21,10 @@ permalink:
 ### 🚀 从这里开始  
   
 >[!note]+ 快速导览
-> - 🧠 [了解 Lifein 系统](https://github.com/ichris007/Obsidian_Lifein)
->> 人生管理系统的整体架构与方法论
->- 🧑‍💼 [查看 Lifein ATS（招聘系统）](https://github.com/ichris007/Obsidian_Lifein_ATS)
->> 将猎头经验转化为可复用的人才管理系统
-> - 🔧 [[插件与脚本]]
-> > 我开发与优化的 Obsidian 插件、脚本与效率工具
-> - [[Obsidian从入门到精通]]
->> 科叔整理的关于Obsidian的资料
+> - 🧠 [了解 Lifein 系统](https://github.com/ichris007/Obsidian_Lifein)：人生管理系统的整体架构与方法论
+>- 🧑‍💼 [查看 Lifein ATS（招聘系统）](https://github.com/ichris007/Obsidian_Lifein_ATS)：将猎头经验转化为可复用的人才管理系统
+> - 🔧 [[插件与脚本]]：[[科叔]]开发与优化的 Obsidian 插件、脚本与工作流方法
+> - ⚙️ [[Obsidian从入门到精通]]：[[科叔]]整理的关于Obsidian的资料
 
 ## 👤 关于[[科叔]]
 
