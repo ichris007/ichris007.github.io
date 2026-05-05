@@ -72,8 +72,6 @@ permalink:
 - 想建立属于自己的知识体系和人生导航系统的人
 - 对Obsidian感兴趣，但不知道如何入门的人
 
-![[Lifein_logo.png|center|300]]
-
  [Lifein](https://github.com/ichris007/Obsidian_Lifein)的Slogan是：<font size="5" color="#ffc000">Live in, Level Up!（栖身，精进！）</font>
 - Live in - 打造沉浸式的使用体验；
 - Level up - 助你完成自我迭代升级。

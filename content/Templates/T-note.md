@@ -6,10 +6,10 @@ publish:
 enableToc: "true"
 tags:
 cssclasses:
-created:
-modified:
+created: <% tp.file.creation_date() %>
+modified: <% tp.file.last_modified_date() %>
 socialImage:
 socialDescription:
-comments:
+comments: "true"
 permalink:
 ---
