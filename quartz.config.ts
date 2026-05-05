@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { PublishFilter } from "./quartz/plugins/filters/publishFilter"
 
 /**
  * Quartz 4 Configuration
@@ -15,10 +16,24 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
-    locale: "en-US",
-    baseUrl: "https://ichris007.github.io",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    locale: "zh-CN",
+    baseUrl: "ichris007.github.io",
+    ignorePatterns: ["Private", "Templates", ".obsidian"],
     defaultDateType: "modified",
+    comments: {
+      provider: "giscus",
+      repo: "ichris007/ichris007.github.io",
+      repoId: "R_kgDOSUGAuw",
+      category: "Announcements",
+      categoryId: "DIC_kwDOSUGAu84C8VHC",
+      mapping: "pathname",
+      strict: "0",
+      reactionsEnabled: "1",
+      emitMetadata: "0",
+      inputPosition: "bottom",
+      theme: "preferred_color_scheme",
+      lang: "zh-CN",
+    },
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
@@ -73,7 +88,7 @@ const config: QuartzConfig = {
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
-    filters: [Plugin.RemoveDrafts()],
+    filters: [PublishFilter()],
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
