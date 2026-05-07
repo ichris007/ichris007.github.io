@@ -94,13 +94,10 @@ ul.tags::after {
   }
 }
 
-
-
 /* ======================================== */
-/* 2. 首页网格布局                          */
+/* 2. 首页网格布局 - 统一卡片样式           */
 /* ======================================== */
 
-/* 使用方法：在笔记中使用 <div class="grid-container"> 包裹网格项 */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -108,26 +105,36 @@ ul.tags::after {
   padding: 20px;
 }
 
-.grid-item {
-  background-color: #2a2a2a;
-  color: white;
+/* 基础样式 + 强制覆盖所有链接状态 */
+.grid-item,
+.grid-item:link,
+.grid-item:visited,
+.grid-item:active {
+  background-color: var(--bg) !important;
+  color: var(--darkgray) !important;
+  text-decoration: none !important;
   padding: 15px !important;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid var(--lightgray) !important;
 }
 
+/* 悬停效果单独保留（不被上面覆盖） */
 .grid-item:hover {
-  background-color: #333333;
+  background-color: var(--lightgray) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
+/* 内部元素样式 */
 .grid-item .icon {
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 10px;
 }
 
@@ -139,23 +146,17 @@ ul.tags::after {
 }
 
 .grid-item .title {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 5px;
+  color: var(--dark);
 }
 
 .grid-item .description {
-  font-size: 1em;
+  font-size: 0.85em;
+  color: var(--darkgray);
+  line-height: 1.4;
 }
-
-/* 不同样式的网格项（可选，用于区分不同类型） */
-.grid-item.type-1 { background-color: #2b2b2b; }
-.grid-item.type-2 { background-color: #2c2c2c; }
-.grid-item.type-3 { background-color: #2d2d2d; }
-.grid-item.type-4 { background-color: #2e2e2e; }
-.grid-item.type-5 { background-color: #2f2f2f; }
-.grid-item.type-6 { background-color: #303030; }
-
 
 /* ======================================== */
 /* 3. 图片高级控制                          */
