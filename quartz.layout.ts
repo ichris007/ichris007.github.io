@@ -30,7 +30,8 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   afterBody: [
     Component.TagList(),  // 1. 先显示标签
-    Component.Comments({  // 2. 再显示评论区
+    Component.Backlinks(),// 2. 反向链接
+    Component.Comments({  // 3. 显示评论区
       provider: "giscus",
       options: {
         repo: "ichris007/ichris007.github.io",
@@ -63,9 +64,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Explorer(),
   ],
   right: [
-    Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+    Component.Graph(),
   ],
 }
 
