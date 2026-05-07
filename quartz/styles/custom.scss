@@ -343,3 +343,54 @@ img[alt*="portrait"] {
   height: var(--small-med);
   width: 40%;
 }
+
+/* 核心布局 - 保持简洁 */
+.section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section .meta {
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 110px;
+}
+
+.section .meta time {
+  white-space: nowrap;
+}
+
+.section .desc {
+  min-width: 0;
+  flex: 1;
+}
+
+/* 唯一需要调整的：Tags 区域 */
+.section .tags {
+  display: flex;
+  flex-wrap: wrap;      /* 允许换行 */
+  gap: 0.4rem;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  max-width: 400px;     /* 可选：限制最大宽度，避免太长 */
+}
+
+/* Tag 样式保持简洁 */
+.section .tags a {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--secondary) 10%, transparent);
+  color: var(--secondary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.section .tags a:hover {
+  background: var(--secondary);
+  color: white;
+}

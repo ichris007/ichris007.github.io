@@ -5,6 +5,8 @@ description:
 publish: "true"
 enableToc: "true"
 tags:
+  - plugin
+  - 插件
 cssclasses:
 created: 2026-05-05T18:34:00
 modified: 2026-05-05T18:34:00
