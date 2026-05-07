@@ -22,7 +22,7 @@ const config: QuartzConfig = {
         tag: "meta",
         attrs: {
           name: "google-site-verification",
-          content: "<meta name="google-site-verification" content="78S06te19_l5moOf3u7fL6UW5CkqqNgSKJwyZfQ4cu4" />",  // 替换成从 Google 复制的内容
+          content: "78S06te19_l5moOf3u7fL6UW5CkqqNgSKJwyZfQ4cu4",  // 替换成从 Google 复制的内容  
         },
       },
     ],
