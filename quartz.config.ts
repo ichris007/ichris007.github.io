@@ -27,7 +27,7 @@ const config: QuartzConfig = {
       },
     ],
     locale: "zh-CN",
-    baseUrl: "ichris007.github.io",
+    baseUrl: "lifein.vip",
     ignorePatterns: ["Private", "Templates", ".obsidian"],
     defaultDateType: "modified",
     comments: {
