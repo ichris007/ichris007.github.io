@@ -17,15 +17,6 @@ const config: QuartzConfig = {
       provider: "google",
       tagId: "G-MSZMTLM3JH",
     },
-    head: [
-      {
-        tag: "meta",
-        attrs: {
-          name: "google-site-verification",
-          content: "78S06te19_l5moOf3u7fL6UW5CkqqNgSKJwyZfQ4cu4",  // 替换成从 Google 复制的内容  
-        },
-      },
-    ],
     locale: "zh-CN",
     baseUrl: "lifein.vip",
     ignorePatterns: ["Private", "Templates", ".obsidian"],
