@@ -18,7 +18,7 @@ permalink:
 
 > 这不是一个工具合集，而是一套持续进化的人生管理系统。
 
-### 🚀 从这里开始  
+## 🚀 从这里开始  
   
 <div class="grid-container">
   <a href="https://github.com/ichris007/Obsidian_Lifein" class="grid-item" target="_blank" rel="noopener noreferrer">
@@ -43,6 +43,12 @@ permalink:
     <div class="icon">⚙️</div>
     <div class="title">Obsidian 从入门到精通</div>
     <div class="description">科叔整理的关于 Obsidian 的资料</div>
+  </a>
+
+  <a href="/LifeinOS实践与思考/LifeinOS实践与思考" class="grid-item" target="_blank" rel="noopener noreferrer">
+    <div class="icon">💭</div>
+    <div class="title">LifeinOS 实践与思考</div>
+    <div class="description">系统搭建过程中的实践经验与深度思考</div>
   </a>
 </div>
 
