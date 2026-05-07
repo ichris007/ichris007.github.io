@@ -30,7 +30,6 @@ const config: QuartzConfig = {
     baseUrl: "ichris007.github.io",
     ignorePatterns: ["Private", "Templates", ".obsidian"],
     defaultDateType: "modified",
-    },
     comments: {
       provider: "giscus",
       repo: "ichris007/ichris007.github.io",
