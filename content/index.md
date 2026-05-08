@@ -154,3 +154,13 @@ permalink:
 -  🔧 使用[[插件与脚本]]扩展能力
 - ✉️ 与我交流 / 合作（[WeChat](https://github.com/ichris007/ichris007/blob/main/images/Chris_WeChat.jpg)）
 
+欢迎加入**Lifein OS & Obsidian**交流群（备注来自lifein.vip）：[扫码申请入群](https://github.com/ichris007/ichris007/blob/main/images/Chris_WeChat.jpg)
+
+**在这里，我们交流关于 Obsidian & Lifein 生产力与人生管理系统的一切。**
+
+话题包括：
+- 🧠 **Obsidian 使用技巧** —— 从入门到精通的实战经验
+- 🧩 **Lifein 系统实践** —— 如何搭建属于自己的管理框架
+- 📚 **生产力方法论** —— 知识管理、任务管理、效率工具
+- 🎯 **人生系统构建** —— 从目标设定到落地执行
+- 💡 **任何有助于提升你** —— 生产力与人生系统的相关话题
