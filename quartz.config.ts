@@ -17,6 +17,24 @@ const config: QuartzConfig = {
       provider: "google",
       tagId: "G-MSZMTLM3JH",
     },
+    head: [
+      {
+       tag: "link",
+       attrs: {
+         rel: "alternate",
+         hreflang: "zh",
+         href: "https://lifein.vip/",
+         },
+      },
+      {
+       tag: "link",
+       attrs: {
+         rel: "alternate",
+         hreflang: "en",
+         href: "https://lifein.vip/index.en",
+         },
+      },
+    ], 
     locale: "zh-CN",
     baseUrl: "lifein.vip",
     ignorePatterns: ["Private", "Templates", ".obsidian"],
