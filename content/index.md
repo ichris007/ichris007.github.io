@@ -45,9 +45,9 @@ permalink:
     <div class="description">科叔整理的关于 Obsidian 的资料</div>
   </a>
 
-  <a href="/LifeinOS实践与思考" class="grid-item" target="_blank" rel="noopener noreferrer">
+  <a href="/LifeinOS 实践与思考" class="grid-item" target="_blank" rel="noopener noreferrer">
     <div class="icon">💭</div>
-    <div class="title">LifeinOS 实践与思考</div>
+    <div class="title">Lifein OS实践与思考</div>
     <div class="description">系统搭建过程中的实践经验与深度思考</div>
   </a>
 </div>
