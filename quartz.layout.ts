@@ -13,7 +13,8 @@ export const sharedPageComponents: SharedLayout = {
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      "科叔": "https://github.com/ichris007",
+      "Obsidian Garden Gallery": "https://vaults.obsidian-community.com/",
     },
   }),
 }
