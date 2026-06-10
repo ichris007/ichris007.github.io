@@ -1,6 +1,7 @@
 ---
 title: Lifein OS | EN
 aliases:
+  - Lifein OS | Personal Productivity & Life Management
 description: A personal productivity and life management system built with Obsidian
 draft:
 publish:
@@ -23,7 +24,7 @@ Building **[Lifein](https://github.com/ichris007/Obsidian_Lifein)** with [Obsidi
 
 <div class="grid-container">
   <a href="https://github.com/ichris007/Obsidian_Lifein" class="grid-item" target="_blank" rel="noopener noreferrer">
-    <div class="icon">🧠</div>
+    <div class="icon">💡</div>
     <div class="title">Explore Lifein OS</div>
     <div class="description">Overall architecture and methodology of the life management system</div>
   </a>
@@ -50,6 +51,12 @@ Building **[Lifein](https://github.com/ichris007/Obsidian_Lifein)** with [Obsidi
     <div class="icon">💭</div>
     <div class="title">LifeinOS Practice & Reflections</div>
     <div class="description">Hands-on experience and deep thinking from building the system</div>
+  </a>
+
+  <a href="/Obsidian+AI" class="grid-item" target="_blank" rel="noopener noreferrer">
+    <div class="icon">🧠</div>
+    <div class="title">Obsidian + AI</div>
+    <div class="description">Smarter Knowledge Management</div>
   </a>
 </div>
 
