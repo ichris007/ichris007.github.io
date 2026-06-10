@@ -64,7 +64,7 @@ Building **[Lifein](https://github.com/ichris007/Obsidian_Lifein)** with [Obsidi
 
 ## 👤 About [Uncle Ke](about.md)
 
-15+ years in tech and recruiting, with a long-term focus on:
+With over 15 years in the technology and recruiting industries and more than 16 years of research into productivity tools, I have long focused on:
 
 - Talent & relationship networks
 - Knowledge management & productivity systems
