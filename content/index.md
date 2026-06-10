@@ -22,7 +22,7 @@ permalink:
   
 <div class="grid-container">
   <a href="https://github.com/ichris007/Obsidian_Lifein" class="grid-item" target="_blank" rel="noopener noreferrer">
-    <div class="icon">🧠</div>
+    <div class="icon">💡</div>
     <div class="title">了解 Lifein 系统</div>
     <div class="description">人生管理系统的整体架构与方法论</div>
   </a>
@@ -49,6 +49,12 @@ permalink:
     <div class="icon">💭</div>
     <div class="title">Lifein OS实践与思考</div>
     <div class="description">系统搭建过程中的实践经验与深度思考</div>
+  </a>
+
+  <a href="/Obsidian+AI" class="grid-item" target="_blank" rel="noopener noreferrer">
+    <div class="icon">🧠</div>
+    <div class="title">Obsidian + AI</div>
+    <div class="description">让知识管理更智能</div>
   </a>
 </div>
 
