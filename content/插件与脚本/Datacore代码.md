@@ -17,7 +17,9 @@ permalink:
 number headings: auto, first-level 2, max 6, contents ^toc, skip ^skipped, start-at 1, _.1.1
 ---
 ## 1 VaultInsight - Obsidian 知识库智能统计看板
-[](https://github.com/ichris007/obsidian-share-showcase/tree/main/datacore/Obsidian%E5%BA%93%E6%99%BA%E8%83%BD%E7%BB%9F%E8%AE%A1%E7%9C%8B%E6%9D%BF)
+
+[代码](https://github.com/ichris007/obsidian-share-showcase/tree/main/datacore/Obsidian%E5%BA%93%E6%99%BA%E8%83%BD%E7%BB%9F%E8%AE%A1%E7%9C%8B%E6%9D%BF)
+
 ![[vaultInsight1_1.jpg]]
 
 ![[vaultInsight1_5.jpg]]
