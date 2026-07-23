@@ -64,6 +64,14 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer(),
+    // 在这里添加 RecentNotes 组件
+    Component.RecentNotes({
+      title: "最近更新",      // 自定义标题
+      limit: 5,              // 显示最近5篇笔记
+      showDate: false,     // 不显示日期
+      showTags: false,       // 不显示标签（根据你的喜好调整）
+      // linkToMore: "tags", // 如果有一个“归档”或“全部笔记”页面，可以取消注释并填入其slug
+    }),
   ],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),

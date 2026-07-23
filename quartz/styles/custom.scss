@@ -395,3 +395,39 @@ img[alt*="portrait"] {
   color: white;
 }
 
+
+
+/*====================================*/
+/*  最近更新列表样式                     */
+/*====================================*/
+
+.recent-notes {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0.2rem 0;           /* 减小列表上下边距 */
+}
+
+.recent-notes li {
+  margin: 0rem 0;           /* 减小条目间距 */
+  padding: 0rem 0;          /* 减小内边距 */
+  /*border-bottom: none;        /* 去掉分割线（更紧凑） */
+  border-bottom: 1px solid var(--lightgray); 
+}
+
+.recent-notes li:last-child {
+  border-bottom: none;
+}
+
+.recent-notes a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 0.9rem;
+  display: block;
+  line-height: 1.2;           /* 减小行高（关键） */
+  padding: 0.1rem 0;          /* 控制点击区域 */
+  transition: color 0.2s ease;
+}
+
+.recent-notes a:hover {
+  color: var(--secondary);
+}
