@@ -30,7 +30,7 @@ lang:
 目前，这个系统还是早期版本，后面会随着使用不断优化、迭代。
 
 ![[LLM Lifein-poster-light.jpg]]
-（用AI生成了一份海报 -> [在线预览](assets/llmlifeinposter.html)）
+
 ## 0.2 系统定位
 
 基于 **Andrej Karpathy 的 LLM Wiki 模式**构建的个人知识维基系统，由 LLM 担任"维护者"角色——**知识编译一次并持续更新，而非每次查询重新推导**。
