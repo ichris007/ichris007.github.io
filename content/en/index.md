@@ -20,7 +20,7 @@ Building **[Lifein](https://github.com/ichris007/Obsidian_Lifein)** with [Obsidi
 
 > This is not a collection of tools, but a continuously evolving life management system.
 
-## 🚀 Start Here
+## 0.1 🚀 Start Here
 
 <div class="grid-container">
   <a href="https://github.com/ichris007/Obsidian_Lifein" class="grid-item" target="_blank" rel="noopener noreferrer">
@@ -62,7 +62,7 @@ Building **[Lifein](https://github.com/ichris007/Obsidian_Lifein)** with [Obsidi
 
 ---
 
-## 👤 About [Uncle Ke](about.md)
+## 0.2 👤 About [Uncle Ke](about.md)
 
 With over 15 years in the technology and recruiting industries and more than 16 years of research into productivity tools, I have long focused on:
 
@@ -74,7 +74,7 @@ With over 15 years in the technology and recruiting industries and more than 16 
 
 ---
 
-## 1 Origin Story
+## 0.3 Origin Story
 
 Since 2003, when I first encountered a productivity tool, I've tried over 20 software applications and even built my own wiki system.
 
@@ -88,7 +88,7 @@ Over the past 3.8 years, I've built a complete "Productivity × Life Management 
 
 ---
 
-## 2 What is Lifein?
+## 0.4 What is Lifein?
 
 ![[Lifein_banner1.png]]
 
@@ -112,7 +112,7 @@ Over the past 3.8 years, I've built a complete "Productivity × Life Management 
 
 ---
 
-## 3 Lifein Suite (Modular System)
+## 0.5 Lifein Suite (Modular System)
 
 Building on [Lifein](https://github.com/ichris007/Obsidian_Lifein), I have gradually developed a modular solution — **Lifein Suite**.
 
@@ -125,7 +125,7 @@ With Lifein OS as its foundation, it deeply integrates structured data, relation
 
 It is not just a toolset, but an actionable and evolving structured management methodology.
 
-### 3.1 Lifein ATS
+### 0.5.1 Lifein ATS
 
 During my recruiting work, I found many peers struggle with messy information management — clients, jobs, candidates, interview records... all scattered and hard to track.
 
@@ -147,13 +147,13 @@ Built on the Lifein life management framework, it deeply integrates traditional 
 
 ---
 
-### 3.2 Lifein X (Coming Soon)
+### 0.5.2 Lifein X (Coming Soon)
 
 More scenario-based solutions are on the way. Stay tuned!
 
 ---
 
-## 4 Everyone Deserves Their Own Life System
+## 0.6 Everyone Deserves Their Own Life System
 
 What I've realized most over the past three years is:
 
@@ -169,7 +169,7 @@ My intention isn't just to "share a tool" — **it's to share a belief**:
 
 ---
 
-## 5 Get Started with Lifein
+## 0.7 Get Started with Lifein
 
 If you're interested in this system, here's where to begin:
 

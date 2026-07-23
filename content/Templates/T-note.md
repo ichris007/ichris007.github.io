@@ -2,6 +2,7 @@
 title:
 aliases:
 description:
+draft:
 publish:
 enableToc: "true"
 tags:
@@ -12,4 +13,7 @@ socialImage:
 socialDescription:
 comments: "true"
 permalink:
+lang:
 ---
+
+
