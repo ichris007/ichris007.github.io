@@ -28,6 +28,9 @@ jobs:
         run: npm ci
       - name: Build Quartz
         run: npx quartz build
+      # 新增这一行：将生成的 static/a 复制到 public 根目录的 a
+      - name: Copy site ai to root
+        run: cp -r public/static/a public/ai
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
