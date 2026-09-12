@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="09cKu6uIdwmv5U4U3D9Amr">
+<head data-page-node-id="f7YKr8Jhhnblf0mMoL11ML">
+  <meta charset="UTF-8" data-page-node-id="xbu2TRiB3lAIzN3GHrd4IL" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="HkGmyVpSlom8cKdgjFe1Uz" />
+  <title>AI 发展史图谱 (1900 – 2026)</title>
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --panel: #ffffff;
+      --ink: #1f2937;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --accent: #3b82f6;
+      /* --- 扩展：控件表面 / 输入区 / 图谱底色 / 文本辅助 --- */
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --field-bg: #f8fafc;
+      --chip-bg: #eff6ff;
+      --hover-bg: rgba(0,0,0,0.06);
+      --graph-bg-1: #ffffff;
+      --graph-bg-2: #f8fafc;
+      --label-fill: #334155;
+      --label-stroke: #ffffff;
+      --tick: #94a3b8;
+      --tt-bg: #ffffff;
+      --shadow: 0 10px 30px rgba(15,23,42,.15);
+      --img-border: rgba(0,0,0,0.12);
+      /* 关键：告诉浏览器按本主题渲染原生 UI（滚动条/表单控件），
+         否则会跟随「系统偏好」——系统为深色时浅色页会出现黑滚动条 */
+      --card-shadow: 0 1px 2px rgba(15,23,42,.05), 0 2px 8px rgba(15,23,42,.04);
+      color-scheme: light;
+      --scroll-track: transparent;
+      --scroll-thumb: #cbd5e1;
+      --scroll-thumb-hover: #94a3b8;
+    }
+    /* ------------------------- 深色主题 ------------------------- */
+    [data-theme="dark"] {
+      --bg: #0b1220;
+      --panel: #111827;
+      --ink: #e5e7eb;
+      --muted: #94a3b8;
+      --line: #1f2937;
+      --accent: #60a5fa;
+      --surface: #1e293b;
+      --surface-2: #0f172a;
+      --field-bg: #0f172a;
+      --chip-bg: rgba(96,165,250,0.16);
+      --hover-bg: rgba(255,255,255,0.08);
+      --graph-bg-1: #111827;
+      --graph-bg-2: #0b1220;
+      --label-fill: #cbd5e1;
+      --label-stroke: #0b1220;
+      --tick: #64748b;
+      --tt-bg: #111827;
+      --shadow: 0 10px 30px rgba(0,0,0,.55);
+      --img-border: rgba(255,255,255,0.14);
+      --card-shadow: 0 1px 2px rgba(0,0,0,.40), 0 2px 10px rgba(0,0,0,.28);
+      color-scheme: dark;
+      --scroll-track: transparent;
+      --scroll-thumb: #334155;
+      --scroll-thumb-hover: #475569;
+    }
+    /* 主题切换时的柔和过渡（不影响图谱交互） */
+    body, header, aside, .btn, .ver-btn, .layer-btn, #search, #search::placeholder, #tooltip, .hint, .about {
+      transition: background-color .22s ease, color .22s ease, border-color .22s ease;
+    }
+
+    /* ------------------------- 滚动条跟随主题 ------------------------- */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--scroll-track); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--scroll-thumb); border-radius: 4px;
+      border: 2px solid transparent; background-clip: content-box;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--scroll-thumb-hover); background-clip: content-box; }
+    ::-webkit-scrollbar-corner { background: var(--scroll-track); }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg); color: var(--ink);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+
+    /* ---------- 顶部栏 ---------- */
+    header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 12px 20px; background: var(--panel);
+      border-bottom: 1px solid var(--line); flex: 0 0 auto;
+    }
+    header h1 { font-size: 18px; margin: 0; font-weight: 700; white-space: nowrap; }
+    header h1 small { font-weight: 400; color: var(--muted); font-size: 12px; }
+    .search-wrap { position: relative; margin-left: auto; }
+    #search {
+      width: 240px; padding: 8px 30px 8px 12px; border: 1px solid var(--line);
+      border-radius: 8px; font-size: 13px; outline: none; background: var(--field-bg);
+      color: var(--ink);
+    }
+    #search::placeholder { color: var(--muted); opacity: 1; }
+    .btn-clear {
+      position: absolute; top: 50%; right: 8px; transform: translateY(-50%);
+      border: none; background: transparent; color: var(--muted);
+      font-size: 14px; line-height: 1; cursor: pointer; padding: 2px 5px; border-radius: 4px;
+    }
+    .btn-clear:hover { color: var(--ink); background: var(--hover-bg); }
+    #search:focus { border-color: var(--accent); background: var(--surface); }
+    .btn {
+      padding: 8px 14px; border: 1px solid var(--line); border-radius: 8px;
+      background: var(--surface); color: var(--ink); font-size: 13px; cursor: pointer;
+      transition: all .15s; white-space: nowrap;
+    }
+    .btn:hover { border-color: var(--accent); color: var(--accent); }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.primary:hover { filter: brightness(1.05); color: #fff; }
+    .btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.active:hover { color: #fff; }
+
+    /* ---------- 版本切换 ---------- */
+    .version-switch { display: flex; gap: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .ver-btn {
+      padding: 8px 14px; border: none; background: var(--surface); color: var(--muted);
+      font-size: 13px; cursor: pointer; transition: all .15s; white-space: nowrap;
+    }
+    .ver-btn + .ver-btn { border-left: 1px solid var(--line); }
+    .ver-btn:hover { color: var(--accent); }
+    .ver-btn.active { background: var(--accent); color: #fff; font-weight: 600; }
+
+    /* ---------- 主体 ---------- */
+    .main { flex: 1 1 auto; display: flex; min-height: 0; }
+    aside {
+      width: 252px; flex: 0 0 auto; background: var(--surface-2);
+      border-right: 1px solid var(--line); padding: 13px; overflow-y: auto;
+    }
+    aside h3 {
+      font-size: 12px; text-transform: uppercase; letter-spacing: .05em;
+      color: var(--muted); margin: 0 0 10px;
+    }
+    /* 卡片风格容器 */
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 12px; padding: 12px 12px 13px; margin-bottom: 11px;
+      box-shadow: var(--card-shadow);
+    }
+    .card:last-child { margin-bottom: 0; }
+    .layer-buttons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+    .layer-btn {
+      display: flex; align-items: center; gap: 6px; padding: 7px 8px; min-width: 0;
+      border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2);
+      font-size: 12.5px; cursor: pointer; color: var(--ink); text-align: left;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      transition: all .15s;
+    }
+    .layer-btn:hover { border-color: var(--accent); }
+    .layer-btn.active {
+      border-color: var(--accent); background: var(--chip-bg); font-weight: 600;
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+    .layer-swatch { width: 12px; height: 12px; border-radius: 4px; flex: 0 0 auto; }
+    .layer-all { margin-top: 9px; width: 100%; }
+    #legend {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px 6px; align-content: start;
+    }
+    #legend h3 { grid-column: 1 / -1; }
+    .legend-row {
+      display: flex; align-items: center; gap: 6px; padding: 2px 0;
+      font-size: 12.5px; min-width: 0; white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
+    }
+    .legend-dot {
+      width: 20px; height: 20px; border-radius: 6px; display: inline-flex;
+      align-items: center; justify-content: center; font-size: 12px; color: #fff;
+    }
+    .hint { margin: 0; font-size: 11px; color: var(--muted); line-height: 1.65; }
+      /* ---------- 关于制作者 ---------- */
+      .about { margin: 0; }
+      .about-name { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+      .about-text { font-size: 11.5px; color: var(--muted); line-height: 1.65; margin: 0 0 8px; }
+      .about-text:last-child { margin-bottom: 0; }
+      .about-text a { color: var(--accent); text-decoration: none; }
+      .about-text a:hover { text-decoration: underline; }
+
+    #graph { flex: 1 1 auto; position: relative; background:
+      radial-gradient(circle at 50% 40%, var(--graph-bg-1), var(--graph-bg-2)); min-width: 0; }
+    .graph-svg { display: block; }
+
+    /* ---------- 节点 / 连线 文本 ---------- */
+    .node-label { fill: var(--label-fill); font-weight: 600; pointer-events: none; paint-order: stroke;
+      stroke: var(--label-stroke); stroke-width: 3px; stroke-linejoin: round; }
+    .node-emoji { pointer-events: none; }
+    .era-label { font-size: 13px; font-weight: 700; letter-spacing: .04em; pointer-events: none;
+      paint-order: stroke; stroke: var(--label-stroke); stroke-width: 3px; stroke-linejoin: round; }
+    .year-tick { fill: var(--tick); font-size: 11px; }
+    .playhead { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 4; opacity: .65; pointer-events: none; }
+
+    /* ---------- Tooltip ---------- */
+    #tooltip {
+      position: fixed; display: none; max-width: 300px; z-index: 50;
+      background: var(--tt-bg); border: 1px solid var(--line); border-left: 4px solid var(--accent);
+      border-radius: 10px; padding: 12px 14px; box-shadow: var(--shadow);
+      font-size: 13px; line-height: 1.5; pointer-events: auto;
+    }
+    .tt-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .tt-emoji { font-size: 18px; }
+    .tt-logo { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; border: 1px solid var(--img-border); background: var(--surface); }
+    .tt-logo-org { border-radius: 6px; object-fit: contain; }
+    .tt-title { font-weight: 700; font-size: 14px; }
+    .tt-type { margin-left: auto; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 999px; }
+    .tt-meta { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    .tt-desc { color: var(--label-fill); }
+    .tt-link { margin-top: 8px; }
+    .tt-link a { color: var(--accent); text-decoration: none; font-size: 12px; }
+    .tt-link a:hover { text-decoration: underline; }
+
+    /* ---------- 底部时间轴（覆盖在图谱内，与图谱共用 xScale 对齐） ---------- */
+    #timeline {
+      position: absolute; left: 60px; right: 60px;   /* = margin.left / margin.right，与图谱映射一致 */
+      bottom: 16px; height: 52px; pointer-events: none;  /* 空白处事件穿透到图谱 */
+    }
+    #yearLabel { position: absolute; top: -4px; left: 0; font-weight: 700; font-size: 15px; color: var(--accent); }
+    .footer-note { position: absolute; bottom: -2px; right: 0; font-size: 11px; color: var(--muted); white-space: nowrap; }
+    #yearSlider {
+      width: 100%; height: 6px; -webkit-appearance: none; appearance: none; margin: 0;
+      background: linear-gradient(90deg,#f59e0b,#0d9488,#3b82f6,#8b5cf6,#f43f5e);
+      border-radius: 999px; outline: none; pointer-events: auto;
+    }
+    #yearSlider::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px;
+      border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+    #yearSlider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%;
+      background: var(--surface); border: 3px solid var(--accent); cursor: pointer; }
+    #thumbYear {
+      position: absolute; top: -26px; transform: translateX(-50%);
+      background: var(--accent); color: #fff; font-size: 11px; font-weight: 600;
+      padding: 2px 7px; border-radius: 6px; white-space: nowrap; pointer-events: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    }
+    #thumbYear::after { content: ""; position: absolute; left: 50%; top: 100%; transform: translateX(-50%);
+      border: 5px solid transparent; border-top-color: var(--accent); }
+  </style>
+  <script>
+    /* 首屏防闪：内容绘制前先定好主题（localStorage 优先，其次系统偏好） */
+    (function () {
+      try {
+        var t = localStorage.getItem("ai_graph_theme");
+        if (!t) {
+          t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+</head>
+<body data-page-node-id="8fhhjhgZ5y4lZ223TvL3K7">
+  <header data-page-node-id="1t9OBceRItRUrNE1FwoaIx">
+    <h1 data-page-node-id="AVlGQ1O7Vq9aAbf05QKZPn">AI 发展史图谱 <small data-page-node-id="E6fX3WFPQqIxyRAPMrKo1L">1900 – 2026 · 知识图谱动态可视化</small></h1>
+    <div class="version-switch" data-page-node-id="verSwitch">
+      <button class="ver-btn active" data-version="core" data-page-node-id="verCore">核心版 134</button>
+      <button class="ver-btn" data-version="full" data-page-node-id="verFull">完整版 323</button>
+    </div>
+    <div class="search-wrap" data-page-node-id="CTNzXfphMfLMJVW7SaSQIH">
+      <input id="search" type="text" placeholder="🔍 搜索节点 (如 Transformer / Hinton)" data-page-node-id="MEFEzzw4rB9KnbN3m4q1uA" />
+      <button id="clearSearch" class="btn-clear" type="button" title="清除搜索" data-page-node-id="clearSearchBtn">✕</button>
+    </div>
+    <button id="playBtn" class="btn primary" data-page-node-id="ZhhNUGzpFQqwTH19NdU9oS">▶ 历史回放</button>
+    <button id="resetBtn" class="btn" data-page-node-id="MuSrzPTuxenDUypqD6GNPh">⤢ 复位视图</button>
+    <button id="alignBtn" class="btn" data-page-node-id="alignBtn">📅 对齐年份</button>
+    <button id="themeBtn" class="btn" title="切换深色 / 浅色模式">🌙 深色</button>
+  </header>
+
+  <div class="main" data-page-node-id="zJ3ZiQV38naxqLgZZUC8w4">
+    <aside data-page-node-id="7dmJtnZ5Kd6q7PANVQ9xtO">
+      <section class="card" data-page-node-id="cardAxis">
+        <h3 data-page-node-id="tsTePFYAHoGFGbMcmpfGpb">脉络线（单击高亮）</h3>
+        <div class="layer-buttons">
+          <button class="layer-btn" data-axis="academic" data-page-node-id="M9gOtAPH6wXOHGhSvqZiur">
+            <span class="layer-swatch" style="background:#a855f7"></span> 学术师承
+          </button>
+          <button class="layer-btn" data-axis="tech" data-page-node-id="0X1Go4o2j7OyeVaZgswCqc">
+            <span class="layer-swatch" style="background:#3b82f6"></span> 技术演进
+          </button>
+          <button class="layer-btn" data-axis="business" data-page-node-id="HVzwW9moW7BWcGAyrAG3N7">
+            <span class="layer-swatch" style="background:#22c55e"></span> 商业资本
+          </button>
+          <button class="layer-btn" data-axis="event" data-page-node-id="CBA8bYUZCQ93dlULG5yUEI">
+            <span class="layer-swatch" style="background:#ea580c"></span> 重大事件
+          </button>
+        </div>
+        <button id="layerAllBtn" class="btn layer-all" data-page-node-id="allbtn">显示全部</button>
+      </section>
+
+      <div id="legend" class="card" data-page-node-id="ZBTRRcF702ZyAUdkdE6NdA">
+        <h3 data-page-node-id="yTD89HlrfRGjyAhZn69zWx">图例 (节点类型)</h3>
+      </div>
+
+      <section class="card" data-page-node-id="cardHint">
+        <h3 data-page-node-id="hintTitle">交互提示</h3>
+        <div class="hint" data-page-node-id="c5TyjVEx4HibTg7ZapYMG8">
+          · 拖拽节点 / 滚轮缩放 / 拖拽空白处平移<br data-page-node-id="BmIeBSOADKLJHjtkHolyhx">
+          · 单击节点高亮其邻居关系<br data-page-node-id="gpJFG6Uoe4nHlh8reBN74F">
+          · 悬停查看详情；单击某一脉络线=单独高亮该层(再点取消/显示全部)，其余淡化<br data-page-node-id="Fm2Ebn1Tww4iZ7IlwrMf2p">
+          · 拖动底部时间轴或点“历史回放”看演进<br data-page-node-id="alignhint">
+          · 点“对齐年份”把所有节点精确吸附到各自年份列（密集年可能堆叠）
+        </div>
+      </section>
+      <section class="card about" data-page-node-id="cardAbout">
+        <h3>制作 / 关于</h3>
+        <p class="about-name">猎人科叔</p>
+        <p class="about-text">• 科技行业人才专家，15年老猎头，互联网/AI/机器人，面试超万人（年薪25w-900w）。</p>
+        <p class="about-text">• 生产力系统专家，专注16年+，打造高效工作和成长体系。<a href="https://lifein.vip" target="_blank" rel="noopener">lifein.vip</a></p>
+        <p class="about-text">• 自媒体全网同名：猎人科叔。</p>
+        <p class="about-text"><strong>帮职场人找准方向，助行动者高效成长。</strong></p>
+      </section>
+
+    </aside>
+
+    <div id="graph" data-page-node-id="R4uYOeKzYVwa8Jwn5o7bUN">
+      <div id="timeline" data-page-node-id="tl">
+        <span id="yearLabel" data-page-node-id="ulAu5ATzBJ9zv8AVHNjKka">2026 年</span>
+        <input id="yearSlider" type="range" data-page-node-id="colmYseHNHDSWTz2aCcXy2" />
+        <span class="footer-note" data-page-node-id="mwiPOPVJSitIaEHw6xUdbT">拖动时间轴：仅显示该年份及以前的节点</span>
+        <span id="thumbYear" data-page-node-id="ty">2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="tooltip" data-page-node-id="AXrFZwI9kapxR5FPKcHhAn"></div>
+
+  <script src="d3.min.js"></script>
+  <script src="data.js"></script>
+  <script src="data300.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
