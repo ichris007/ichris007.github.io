@@ -189,7 +189,8 @@
     .hint { margin: 0; font-size: 11px; color: var(--muted); line-height: 1.65; }
       /* ---------- 关于制作者 ---------- */
       .about { margin: 0; }
-      .about-name { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+      .about-name { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0 0 3px; }
+      .about-wechat { font-size: 12px; font-weight: 400; color: var(--muted); margin: 0 0 9px; }
       .about-text { font-size: 11.5px; color: var(--muted); line-height: 1.65; margin: 0 0 8px; }
       .about-text:last-child { margin-bottom: 0; }
       .about-text a { color: var(--accent); text-decoration: none; }
@@ -211,6 +212,7 @@
       }
       .seo-intro h2 { font-size: 13px; margin: 8px 0 6px; color: var(--ink); }
       .seo-intro p { font-size: 11.5px; color: var(--muted); line-height: 1.65; margin: 0; }
+      .seo-intro .seo-note { font-size: 10.5px; color: var(--muted); opacity: .82; margin-top: 9px; }
       /* 无 JS 时的 SEO 实体清单兜底（正常浏览器不渲染，爬虫必读） */
       .seo-entities { padding: 16px; font-family: sans-serif; max-width: 900px; margin: 0 auto; }
       .seo-entities h2 { font-size: 16px; color: #111; }
@@ -1575,11 +1577,13 @@
         <summary>关于这张图</summary>
         <h2>人工智能百年发展史</h2>
         <p>本图谱梳理 1900 年至 2026 年人工智能的发展历程，从计算理论、控制论与早期机器智能思想，到符号主义、神经网络、机器学习、深度学习、Transformer、大语言模型、生成式人工智能与 AI Agent，串联重要人物、技术、机构与历史事件。</p>
+        <p class="seo-note">（数据由AI整理，难免有错误或遗漏！）</p>
       </details>
 
       <section class="card about" data-page-node-id="cardAbout">
         <h3>制作</h3>
         <p class="about-name">猎人科叔</p>
+        <p class="about-wechat">微信号：chris_pxk</p>
         <p class="about-text">• 科技行业人才专家，15年老猎头，互联网/AI/机器人，面试超万人（年薪25w-900w）。</p>
         <p class="about-text">• 生产力系统专家，专注16年+，打造高效工作和成长体系。<a href="https://lifein.vip" target="_blank" rel="noopener">lifein.vip</a></p>
         <p class="about-text">• 自媒体全网同名：猎人科叔。</p>
