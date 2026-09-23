@@ -18,7 +18,7 @@ permalink:
 
 > 这不是一个工具合集，而是一套持续进化的人生管理系统。
 
-## 🚀 从这里开始  
+## 0.1 🚀 从这里开始  
   
 <div class="grid-container">
   <a href="https://github.com/ichris007/Obsidian_Lifein" class="grid-item" target="_blank" rel="noopener noreferrer">
@@ -59,7 +59,7 @@ permalink:
 </div>
 
 
-## 👤 关于[[科叔]]
+## 0.2 👤 关于[[科叔]]
 
 从事技术与猎头行业 15 年+、生产力工具研究 16 年+，长期专注于：
 
@@ -69,7 +69,7 @@ permalink:
 
 **[Lifein](https://github.com/ichris007/Obsidian_Lifein)，是我将这些经验系统化之后的结果。**
 
-## 1 缘起
+## 0.3 缘起
 
 从2003年接触第一个生产力工具开始，我尝试过20+款软件，甚至一度自己搭建 wiki 系统。
 
@@ -81,7 +81,7 @@ permalink:
 
 ![[VaultStats.png]]
 
-## 2 Lifein是什么
+## 0.4 Lifein是什么
 
 ![[Lifein_banner1.png]]
   [Lifein](https://github.com/ichris007/Obsidian_Lifein)是[[科叔]]我基于Obsidian构建的「个人生产力 & 人生管理系统」，寓意是「**进入生活核心`、`融入人生系统**」，也象征着「**生活在其中**」。
@@ -101,7 +101,7 @@ permalink:
 - Live in - 打造沉浸式的使用体验；
 - Level up - 助你完成自我迭代升级。
 
-## 3 Lifein Suite（模块化系统）
+## 0.5 Lifein Suite（模块化系统）
 
 在[Lifein](https://github.com/ichris007/Obsidian_Lifein)的基础上，我逐步构建出了一套模块化解决方案 —— **Lifein Suite**。
 
@@ -114,7 +114,7 @@ permalink:
 
 它不仅是一套工具集合，更是一套可落地、可进化的结构化管理方法。
 
-### 3.1 Lifein ATS
+### 0.5.1 Lifein ATS
 
 在猎头和招聘工作中，我发现很多同行都面临信息管理混乱的难题——客户、职位、候选人、面试记录……信息零散且难以追踪。
 
@@ -134,11 +134,11 @@ permalink:
 > 让招聘数据，成为可复利的人才资产。
 
 
-### 3.2 Lifein X（未来）
+### 0.5.2 Lifein X（未来）
 
 接下来，会推出更多应用场景的解决方案，敬请期待！
 
-## 4 每个人都应该拥有一套属于自己的人生系统
+## 0.6 每个人都应该拥有一套属于自己的人生系统
 过去这三年多时间，我最大的感受是：
 
 > 真正能改变人生的，不是某一个灵感或工具，而是一套系统。
@@ -151,7 +151,7 @@ permalink:
 
 > 每个人都应该拥有一套属于自己的人生系统。
 
-## 5 开始使用Lifein
+## 0.7 开始使用Lifein
 
 如果你对这套系统感兴趣，可以从这里开始：
 

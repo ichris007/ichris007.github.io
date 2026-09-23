@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="nYz11zl93AGbjDI3vmNL8C" data-dm-ref="1"><head data-page-node-id="7gEIdKhVJierLHMKR2R3NS">
+<meta charset="UTF-8" data-page-node-id="ODNPEPjLVXY6km65eS7EVa">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="scuelzBhG4SBemhnCJ7DfY">
+<title>TaskFlow — Obsidian Tasks 行动工作台插件 | 从任务管理，走向行动</title>
+<meta name="description" content="TaskFlow 是 Obsidian Tasks 的行动工作台插件，完全兼容原有任务语法。用时间、GTD、场景三大上下文缩小选择范围，帮你从「我该做什么」更快进入「那就做这个」，零迁移成本，即装即用。" data-page-node-id="3Zwpu8kM80FCj0nwWAteFi">
+<meta name="keywords" content="Obsidian 插件, Obsidian Tasks, TaskFlow, 任务管理, 行动工作台, GTD, 下一步行动, 时间管理, 场景标签, 知识管理, 生产力工具, Obsidian plugin" data-page-node-id="3KMWKwI3Y718hmpNH01oxP">
+<meta name="theme-color" content="#0B0F19" data-page-node-id="22kH6Il4OVbOurRFVDUG18">
+<meta name="theme-color" content="#f9fafb" media="(prefers-color-scheme: light)" data-page-node-id="7GEZxxUgBwMI6OgPdudUzF">
+<link rel="canonical" href="https://ichris007.github.io/obsidian-taskflow/" data-page-node-id="oVfTS1cDd0Wh3x7RfgZyWF">
+<meta name="author" content="猎人科叔">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="alternate" hreflang="zh-CN" href="https://ichris007.github.io/obsidian-taskflow/">
+<link rel="alternate" hreflang="en" href="https://ichris007.github.io/obsidian-taskflow/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://ichris007.github.io/obsidian-taskflow/">
+<link rel="icon" type="image/png" href="image/tf_logo.png" data-page-node-id="v4qX55G5u8jWgyWsNhVeOx">
+<meta property="og:type" content="website" data-page-node-id="mINQS0C4FaYzrZJLuS7PsR">
+<meta property="og:title" content="TaskFlow — Obsidian Tasks 行动工作台插件 | 从任务管理，走向行动" data-page-node-id="CKxKOQEHwCJHfQlbJgPnHW">
+<meta property="og:description" content="TaskFlow 是 Obsidian Tasks 的行动工作台插件，完全兼容原有任务语法。用时间、GTD、场景三大上下文缩小选择范围，帮你从「我该做什么」更快进入「那就做这个」，零迁移成本，即装即用。" data-page-node-id="rm83SSCEbv5vA29iCcPGQm">
+<meta property="og:image" content="https://ichris007.github.io/obsidian-taskflow/image/tf_full.webp" data-page-node-id="shYHaGV5LU98soEbDlKz8p">
+<meta property="og:locale" content="zh_CN" data-page-node-id="Txgyq3LRWhEFqO38Wkr2jm">
+<meta property="og:locale:alternate" content="en_US" data-page-node-id="NRepZXWQSMrZBKwcGFONnZ">
+<meta property="og:video" content="https://ichris007.github.io/obsidian-taskflow/image/taskflow_video.mp4" data-page-node-id="YwhPkl03OhTIjEoDE7CD0s">
+<meta property="og:video:type" content="video/mp4" data-page-node-id="wSMOJWcic2ZDS3p0Zxy64x">
+<meta property="og:video:width" content="1236" data-page-node-id="8MYp3V7OflSKEcm6zub4uI">
+<meta property="og:video:height" content="916" data-page-node-id="FKd3xswIrzuD2Ad7O2odPT">
+<meta property="og:url" content="https://ichris007.github.io/obsidian-taskflow/">
+<meta property="og:site_name" content="TaskFlow">
+<meta property="og:image:alt" content="TaskFlow 行动空间界面截图">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="803">
+<meta name="twitter:card" content="summary_large_image" data-page-node-id="lpx8u6zIuZSvsVAj8hMyoF">
+<meta name="twitter:title" content="TaskFlow — Obsidian Tasks 行动工作台插件 | 从任务管理，走向行动" data-page-node-id="PP305ZIkvyQ8CPZknbAH0b">
+<meta name="twitter:description" content="TaskFlow 是 Obsidian Tasks 的行动工作台插件，完全兼容原有任务语法。用时间、GTD、场景三大上下文缩小选择范围，帮你从「我该做什么」更快进入「那就做这个」，零迁移成本，即装即用。" data-page-node-id="zECqCqmiFxZQUwRTUMlsYK">
+<meta name="twitter:image" content="https://ichris007.github.io/obsidian-taskflow/image/tf_full.webp" data-page-node-id="efLZix4TJVsu83p5C8skzM">
+<meta name="twitter:image:alt" content="TaskFlow 行动空间界面截图">
+<link rel="stylesheet" href="css/site.css" data-page-node-id="3bg4Gn0YOIKJ63WVdCgRhO">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "TaskFlow — Obsidian Tasks 行动工作台插件",
+  "url": "https://ichris007.github.io/obsidian-taskflow/",
+  "inLanguage": "zh-CN",
+  "description": "TaskFlow 是 Obsidian Tasks 的行动工作台插件，用时间、GTD、场景三大上下文帮你锁定下一步行动。",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "TaskFlow",
+    "url": "https://ichris007.github.io/obsidian-taskflow/"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://ichris007.github.io/obsidian-taskflow/image/tf_full.webp"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TaskFlow",
+  "alternateName": "TaskFlow for Obsidian",
+  "applicationCategory": "ProductivityApplication",
+  "applicationSubCategory": "Obsidian Plugin",
+  "operatingSystem": "Windows, macOS, Linux, iOS, Android",
+  "description": "建立在 Obsidian Tasks 之上的轻量行动工作台。不改变既有任务语法，通过时间、GTD、场景三个维度降低选择成本，让行动更快发生。",
+  "url": "https://ichris007.github.io/obsidian-taskflow/",
+  "downloadUrl": "https://github.com/ichris007/obsidian-taskflow/releases",
+  "softwareRequirements": "Obsidian + Obsidian Tasks 插件",
+  "image": "https://ichris007.github.io/obsidian-taskflow/image/tf_full.webp",
+  "screenshot": [
+    "https://ichris007.github.io/obsidian-taskflow/image/tf_full.webp",
+    "https://ichris007.github.io/obsidian-taskflow/image/split_full_cn.png",
+    "https://ichris007.github.io/obsidian-taskflow/image/tf-GTD.webp",
+    "https://ichris007.github.io/obsidian-taskflow/image/tf_time.webp",
+    "https://ichris007.github.io/obsidian-taskflow/image/tf_tag.webp"
+  ],
+  "featureList": [
+    "GTD 上下文：定位下一步行动",
+    "时间上下文：聚焦今天要做的事",
+    "标签/场景上下文：按当前环境匹配任务",
+    "完全兼容 Obsidian Tasks 语法，零迁移成本",
+    "轻量任务 + 强大前端展示"
+  ],
+  "inLanguage": [
+    "zh-CN",
+    "en"
+  ],
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "猎人科叔",
+    "url": "https://lifein.vip"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "TaskFlow 插件功能演示",
+  "description": "TaskFlow 行动空间实际操作演示：用时间、GTD、场景三个上下文切换快速定位下一步行动。",
+  "thumbnailUrl": "https://ichris007.github.io/obsidian-taskflow/image/tf_full.webp",
+  "uploadDate": "2026-09-22",
+  "contentUrl": "https://ichris007.github.io/obsidian-taskflow/image/taskflow_video.mp4",
+  "width": "1236",
+  "height": "916",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "zh-CN",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "TaskFlow 是什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TaskFlow 是建立在 Obsidian Tasks 之上的轻量行动工作台插件。它不改变你任何既有的任务记录语法与查询逻辑，而是在任务列表之上构建一层动态的行动空间（Action Space），让你从管理任务走向选择行动。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "TaskFlow 和 Tasks、TaskNotes 有什么区别？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tasks 是强大的任务引擎，语法、查询、性能成熟，但前端展示相对基础；TaskNotes 前端强大，但要求每个任务建一篇独立笔记，对一句话任务偏重。TaskFlow 直接使用 Tasks 语法，提供重新设计、强调简洁和效率的前端，既保留任务列表习惯，又强化汇总与场景展示，迁移成本几乎为零。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "TaskFlow 需要改变现有的任务语法吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不需要。TaskFlow 完全兼容现有的 Obsidian Tasks 语法与数据，不改变你的记录习惯，即装即用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "TaskFlow 解决什么问题？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TaskFlow 解决的不是「任务太多」，而是「选择太难」。它通过时间、GTD、场景三个上下文维度缩小选择范围，降低行动决策成本，让你从「我该做什么？」更快进入「那就做这个。」"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "如何安装 TaskFlow？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TaskFlow 尚未上架 Obsidian 社区插件中心，可通过两种方式手动安装：一是用 BRAT 插件添加仓库地址 https://github.com/ichris007/obsidian-taskflow 自动安装与更新（推荐）；二是从 Releases 页面下载 main.js、manifest.json、styles.css 三个文件，放入 Vault 的 .obsidian/plugins/taskflow/ 目录后重启 Obsidian 启用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "TaskFlow 是免费的吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "是的，TaskFlow 是开源免费插件，仓库地址为 https://github.com/ichris007/obsidian-taskflow。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https://ichris007.github.io/obsidian-taskflow/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "TaskFlow",
+      "item": "https://ichris007.github.io/obsidian-taskflow/"
+    }
+  ]
+}
+</script>
+
+
+<script>
+    (function () {
+        try {
+            var t = localStorage.getItem('theme');
+            var d = t === 'dark' || (!t && window.matchMedia && !window.matchMedia('(prefers-color-scheme: light)').matches);
+            document.documentElement.classList.toggle('dark', d);
+        } catch (e) { document.documentElement.classList.add('dark'); }
+    })();
+</script>
+<style id="__dm_no_drag_style__">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
+<body data-page-node-id="JnjmF5E07GchOopNzPx05Q" style="">
+
+<!-- ============ Header ============ -->
+<header class="site-header" data-page-node-id="1MfCOKh0aZhnDCxf2wMfwK">
+    <div class="wrap site-header__inner" data-page-node-id="6BwRO8IKUYu6ytAwEjmN0I">
+        <div class="brand" data-page-node-id="5Lw26DGYffUsQ00pCwlLnK">
+            <img src="image/tf_logo.png" alt="TaskFlow Logo" class="brand__logo" data-page-node-id="WE8f9jSMrvoGAFYnjjDJWD">
+            <span class="brand__name" data-page-node-id="jy6DHEl0IPuTc80AnycthL">TaskFlow</span>
+            <span class="brand__tag" data-zh="Obsidian Plugin" data-en="Obsidian Plugin" data-page-node-id="sTpl0cyfJPvQ5Y5CDO2Ym2">Obsidian Plugin</span>
+        </div>
+
+        <nav class="nav" aria-label="主导航" data-page-node-id="9Bv4Vqd5UCtDaoFtatOc6i">
+            <a href="#why" data-zh="为什么做" data-en="Why" data-page-node-id="5J53uTZtVfDc3FfGmAEmwQ">为什么做</a>
+            <a href="#solve" data-zh="解决什么" data-en="Problem" data-page-node-id="kXmm0bEQwssgFU5JdG6h3Y">解决什么</a>
+            <a href="#what" data-zh="是什么" data-en="What" data-page-node-id="UBOi9gfUhnVk32oTMuXSG0">是什么</a>
+            <a href="#how" data-zh="怎么解决" data-en="How" data-page-node-id="y4FvtlUagJIAoSxA6aG002">怎么解决</a>
+            <a href="#value" data-zh="得到什么" data-en="Benefits" data-page-node-id="kyW00svWz0DMjl92idWJeh">得到什么</a>
+            <a href="#install" data-zh="安装指南" data-en="Install" data-page-node-id="Sfd1UYfLfXKYLF7KiS4DDN">安装指南</a>
+            <a href="#author" data-zh="关于作者" data-en="Author" data-page-node-id="KrqQ4MW58weyku26xSz0Se">关于作者</a>
+        </nav>
+
+        <div class="header-actions" data-page-node-id="dkPJqh5oW4lqnx8NStPGxO">
+            <button id="themeToggle" class="icon-btn" title="切换深色/浅色模式" aria-label="切换深色/浅色模式" data-page-node-id="DVv4m1fav5FVIUbIP1snXA">
+                <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="7EhBnVKt6VvZYnLVsEVcKi"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-page-node-id="SVuLpsNqedBRVKFhgS4qEo"></path></svg>
+                <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="qdDp1QtG2zqwcJIDrC9Mtz"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" data-page-node-id="nfIyMCfPFAaZlPIUrDXCxi"></path></svg>
+            </button>
+            <button id="langToggle" class="lang-btn" data-page-node-id="EjmHgl88jLxoKGzZFRx1pH">EN</button>
+            <a href="https://github.com/ichris007/obsidian-taskflow" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-page-node-id="WsouAGxdBKADRzD4oHovLN">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="K4qA5XCjUABx665Fc52iVr"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" data-page-node-id="rvBVmNndN6hqPYXvlXgjsS"></path></svg>
+                <span data-page-node-id="2PftYHlhAy024usZSVlKNw">GitHub</span>
+            </a>
+        </div>
+    </div>
+</header>
+<main id="main">
+
+<!-- ============ Hero ============ -->
+<section class="hero" data-page-node-id="6aFBGGDfB2S5ixCXngEo0l">
+    <div class="hero__glow" data-page-node-id="ZRlCYygCD4rFpFmBeg4lOH"></div>
+    <div class="wrap-s hero__inner" data-page-node-id="3LeSJqgyEcd7iFndP8Z4Sb">
+        <div class="badge-pill" data-page-node-id="NDfaix8CBezQDUe15Pve10">
+            <span data-zh="建立在 Obsidian Tasks 之上的行动工作台" data-en="An Action Workbench built on Obsidian Tasks" data-page-node-id="hgESxnuHEBH71wtp2Nribo">建立在 Obsidian Tasks 之上的行动工作台</span>
+        </div>
+
+        <h1 class="hero__title" data-page-node-id="7J7x4rs6O0BZhieeTGcYkS">
+            <span data-zh="你不缺任务。" data-en="You don’t need more tasks." data-page-node-id="IA01wTqBR3RStI7FE8EjJZ">你不缺任务。</span><br data-page-node-id="OBpyeCEKSSMWbZ4d46drXo">
+            <span class="text-gradient" data-zh="你缺的是下一步。" data-en="You need the next step." data-page-node-id="m4JcecN4wuzG8UBUIBBNeK">你缺的是下一步。</span>
+        </h1>
+
+        <p class="hero__lead" data-zh="TaskFlow 不改变你任何既有的任务记录语法与查询逻辑，而是在任务列表之上，构建了一层动态的行动空间（Action Space）。它重新组织你的任务，通过时间、GTD 和场景三个维度降低选择成本，让行动更快发生。" data-en="TaskFlow changes none of your existing task syntax or queries. It builds a dynamic Action Space on top of your task list — reorganising tasks across Time, GTD and Context, so that action happens faster." data-page-node-id="MVrAAYncNBajbVsBqnvgU8">TaskFlow 不改变你任何既有的任务记录语法与查询逻辑，而是在任务列表之上，构建了一层动态的行动空间（Action Space）。它重新组织你的任务，通过时间、GTD 和场景三个维度降低选择成本，让行动更快发生。</p>
+
+        <div class="btn-row" data-page-node-id="sN6B2Z4ARZwBCLWXGMQ2Fj">
+            <a href="https://github.com/ichris007/obsidian-taskflow" target="_blank" rel="noopener" class="btn btn--primary" data-page-node-id="qRx45YezYpRXGoY4bz1qZk">
+                <span data-zh="GitHub 仓库" data-en="GitHub Repository" data-page-node-id="Agu9k9iSTreGApiQexfP9h">GitHub 仓库</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="PXElSHNgJkH7Qpzni8YzKW"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" data-page-node-id="OIGXlp9yJo2ZwVrbwZk4wd"></path></svg>
+            </a>
+            <a href="#install" class="btn btn--ghost" data-zh="安装指南" data-en="Install Guide" data-page-node-id="0tHMKrqyIHbvUSXr5QO0Dy">安装指南</a>
+        </div>
+
+        <div class="narrative" data-page-node-id="aakcMWDAZAHli7ep7HGCRB">
+            <span class="hl" data-zh="核心叙事：" data-en="Core narrative:" data-page-node-id="cbkW2N7RUwg9oRifAw4TkK">核心叙事：</span>
+            <span data-zh="任务越多 → 选择越难 → 行动成本越高 →" data-en="More tasks → harder choices → higher friction →" data-page-node-id="O7Ti7gWx2EyFxi2SSJ9KIH">任务越多 → 选择越难 → 行动成本越高 →</span>
+            <strong data-zh="TaskFlow 简化选择" data-en="TaskFlow simplifies choice" data-page-node-id="0fbXP7QdqKO6o2sEQHMHGV">TaskFlow 简化选择</strong>
+            <span data-zh="→ 快步进入行动" data-en="→ faster into action" data-page-node-id="vVcAR3PQ315kaDAG5mDClq">→ 快步进入行动</span>
+        </div>
+    </div>
+</section>
+
+<!-- ============ Demo video ============ -->
+<div class="wrap" data-page-node-id="Q9NSRB9FcJSS72in9brAfY">
+    <div class="video-block" data-page-node-id="WJkdLGxyLi6cpbvgVuquAJ">
+        <video controls="" muted="" loop="" playsinline="" preload="metadata" poster="image/tf_full.webp" data-page-node-id="vvJEKAYAF2JVmoHzOMo2eN">
+            <source src="image/taskflow_video.mp4" type="video/mp4" data-page-node-id="8wiAFM3aOnGFgTXxlpun27">
+            您的浏览器不支持视频播放。
+        </video>
+    </div>
+</div>
+<p class="video-cap" data-zh="插件功能演示：TaskFlow 行动空间实际操作" data-en="Feature demo: the TaskFlow Action Space in action" data-page-node-id="4d2HRqkfGxXFwCJP4L27ZA">插件功能演示：TaskFlow 行动空间实际操作</p>
+
+<!-- ============ 01 为什么做 ============ -->
+<section id="why" class="section section-t" data-page-node-id="OIubX1n3ubl2NLVEA6DGFq">
+    <div class="wrap-n" data-page-node-id="wHmsn1lnq8qAn5Q1DVHvCK">
+        <div class="eyebrow" data-page-node-id="UHOAEXMKFPn9afwfGDR46n">01 / WHY TASKFLOW</div>
+        <h2 class="h2" data-zh="为什么做 TaskFlow" data-en="Why TaskFlow" data-page-node-id="AKyZGIL9WT1xoecwAz6pR1">为什么做 TaskFlow</h2>
+
+        <div class="lead stack-6 mb-8" data-page-node-id="ppQxCuC6y6fRllDCkLakls">
+            <p data-zh="在 Obsidian 里做任务管理，绕不开两个已有的选择：Tasks 和 TaskNotes。它们各自都很强，但走的是不同的路。" data-en="In Obsidian, task management comes down to two existing choices: Tasks and TaskNotes. Both are powerful, but they take different paths." data-page-node-id="KD8VL20AzNguLBQ24EHW00">在 Obsidian 里做任务管理，绕不开两个已有的选择：Tasks 和 TaskNotes。它们各自都很强，但走的是不同的路。</p>
+
+            <ul class="list-dash" data-page-node-id="K5rG8q5aLw2lskTYdpb54W">
+                <li data-zh="Tasks 已经是一套非常强大的任务系统：成熟的任务语法、查询能力和渲染机制，性能也足够优秀，我们没必要重复造轮子。但它并不是一个强大的视觉前端——任务展示和汇总界面能用，但不够丰富，也不够灵活可配置。" data-en="Tasks is already a very powerful task system: mature syntax, querying and rendering, with great performance — no need to reinvent the wheel. But it is not a strong visual front-end: its task views and summaries work, yet they are neither rich nor flexibly configurable." data-page-node-id="WB2CU2qDtSQHN6KcjivlQA">Tasks 已经是一套非常强大的任务系统：成熟的任务语法、查询能力和渲染机制，性能也足够优秀，我们没必要重复造轮子。但它并不是一个强大的视觉前端——任务展示和汇总界面能用，但不够丰富，也不够灵活可配置。</li>
+                <li data-zh="TaskNotes 在前端展示方面确实功能强大。但它有一个前提：每一个任务都需要建立一篇独立的笔记。这种方式适合需要大量任务上下文、笔记和属性管理的场景；可为一句话任务建一篇笔记，多少有点太重了。" data-en="TaskNotes is genuinely powerful on the front-end. But it requires one note per task. That suits tasks carrying rich context; creating a whole note for a one-line task feels too heavy." data-page-node-id="IBhecyVEh5rA9DzB5shgUE">TaskNotes 在前端展示方面确实功能强大。但它有一个前提：每一个任务都需要建立一篇独立的笔记。这种方式适合需要大量任务上下文、笔记和属性管理的场景；可为一句话任务建一篇笔记，多少有点太重了。</li>
+            </ul>
+
+            <p data-zh="我喜欢把任务作为列表，直接写在笔记里。但我需要一个强大、灵活的前端——这正是我开发 TaskFlow 的初衷：用 Tasks 强大的任务引擎，配上 TaskFlow 简洁、灵活、适合行动的前端界面。" data-en="I like keeping tasks as a list, written right inside my notes. But I wanted a powerful, flexible front-end. That is why I built TaskFlow: Tasks’ powerful engine, with a front-end that is simple, flexible and built for action." data-page-node-id="HgOhah0JDAZpt40Vcpp4nh">我喜欢把任务作为列表，直接写在笔记里。但我需要一个强大、灵活的前端——这正是我开发 TaskFlow 的初衷：用 Tasks 强大的任务引擎，配上 TaskFlow 简洁、灵活、适合行动的前端界面。</p>
+        </div>
+
+        <div class="table-scroll" data-page-node-id="HA2Q1cgar6DM8iSEtEhFxb">
+            <table class="cmp" data-page-node-id="PGnQsdYXP7vYhbCB1FzcEN">
+                <thead data-page-node-id="8hwxYZYmwDORoe4I8yNl88">
+                    <tr data-page-node-id="yHn0p2Qj5DeFZBJ3henO1b">
+                        <th data-zh="对比" data-en="Compare" data-page-node-id="clCE8UqdrS7OYqjKl9cU2q">对比</th>
+                        <th data-page-node-id="6vS18Fu5B27YNF9LjaGnOi">Tasks</th>
+                        <th data-page-node-id="fNR7cE0RV8a5GI0prxEnUG">TaskNotes</th>
+                        <th class="is-own" data-page-node-id="pwJi2O0uqAEHKeoWwBjvOi">TaskFlow</th>
+                    </tr>
+                </thead>
+                <tbody data-page-node-id="qDUmxHiCsrePAiaNGveirv">
+                    <tr data-page-node-id="tv4akUqvCgAKLsbmp3DcM5">
+                        <td data-zh="核心定位" data-en="Positioning" data-page-node-id="wGkZdZ0Wl0MXlLbOyTMayd">核心定位</td>
+                        <td class="dim" data-zh="强大的任务引擎" data-en="Powerful task engine" data-page-node-id="56a4Y9v0CqZqcLYH1Io1H5">强大的任务引擎</td>
+                        <td class="dim" data-zh="任务 + 笔记工作台" data-en="Task + note workbench" data-page-node-id="HSMgXPCA1aCxMcpRhRO4t8">任务 + 笔记工作台</td>
+                        <td class="own" data-page-node-id="g6fdFdEViNbdGFmZxDdpPU"><span class="own-key" data-zh="任务行动工作台" data-en="Task action workbench" data-page-node-id="UtYVrMHMZcL6IJKOAQIbJR">任务行动工作台</span></td>
+                    </tr>
+                    <tr data-page-node-id="hbjeI571FxNlsBcIz8NAI2">
+                        <td data-zh="核心优势" data-en="Strength" data-page-node-id="65nv5mS0XCKoiUNTaOlxz9">核心优势</td>
+                        <td class="dim" data-zh="任务语法、查询、性能" data-en="Syntax, queries, performance" data-page-node-id="EJQuVkce29VZDzkfJEWIAS">任务语法、查询、性能</td>
+                        <td class="dim" data-zh="强大的任务前端与笔记能力" data-en="Rich front-end &amp; notes" data-page-node-id="JRiV3FZ5WF4arTOb2EvIvL">强大的任务前端与笔记能力</td>
+                        <td class="own" data-page-node-id="bgXQQAl89YxxQRQCakSbo7"><span class="own-key" data-zh="轻量任务 + 强大前端展示" data-en="Lightweight tasks + strong display" data-page-node-id="MPvCgux0vVSndzhJnUQof0">轻量任务 + 强大前端展示</span></td>
+                    </tr>
+                    <tr data-page-node-id="rtYq21CE3XJRJun61A1x49">
+                        <td data-zh="任务颗粒度" data-en="Task granularity" data-page-node-id="UNCYqozSRZbTxdsU8ACFyl">任务颗粒度</td>
+                        <td class="dim" data-zh="一句话到复杂任务都行" data-en="One-liners to complex tasks" data-page-node-id="sxMLdUjhjiB1Wtq3SF2WWM">一句话到复杂任务都行</td>
+                        <td class="dim" data-zh="适合有独立笔记价值的任务" data-en="Tasks worth their own note" data-page-node-id="pfe6MtpNo76nZahkQALteJ">适合有独立笔记价值的任务</td>
+                        <td class="own" data-zh="一句话到复杂任务都行" data-en="One-liners to complex tasks" data-page-node-id="guUNJRIJuJtXX7KToItF1f">一句话到复杂任务都行</td>
+                    </tr>
+                    <tr data-page-node-id="9CHfiZ2qXY533HACMV2RfW">
+                        <td data-zh="任务语法" data-en="Task syntax" data-page-node-id="YLgtPDBUhkpeLNoWJh78Kr">任务语法</td>
+                        <td class="dim" data-page-node-id="kAjSBiAe5ZiyEtbRtYkaB3"><b data-zh="原生" data-en="Native" data-page-node-id="0GNW3bNw5nDXkJ7vBArRq7">原生</b></td>
+                        <td class="dim" data-zh="有自己的体系 / 集成方式" data-en="Own system / integration" data-page-node-id="kF4d2MgSFanvbTyK0akMmJ">有自己的体系 / 集成方式</td>
+                        <td class="own" data-page-node-id="MzfRjolchuGxy3Wc0MfrBV"><span class="own-key" data-zh="直接使用 Tasks" data-en="Uses Tasks directly" data-page-node-id="qROJI1UTCBMFjNgc0Pq7NF">直接使用 Tasks</span></td>
+                    </tr>
+                    <tr data-page-node-id="jGBZ1zgfxSr3bZhJF4MTJK">
+                        <td data-zh="查询能力" data-en="Querying" data-page-node-id="AhaXJYSxuDocYNGeDgIa7a">查询能力</td>
+                        <td class="dim" data-page-node-id="aHFcJWmjFrB6ejPV6OLi9X"><b data-zh="强大" data-en="Powerful" data-page-node-id="qu9cK67AqSg0iVKcXBlNxi">强大</b></td>
+                        <td class="dim" data-zh="强大" data-en="Powerful" data-page-node-id="htLvTMDZh95gsyNunAimxP">强大</td>
+                        <td class="own" data-page-node-id="jwghaKdlUWSzMsDz25EDGO"><span class="own-key" data-zh="继承 Tasks 能力" data-en="Inherits Tasks" data-page-node-id="b7k76wg6nHZj36OT56G0T0">继承 Tasks 能力</span></td>
+                    </tr>
+                    <tr data-page-node-id="PisbhMJRCMKGQtCED8FFTU">
+                        <td data-zh="性能基础" data-en="Performance base" data-page-node-id="idliL1XGI9zHQWpjNa7bcx">性能基础</td>
+                        <td class="dim" data-zh="成熟、优秀" data-en="Mature &amp; excellent" data-page-node-id="eBrYnSwwqw1kx7aHq4Qojt">成熟、优秀</td>
+                        <td class="dim" data-zh="功能更丰富" data-en="Feature-rich" data-page-node-id="IBbp8N8G5MTnxQt2ldE3K3">功能更丰富</td>
+                        <td class="own" data-page-node-id="Va9s5QmBeMtrS0vnkMwHAD"><span class="own-key" data-zh="建立在 Tasks 之上" data-en="Built on Tasks" data-page-node-id="VjZjQ9V9V5VzwEr8dq3KB0">建立在 Tasks 之上</span></td>
+                    </tr>
+                    <tr data-page-node-id="Q7fpqr7ousdss9txm707Wo">
+                        <td data-zh="任务展示" data-en="Task display" data-page-node-id="KBwXKfLmg35qqqyaGqFNH0">任务展示</td>
+                        <td class="dim" data-zh="相对基础" data-en="Relatively basic" data-page-node-id="XuDtJOzm4bT6zN3MsAAiMB">相对基础</td>
+                        <td class="dim" data-page-node-id="a2BazZCfqtUeR8tnO4mHUl"><b data-zh="强大、丰富" data-en="Powerful &amp; rich" data-page-node-id="KlNpPetGkTyUkLCPLz9KFi">强大、丰富</b></td>
+                        <td class="own" data-page-node-id="ZVTWrYeRyQVsSWtJIO6XOa"><span class="own-key" data-zh="重新设计，强调简洁和效率" data-en="Redesigned: simple &amp; efficient" data-page-node-id="yNt78tsIgIu1G4SAwg3bH4">重新设计，强调简洁和效率</span></td>
+                    </tr>
+                    <tr data-page-node-id="6xgxKsM3sI1N15ExAmJ6pz">
+                        <td data-zh="任务汇总" data-en="Task summary" data-page-node-id="B9cxktJSuXFuf7HVyu8Rbw">任务汇总</td>
+                        <td class="dim" data-zh="基础" data-en="Basic" data-page-node-id="d4NrDT73qPX2aZ7kcvlfte">基础</td>
+                        <td class="dim" data-page-node-id="IjBrXJabo2xbJVLUpq7yqQ"><b data-zh="强大" data-en="Powerful" data-page-node-id="A3iRZ92YMCBplxNgLLtHxG">强大</b></td>
+                        <td class="own" data-page-node-id="0IjP4G01T2Wg0iQgsHkJgV"><span class="own-key" data-zh="强化汇总与场景展示" data-en="Stronger summary &amp; context views" data-page-node-id="3ntPUYmknAfl0CRuIG6ylg">强化汇总与场景展示</span></td>
+                    </tr>
+                    <tr data-page-node-id="0aqICHARN0aBV8fdYj5KEc">
+                        <td data-zh="视图体验" data-en="View experience" data-page-node-id="oUfnG52ocJwy9CBCqB6piz">视图体验</td>
+                        <td class="dim" data-zh="偏任务查询" data-en="Task-query oriented" data-page-node-id="OzqWfOlvS80K9kJ9Lb4t9u">偏任务查询</td>
+                        <td class="dim" data-zh="偏任务笔记" data-en="Task-note oriented" data-page-node-id="pV2D9Pr6okcrTitHVX8DME">偏任务笔记</td>
+                        <td class="own" data-page-node-id="hsECHIkXz325hA53kUmKFF"><span class="own-key" data-zh="偏行动选择" data-en="Action-choice oriented" data-page-node-id="ny9B0wo4hi24THbrGn9E2x">偏行动选择</span></td>
+                    </tr>
+                    <tr data-page-node-id="oDSQA9q2OGJflmgemxggcH">
+                        <td data-zh="使用方式" data-en="How you use it" data-page-node-id="a8EFOWzVteUBgLWeQByZhR">使用方式</td>
+                        <td class="dim" data-zh="管理任务" data-en="Manage tasks" data-page-node-id="0cfsgu6tGjzsDhdoifNyrM">管理任务</td>
+                        <td class="dim" data-zh="管理任务及其内容" data-en="Manage tasks &amp; content" data-page-node-id="v99bStnzux7OOoxhiCrPEn">管理任务及其内容</td>
+                        <td class="own" data-page-node-id="rYANXrQkW2n33WyZGibgth"><span class="own-key" data-zh="找到当前该做什么" data-en="Find what to do now" data-page-node-id="wRvxdMmPDhjbZKEYCnuCMZ">找到当前该做什么</span></td>
+                    </tr>
+                    <tr data-page-node-id="PYQ3X5icgaiVD5t7JMZyLg">
+                        <td data-zh="学习 / 迁移成本" data-en="Learning / migration cost" data-page-node-id="EFJ0fXGHaWSKjwIVoYaPJn">学习 / 迁移成本</td>
+                        <td class="dim" data-zh="原有习惯" data-en="Existing habits" data-page-node-id="Ig6Wf3bmXfNezfcp5xPaoG">原有习惯</td>
+                        <td class="dim" data-zh="需要适应任务笔记模型" data-en="Must adapt to note-per-task" data-page-node-id="mZKGAiz7VHrPDa0AqIz353">需要适应任务笔记模型</td>
+                        <td class="own" data-page-node-id="ddkJwBDMLn3iJGqZeFoUmZ"><span class="own-key" data-zh="几乎不改变原有习惯" data-en="Almost no habit change" data-page-node-id="WLrhwsXNNoJSOZPUAiKQce">几乎不改变原有习惯</span></td>
+                    </tr>
+                    <tr data-page-node-id="D0CSsP1y5Uw3JelqTUHEQt">
+                        <td data-zh="适合的人" data-en="Best for" data-page-node-id="O5GMCGtgneroIclDIiMgri">适合的人</td>
+                        <td class="dim" data-zh="喜欢纯任务系统的人" data-en="Fans of pure task systems" data-page-node-id="hB2fyCz1MAwKTBwsahGl2Z">喜欢纯任务系统的人</td>
+                        <td class="dim" data-zh="希望任务与笔记深度结合的人" data-en="Want tasks deeply tied to notes" data-page-node-id="2fAkdlmo9J74XrE7oBzIfl">希望任务与笔记深度结合的人</td>
+                        <td class="own" data-page-node-id="nyhC7FmW4kAB9QKGBxgin6"><span class="own-key" data-zh="喜欢任务列表，又希望拥有更好前端的人" data-en="Want task lists AND a better front-end" data-page-node-id="pKZCwHsbAc2RKOXiznmMuF">喜欢任务列表，又希望拥有更好前端的人</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="note" data-zh="注：Tasks 和 TaskNotes 都是非常优秀的插件，这里的对比只是基于个人使用习惯，仅代表个人观点。" data-en="Note: Tasks and TaskNotes are both excellent plugins. This comparison reflects personal usage habits and opinion only." data-page-node-id="CKLeqIpoRHxhBdNpWaYnpO">注：Tasks 和 TaskNotes 都是非常优秀的插件，这里的对比只是基于个人使用习惯，仅代表个人观点。</p>
+    </div>
+</section>
+
+<!-- 行动空间截图 -->
+<figure class="figure figure--mid" data-page-node-id="5UCFEZpbtbvW9dKNSFmgER">
+    
+    
+</figure>
+
+<!-- ============ 02 解决什么 ============ -->
+<section id="solve" class="section section-t-alt" data-page-node-id="0BRmbkaEoiEjh3UUqofIuU">
+    <div class="wrap-n" data-page-node-id="DDg5Om0tMEL6AaKhjpZa1Y">
+        <div class="eyebrow" data-page-node-id="dPEFa8PFyvjQu4VDbmYuZD">02 / PROBLEM</div>
+        <h2 class="h2" data-zh="TaskFlow 解决什么" data-en="What It Solves" data-page-node-id="N5ePmjvF65RAI4571Hqg30">TaskFlow 解决什么</h2>
+
+        <p class="lead mb-8" data-zh="TaskFlow 解决的不是「任务太多」，而是「选择太难」。行动之前的选择，本身就成了一种负担。" data-en="TaskFlow doesn’t solve “too many tasks” — it solves “choosing is too hard”. The choice before action becomes a burden itself." data-page-node-id="soBcJmEHhZVgm7dLHzM2Of">TaskFlow 解决的不是「任务太多」，而是「选择太难」。行动之前的选择，本身就成了一种负担。</p>
+
+        <div class="grid-2 mb-8" data-page-node-id="rcBoiwwutcr6GuQt9ANdQI">
+            <div class="glass-card" data-page-node-id="bf2EozI23iwmnYg8IhEMCr">
+                <h3 class="feat__title mb-2 muted" data-zh="传统任务管理主要解决" data-en="Traditional task management solves" data-page-node-id="XARF5dk4CUJEflzBwVF15W">传统任务管理主要解决</h3>
+                <p data-page-node-id="tkJQtNLBdCw1GLi2QYykgI"><strong data-zh="把事情记下来，避免遗忘。" data-en="Writing things down so you don’t forget." data-page-node-id="WYH9yWrmruOIG2PXLGpt4p">把事情记下来，避免遗忘。</strong></p>
+            </div>
+            <div class="glass-card card-brand" data-page-node-id="EharoZEkjww33fD1Hx5gIJ">
+                <h3 class="feat__title mb-2" style="color: var(--c-brand);" data-zh="但真正到了行动时" data-en="But when it’s time to act" data-page-node-id="FBOwE3V7GMxUbtd5ICBfpv">但真正到了行动时</h3>
+                <p data-page-node-id="HyEpHEMlsjpdZrxyIPndP3"><strong data-zh="从这么多事情里，找到此刻值得做的那一件。" data-en="Finding the one thing worth doing right now." data-page-node-id="SgCmAFXo6dTtBDegtiZLhJ">从这么多事情里，找到此刻值得做的那一件。</strong></p>
+            </div>
+        </div>
+
+        <p class="lead mb-8" data-zh="这是一种行动决策成本。任务越多、场景越复杂、上下文越频繁变化，这种成本就越高。TaskFlow 希望减少的正是这一步。" data-en="This is action-decision friction. The more tasks, the more complex the contexts, the more often context shifts — the higher the cost. That is exactly the step TaskFlow reduces." data-page-node-id="HzrH4MqaFyF98doWKLXi3P">这是一种行动决策成本。任务越多、场景越复杂、上下文越频繁变化，这种成本就越高。TaskFlow 希望减少的正是这一步。</p>
+
+        <div class="quote-strip" data-page-node-id="Vqk2MIOxbI2QZ06yf5p9SZ">
+            <span data-zh="让你从" data-en="Move from" data-page-node-id="uf93IMwAiOwfaKwpe0aGZT">让你从</span>
+            <strong data-zh="「我该做什么？」" data-en="“What should I do?”" data-page-node-id="PKQSALqpRk7mbvsdEuSJ5g">「我该做什么？」</strong>
+            <span data-zh="更快进入" data-en="much faster to" data-page-node-id="cXg5U72eHhR1afLEGi3ebp">更快进入</span>
+            <span class="accent" data-zh="「那就做这个。」" data-en="“Let’s do this.”" data-page-node-id="CfpaFQ2ZZghpLoKFaEdRY4">「那就做这个。」</span>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 03 是什么 ============ -->
+<section id="what" class="section section-t" data-page-node-id="VHQct2395ZOgvxvvHpBdC8">
+    <div class="wrap-n" data-page-node-id="dVW0U4fby2F4HKk9kCRlfy">
+        <div class="eyebrow" data-page-node-id="OxVLHFijMHpCzqpL1AqoaY">03 / WHAT IT IS</div>
+        <h2 class="h2" data-zh="从「任务」走向「行动」的工作台" data-en="From Tasks to Action" data-page-node-id="mHxs3yQJzqriLWRl9fpXzx">从「任务」走向「行动」的工作台</h2>
+
+        <p class="lead mb-8" data-zh="它不是让你建立一套新的任务系统。TaskFlow 要做的是：让你换一个角度重新审视这些任务，从管理任务走向选择行动。" data-en="It doesn’t ask you to build a new task system. It lets you look at the same tasks from a new angle — from managing tasks to choosing actions." data-page-node-id="KX42rfAjHBwaA3uZ0GTfxS">它不是让你建立一套新的任务系统。TaskFlow 要做的是：让你换一个角度重新审视这些任务，从管理任务走向选择行动。</p>
+
+        <div class="table-scroll" data-page-node-id="AJAQzramDjWVv1Y13p8F8m">
+            <table class="cmp" data-page-node-id="EJXH8oUdvVamuEvCn2b58f">
+                <thead data-page-node-id="EKvUfmC2xXF3nFLzkntGxE">
+                    <tr data-page-node-id="v8WQeqSmj75WSZaCCHKBmk">
+                        <th data-zh="维度" data-en="Dimension" data-page-node-id="PEAjyn5ySM0pppGnYaeM98">维度</th>
+                        <th data-zh="传统任务管理（任务空间）" data-en="Traditional (Task Space)" data-page-node-id="KdA5euPYF9i6Skq331Zcyz">传统任务管理（任务空间）</th>
+                        <th class="is-own" data-zh="TaskFlow（行动空间）" data-en="TaskFlow (Action Space)" data-page-node-id="4ZNMiljhS2GkMveBBBqG0f">TaskFlow（行动空间）</th>
+                    </tr>
+                </thead>
+                <tbody data-page-node-id="xKgFhsvcLVES4xRZ6iXtX3">
+                    <tr data-page-node-id="5oXmcwwlGB8IEEhjZA7hcy">
+                        <td data-zh="核心目标" data-en="Core goal" data-page-node-id="VGFwxOPgeWhsiuSkXLp9kB">核心目标</td>
+                        <td class="dim" data-page-node-id="N9ISImCaMVhTeuUFEbw6kH"><b data-zh="管理事情（怕忘了）" data-en="Manage things (fear of forgetting)" data-page-node-id="pVTU3c4bDlQKYDoh3xiQoJ">管理事情（怕忘了）</b></td>
+                        <td class="own" data-page-node-id="lQe9QBUgt2NxZilpTSAEsI"><span class="own-key" data-zh="推动行动（不知道先做啥）" data-en="Drive action (unsure where to start)" data-page-node-id="q7CbbjoHhUJ1gYpvG5zJqJ">推动行动（不知道先做啥）</span></td>
+                    </tr>
+                    <tr data-page-node-id="XojTi4Xiz8JKS8A2iP68Wu">
+                        <td data-zh="关注焦点" data-en="Focus" data-page-node-id="ofmficiFa8kG4pgxLbAoOQ">关注焦点</td>
+                        <td class="dim" data-zh="看见所有任务（Task）" data-en="See all tasks" data-page-node-id="OadEe8OF16CNNFH1N40gZx">看见所有任务（Task）</td>
+                        <td class="own" data-page-node-id="vlbQ8fH6fF9c8wOl8QZLFO"><span class="own-key" data-zh="聚焦当前行动（Action）" data-en="Focus on the current action" data-page-node-id="H64fGdGAHVMLHUCpHFU1IA">聚焦当前行动（Action）</span></td>
+                    </tr>
+                    <tr data-page-node-id="buzVALhA0eBHX78C8AVNkL">
+                        <td data-zh="大脑角色" data-en="Brain role" data-page-node-id="Lp0I2pi4PWT44K84Z439P4">大脑角色</td>
+                        <td class="dim" data-page-node-id="XH9hD7b2qBaCA3JVKPAjK0"><b data-zh="思考引擎（我有什么要做？）" data-en="Thinking engine (what do I have?)" data-page-node-id="CSV9YSmCEBra09Is3mwO1E">思考引擎（我有什么要做？）</b></td>
+                        <td class="own" data-page-node-id="sMpBgHAmqxLAV0TjMeyhYL"><span class="own-key" data-zh="执行引擎（我现在做什么？）" data-en="Execution engine (what do I do now?)" data-page-node-id="Ja67CH3OTYH43eHoblQ21w">执行引擎（我现在做什么？）</span></td>
+                    </tr>
+                    <tr data-page-node-id="1szH9rYMgvmfcWa1QL1fFP">
+                        <td data-zh="操作过程" data-en="Process" data-page-node-id="wmBYrK7VSDbmHtCm30Fc8N">操作过程</td>
+                        <td class="dim" data-zh="找任务 → 判断 → 选择" data-en="Search → evaluate → choose" data-page-node-id="P6YWErmSkn6ffwJKyUODi2">找任务 → 判断 → 选择</td>
+                        <td class="own" data-page-node-id="g4dW9GCkOv0vsPjLn6GrSN"><span class="own-key" data-zh="场景 → 筛选 → 行动" data-en="Context → filter → action" data-page-node-id="eEB4k88blC8a8IYaAwY7CW">场景 → 筛选 → 行动</span></td>
+                    </tr>
+                    <tr data-page-node-id="GyEntaHhQfXOUKuRugoslC">
+                        <td data-zh="最终结果" data-en="Outcome" data-page-node-id="yHsja7d7eUnr22AvtAlNO1">最终结果</td>
+                        <td class="dim" data-zh="认知过载，积累焦虑" data-en="Cognitive overload &amp; anxiety" data-page-node-id="ea2Zy9WmHsW81wpVcQ0Ott">认知过载，积累焦虑</td>
+                        <td class="good" data-zh="消灭阻力，即刻开始" data-en="Zero friction, instant start" data-page-node-id="39C2LsM1oIrLqhhOe2wU03">消灭阻力，即刻开始</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 详情截图 -->
+<figure class="figure figure--wide" data-page-node-id="evCKcKCDI2ZESBwe57bexL">
+    <div class="figure__frame" data-page-node-id="6nzOM8alO0LfpBhkzJq4iH">
+        <img src="image/split_full_cn.png" alt="TaskFlow 界面详情" width="1600" height="1888" loading="lazy" data-page-node-id="jIqol5Ob7DOcVhJM7IvSzN">
+    </div>
+    <figcaption class="figure__cap" data-zh="TaskFlow 界面详情：行动空间、上下文分组与任务列表一览。" data-en="TaskFlow in detail: action space, context groups and the task list." data-page-node-id="YGV28eaqAJOyQzDKrKOfqD">TaskFlow 界面详情：行动空间、上下文分组与任务列表一览。</figcaption>
+</figure>
+
+<!-- ============ 04 怎么解决 ============ -->
+<section id="how" class="section section-t-alt" data-page-node-id="O76uDJdgBSO1gZWvLQk9VJ">
+    <div class="wrap" data-page-node-id="31QvvjZg0oqACz1NHqiA9m">
+        <div class="eyebrow" data-page-node-id="M38ir0EBPf8fLelnmeq2Na">04 / HOW IT WORKS</div>
+        <h2 class="h2" data-zh="缩小选择范围，切入当前上下文" data-en="Narrow Choices via Context" data-page-node-id="zuF4brXn301lhGFFINEXRb">缩小选择范围，切入当前上下文</h2>
+        <p class="lead mb-8" data-zh="TaskFlow 利用任务本身已经存在的信息，帮助你缩小选择范围，把任务放回不同的行动上下文中。" data-en="TaskFlow uses information already inside your tasks to narrow the choices, placing each task back into an actionable context." data-page-node-id="FGhXWwI2IILtZauYWTv7Ki">TaskFlow 利用任务本身已经存在的信息，帮助你缩小选择范围，把任务放回不同的行动上下文中。</p>
+
+        <div class="grid-3" data-page-node-id="vmazRZyE8ajJrLybgDTIu8">
+            <div class="ctx-card ctx-card--gtd" data-page-node-id="WFy00PsREHWdZOsZp1iDrS">
+                <div class="ctx-card__body" data-page-node-id="QJ62E97SMwkpXx10yXjEOQ">
+                    <div class="ctx-card__kicker" data-page-node-id="27SKmznU5NM0VfHHaWfnBg">GTD</div>
+                    <h3 class="ctx-card__title" data-zh="下一步该做什么？" data-en="What’s the next step?" data-page-node-id="qP0VLDEU4zQ8SnhkMeLA8l">下一步该做什么？</h3>
+                    <p class="ctx-card__desc" data-zh="帮助你从任务列表中找到可以继续推进的下一步。" data-en="Find the next actionable step from your task list." data-page-node-id="HODfN6arsZGfgY9TOtCXvK">帮助你从任务列表中找到可以继续推进的下一步。</p>
+                </div>
+                <img class="ctx-card__shot" src="image/tf-GTD.webp" alt="GTD 上下文视图" width="796" height="389" loading="lazy" data-page-node-id="V30aFe9efBjvlTr6E92PVa">
+            </div>
+
+            <div class="ctx-card ctx-card--time" data-page-node-id="6CHIXIkDgUJEOdRZBXCuig">
+                <div class="ctx-card__body" data-page-node-id="6Qd6bcry7IVonrRwrgZfgr">
+                    <div class="ctx-card__kicker" data-page-node-id="t6gygMdE56mW6tj79dXFIb">TIME</div>
+                    <h3 class="ctx-card__title" data-zh="今天该做什么？" data-en="What should I do today?" data-page-node-id="88nv8dFxdLqSySYaXFOTS8">今天该做什么？</h3>
+                    <p class="ctx-card__desc" data-zh="帮助你从时间维度找到今天真正需要面对的事情。" data-en="Surface what today genuinely requires, by time." data-page-node-id="VQllxJ7GzSGTZPOmYMTUf3">帮助你从时间维度找到今天真正需要面对的事情。</p>
+                </div>
+                <img class="ctx-card__shot" src="image/tf_time.webp" alt="时间上下文视图" width="755" height="343" loading="lazy" data-page-node-id="ieszEhBlVMV6EdzJHdMYLK">
+            </div>
+
+            <div class="ctx-card ctx-card--tag" data-page-node-id="zlfBt8ipriAT3acWPEwXEQ">
+                <div class="ctx-card__body" data-page-node-id="zuHmbT4eywvrxepma72Zzc">
+                    <div class="ctx-card__kicker" data-page-node-id="halnEW7lIBADlj5slgphLq">TAG / CONTEXT</div>
+                    <h3 class="ctx-card__title" data-zh="在这个场景下该做什么？" data-en="What fits this context?" data-page-node-id="7E4uFifytjDeLHrmkIPvrI">在这个场景下该做什么？</h3>
+                    <p class="ctx-card__desc" data-zh="帮助你根据当前的工作环境、工具或场景，找到此刻适合做的事情。" data-en="Match tasks to your current environment, tools or situation." data-page-node-id="MKM6lxw9va7enbdRMxYvbN">帮助你根据当前的工作环境、工具或场景，找到此刻适合做的事情。</p>
+                </div>
+                <img class="ctx-card__shot" src="image/tf_tag.webp" alt="标签 / 场景上下文视图" width="764" height="412" loading="lazy" data-page-node-id="2oeYOJ66yQ5lgEyuWqYwOu">
+            </div>
+        </div>
+
+        <div class="pipeline" data-page-node-id="FdwTfu1y3yVaUANqpeGGNJ">
+            <div class="pipeline__label" data-zh="核心链路" data-en="Core pipeline" data-page-node-id="OcHb5ZqjgZy8Q5YRnuq2B6">核心链路</div>
+            <div class="pipeline__flow" data-page-node-id="1pvJyNQRQfip5hMxZ4dNzC">Context → Choice → Action</div>
+            <p class="pipeline__sub" data-zh="当前上下文 → 缩小范围 → 找到行动 → 开始" data-en="Context → narrow down → find action → start" data-page-node-id="9mWceFA99rTCVkyk1JvbkV">当前上下文 → 缩小范围 → 找到行动 → 开始</p>
+        </div>
+
+        <p class="lead mt-8 text-center" data-zh="任务不再只是一个等待完成的列表项，而成为一个可以根据上下文被重新发现的行动。" data-en="A task is no longer just an item waiting to be completed — it becomes an action that can be rediscovered through context." data-page-node-id="YdTMH4PhNYU7QbpiPMMHIo">任务不再只是一个等待完成的列表项，而成为一个可以根据上下文被重新发现的行动。</p>
+    </div>
+</section>
+
+<!-- ============ 05 得到什么 ============ -->
+<section id="value" class="section section-t" data-page-node-id="eQeZaMCfXSKGAXczKIGhKR">
+    <div class="wrap" data-page-node-id="FmxgMISjY0CsXBYswEJzaX">
+        <div class="eyebrow" data-page-node-id="gZBajJgq2Gd0FqF9PySg9n">05 / BENEFITS</div>
+        <h2 class="h2" data-zh="你将收获什么" data-en="What You Get" data-page-node-id="JhtvNFqqMoWfzziW830OOV">你将收获什么</h2>
+        <p class="lead mb-8" data-zh="不是帮你管理更多任务，而是帮你更快开始下一件事。" data-en="Not helping you manage more tasks — helping you start the next one faster." data-page-node-id="5Dmc8lxeiMcCQDtDpUhT2m">不是帮你管理更多任务，而是帮你更快开始下一件事。</p>
+
+        <div class="grid-2" data-page-node-id="RX3o4d7mEYiTw2PKTv9uU9">
+            <div class="glass-card feat feat--blue" data-page-node-id="Yf54pPnFA5GsH1MNLZqg6A">
+                <div class="feat__num" data-page-node-id="lC7EieCUbdbDEPeGmteZii">01</div>
+                <div data-page-node-id="lPmfJM5wNma7RLYxwvEUfu">
+                    <h3 class="feat__title" data-zh="零决策瘫痪，即刻启动" data-en="Zero decision paralysis" data-page-node-id="rvir74BlbE5L2lRCL1LMn6">零决策瘫痪，即刻启动</h3>
+                    <p class="feat__desc" data-zh="打开 Obsidian 的瞬间，不再面对几十条待办发呆，一眼锁定当前最值得做的事。" data-en="Open Obsidian and lock onto the right step at a glance, instead of staring at dozens of to-dos." data-page-node-id="UkeDub1N2leFeDkXeYWrRk">打开 Obsidian 的瞬间，不再面对几十条待办发呆，一眼锁定当前最值得做的事。</p>
+                </div>
+            </div>
+
+            <div class="glass-card feat feat--purple" data-page-node-id="hMigbsAFsoIEYqpD3OgBal">
+                <div class="feat__num" data-page-node-id="Yke4Uqq3NaqVskgsJr6d1G">02</div>
+                <div data-page-node-id="BDTxP9cKJwWLQ9OSQNpwKM">
+                    <h3 class="feat__title" data-zh="零迁移与学习成本" data-en="Zero migration cost" data-page-node-id="4rplc0PjcWeo7SkIi3oHY8">零迁移与学习成本</h3>
+                    <p class="feat__desc" data-zh="完全兼容现有的 Tasks 语法与数据，不改变记录习惯，即装即用。" data-en="Fully compatible with existing Tasks syntax and data — no habit change, works on install." data-page-node-id="XzEtHncjC3wPBnOIwQF9W2">完全兼容现有的 Tasks 语法与数据，不改变记录习惯，即装即用。</p>
+                </div>
+            </div>
+
+            <div class="glass-card feat feat--indigo" data-page-node-id="iLDibhCth4bfLWVILOSn1L">
+                <div class="feat__num" data-page-node-id="qFTO45ypEXJetGsYigTrN2">03</div>
+                <div data-page-node-id="oNiQzwmDrPaHHMF03gCZFU">
+                    <h3 class="feat__title" data-zh="意志力解脱，专注执行" data-en="Preserve willpower" data-page-node-id="nSo2D2ntBaxDNfKBqM6Nxj">意志力解脱，专注执行</h3>
+                    <p class="feat__desc" data-zh="把「挑选任务」的消耗降至最低，将宝贵的注意力全额注入到真正的「行动」中。" data-en="Minimise the energy spent choosing tasks, and spend your attention on real execution." data-page-node-id="l6Z1g7Qm9OZ7aNevO8EAzn">把「挑选任务」的消耗降至最低，将宝贵的注意力全额注入到真正的「行动」中。</p>
+                </div>
+            </div>
+
+            <div class="glass-card feat feat--green" data-page-node-id="uKuRcYg2c0bITZlxwjBNJg">
+                <div class="feat__num" data-page-node-id="E11B4o36XcLAr4BMzamnN2">04</div>
+                <div data-page-node-id="T9ZWL4BgY7H29Caq6A9IFO">
+                    <h3 class="feat__title" data-zh="自然进入心流（Flow）" data-en="Seamless flow state" data-page-node-id="NyHdjvVngn5CUGj3dSYQBP">自然进入心流（Flow）</h3>
+                    <p class="feat__desc" data-zh="用结构化的 TaskFlow 消除行动阻力，让任务顺畅流转，让大脑轻松滑入专注的心流状态。" data-en="Structured TaskFlow removes friction so tasks flow and your mind slides into focus." data-page-node-id="X6ZWK6S854QzsxQ1EmBkBA">用结构化的 TaskFlow 消除行动阻力，让任务顺畅流转，让大脑轻松滑入专注的心流状态。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 06 安装指南 ============ -->
+<section id="install" class="section section-t-alt" data-page-node-id="agce34Xnopkchpd5xUtegq">
+    <div class="wrap" data-page-node-id="G8GACrMED3GhKg4TP9Kmw6">
+        <div class="eyebrow" data-page-node-id="ZWNqParpEzFs4l3RaPrRh8">06 / INSTALL</div>
+        <h2 class="h2" data-zh="安装指南" data-en="Install Guide" data-page-node-id="ICF2xEifduoIRpjLi1VTPg">安装指南</h2>
+        <p class="lead mb-8" data-zh="TaskFlow 目前尚未上架 Obsidian 社区插件中心，你需要通过以下两种方式之一手动安装。" data-en="TaskFlow is not yet on the Obsidian community plugin directory — install it manually via one of the two methods below." data-page-node-id="Ywq9NtrSMAse1NBT0mpDRH">TaskFlow 目前尚未上架 Obsidian 社区插件中心，你需要通过以下两种方式之一手动安装。</p>
+
+        <div class="grid-2" data-page-node-id="jeDrCgIf2eKfrEm3w91Ro3">
+            <!-- BRAT -->
+            <div class="card" data-page-node-id="0rskt3DpfEzLY7uEW0Xz43">
+                <span class="method-tag method-tag--hot" data-zh="方式一 · 推荐" data-en="Method 1 · Recommended" data-page-node-id="bXnXatzyyiAyQZ8pzNLVAL">方式一 · 推荐</span>
+                <h3 class="feat__title mb-4" data-zh="通过 BRAT 插件安装" data-en="Install via BRAT" data-page-node-id="adfbDvIVuB37RlVZss6QUD">通过 BRAT 插件安装</h3>
+                <p class="feat__desc mb-6" data-zh="BRAT（Beta Reviewers Auto-update Tool）是社区中安装与自动更新未上架插件的常用工具。安装后插件可自动跟随 GitHub 仓库更新，无需每次手动下载。" data-en="BRAT (Beta Reviewers Auto-update Tool) is the standard way to install and auto-update plugins not yet in the directory — it follows the GitHub repo automatically." data-page-node-id="Ol4k13JWGFR2ZIHF2eHHsI">BRAT（Beta Reviewers Auto-update Tool）是社区中安装与自动更新未上架插件的常用工具。安装后插件可自动跟随 GitHub 仓库更新，无需每次手动下载。</p>
+
+                <div class="steps" data-page-node-id="lm5xtOqdNpSQ8Mf5tTEXBB">
+                    <div class="step" data-page-node-id="xh1n2JlRXagqueM8rQDJep">
+                        <div class="step__dot" data-page-node-id="ga04GcLj4M87Tpwzrm3d6r">1</div>
+                        <div class="step__body" data-page-node-id="sCzzt8PfVfZ0YQYXU2lNDi">
+                            <strong data-zh="安装 BRAT 插件" data-en="Install BRAT" data-page-node-id="OZGTgdxlrYJBKIIwiz8h4h">安装 BRAT 插件</strong>
+                            <span data-zh="打开 Obsidian → 设置 → 第三方插件 → 浏览，搜索 BRAT，找到 Obsidian42 - BRAT，点击安装并启用。" data-en="Obsidian → Settings → Community plugins → Browse, search “BRAT”, install and enable Obsidian42 - BRAT." data-page-node-id="aqCFqDlIy34GObisnvatxq">打开 Obsidian → 设置 → 第三方插件 → 浏览，搜索 BRAT，找到 Obsidian42 - BRAT，点击安装并启用。</span>
+                        </div>
+                    </div>
+                    <div class="step" data-page-node-id="NZ0TEbMOlGYccZjaXxCxzk">
+                        <div class="step__dot" data-page-node-id="hPFGNtKj3IVO3tbToUEHij">2</div>
+                        <div class="step__body" data-page-node-id="96LTXSA40XLfStrJbpVbvD">
+                            <strong data-zh="通过 BRAT 添加 TaskFlow" data-en="Add TaskFlow via BRAT" data-page-node-id="kyuToiK5ePMdc6EumNRlb7">通过 BRAT 添加 TaskFlow</strong>
+                            <span data-zh="打开 BRAT 插件 → Add Beta Plugin → 粘贴仓库地址，点击 Add Plugin，BRAT 会自动下载并安装最新版本。" data-en="Open BRAT → Add Beta Plugin → paste the repo URL, then Add Plugin. BRAT downloads and installs the latest version." data-page-node-id="pyjTNDc9qRXRgOnX6ZVyah">打开 BRAT 插件 → Add Beta Plugin → 粘贴仓库地址，点击 Add Plugin，BRAT 会自动下载并安装最新版本。</span>
+                            <div class="tree" data-page-node-id="IqxYFyX9TDWTpI0sq6D6TQ">https://github.com/ichris007/obsidian-taskflow</div>
+                        </div>
+                    </div>
+                    <div class="step" data-page-node-id="rKmx7bKoCcg3NSz60Vd9uf">
+                        <div class="step__dot" data-page-node-id="PUFmEbqhyNhs0ppWfY50Cz">3</div>
+                        <div class="step__body" data-page-node-id="Ppw3k5ajDFqYJaZoHI7HfJ">
+                            <strong data-zh="启用插件" data-en="Enable the plugin" data-page-node-id="7VTu1PPFCE4JJS9RlTCpXm">启用插件</strong>
+                            <span data-zh="回到设置 → 第三方插件 → 已安装插件，找到 TaskFlow，打开开关即可使用。" data-en="Back to Settings → Community plugins → Installed plugins, find TaskFlow and toggle it on." data-page-node-id="boHQ13GomyciKjxGoYq4fl">回到设置 → 第三方插件 → 已安装插件，找到 TaskFlow，打开开关即可使用。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="note" data-zh="之后每当仓库有新版本发布，BRAT 会自动提示或帮你更新，无需手动操作。" data-en="Whenever a new release ships, BRAT notifies you or updates automatically — no manual work." data-page-node-id="1AZ9I4f4xFzun3TMIsChNG">之后每当仓库有新版本发布，BRAT 会自动提示或帮你更新，无需手动操作。</p>
+            </div>
+
+            <!-- 手动 -->
+            <div class="card" data-page-node-id="OuTspPTG0cFsSqAzxeGGif">
+                <span class="method-tag" data-zh="方式二" data-en="Method 2" data-page-node-id="jz6OhgwBV3qmnnG6lDhBNM">方式二</span>
+                <h3 class="feat__title mb-4" data-zh="手动安装" data-en="Manual install" data-page-node-id="Se3E5eGE2f5mUIJZE2WXTQ">手动安装</h3>
+                <p class="feat__desc mb-6" data-zh="如果不想使用 BRAT，也可以直接从 GitHub 下载文件，手动放入插件目录。" data-en="If you’d rather not use BRAT, download the files from GitHub and drop them into your plugins folder." data-page-node-id="5fUSe4LBqsZb9kqdDXhOaQ">如果不想使用 BRAT，也可以直接从 GitHub 下载文件，手动放入插件目录。</p>
+
+                <div class="steps" data-page-node-id="T8zjMSby8CQzNSfSPVA6bA">
+                    <div class="step" data-page-node-id="yLDgjrGLsfdBDzkG385WVU">
+                        <div class="step__dot" data-page-node-id="JNQCP2LIT5djrJyEqK1v7v">1</div>
+                        <div class="step__body" data-page-node-id="TA2sGYxQA8EmEcGmAPGbks">
+                            <strong data-zh="下载插件文件" data-en="Download the plugin files" data-page-node-id="b0MCVnNWlGtBmGU5zyLm7H">下载插件文件</strong>
+                            <span data-zh="打开仓库 Releases 页面，下载最新版本中的三个文件：main.js、manifest.json、styles.css。" data-en="Open the Releases page and download three files from the latest release: main.js, manifest.json, styles.css." data-page-node-id="4ABKkcjGkcU9IVIAUMSBkQ">打开仓库 Releases 页面，下载最新版本中的三个文件：main.js、manifest.json、styles.css。</span>
+                            <div class="tree" data-page-node-id="VvVvv0HigtAmYBew6Am7nK"><a href="https://github.com/ichris007/obsidian-taskflow/releases" target="_blank" rel="noopener">https://github.com/ichris007/obsidian-taskflow/releases</a></div>
+                        </div>
+                    </div>
+                    <div class="step" data-page-node-id="qfZ7pN5WuGo0zHX0k4AYk5">
+                        <div class="step__dot" data-page-node-id="2wcvxDK2jEpuTJgk2dOf9D">2</div>
+                        <div class="step__body" data-page-node-id="DdOEKZmuIUaK1Yx4k2wKjA">
+                            <strong data-zh="找到你的 Obsidian 插件目录" data-en="Locate your plugins folder" data-page-node-id="IPEdH7QPI7AS9tLwkGNCaW">找到你的 Obsidian 插件目录</strong>
+                            <span data-zh="打开你的 Obsidian 库（Vault）文件夹，进入 .obsidian/plugins/ 目录（看不到 .obsidian 需开启「显示隐藏文件」）。" data-en="Open your vault folder and go to .obsidian/plugins/ (enable “show hidden files” if .obsidian is hidden)." data-page-node-id="qT1dvQD5G34XHDmAsgv8j9">打开你的 Obsidian 库（Vault）文件夹，进入 .obsidian/plugins/ 目录（看不到 .obsidian 需开启「显示隐藏文件」）。</span>
+                        </div>
+                    </div>
+                    <div class="step" data-page-node-id="xDYU50ZH5jWBpUaPXypTCZ">
+                        <div class="step__dot" data-page-node-id="bGiaNE762m71isjtYhzNB8">3</div>
+                        <div class="step__body" data-page-node-id="qMvLfidj85bNe3Zvoagt71">
+                            <strong data-zh="创建插件文件夹并放入文件" data-en="Create the plugin folder" data-page-node-id="3kMWryPRpsCGBqNlIdd4pV">创建插件文件夹并放入文件</strong>
+                            <span data-zh="在 plugins 目录下新建名为 taskflow 的文件夹，将三个文件放入，最终结构如下：" data-en="Create a folder named taskflow under plugins and put the three files inside. Final structure:" data-page-node-id="QcImxlE5l7lJuq5f7MxIXl">在 plugins 目录下新建名为 taskflow 的文件夹，将三个文件放入，最终结构如下：</span>
+                            <div class="tree" data-page-node-id="e2gKqLcqUiokmjMHKzXgUx">.obsidian/plugins/taskflow/<br data-page-node-id="RmvebyxFuT42a8hubZGyQe">├── main.js<br data-page-node-id="S7jKuJrgZMWi9wScI3w7wT">├── manifest.json<br data-page-node-id="y5hApm2Ig95FcuYHkvX4Nu">└── styles.css</div>
+                        </div>
+                    </div>
+                    <div class="step" data-page-node-id="2pzbQLwkakkjCHsfNJBGRk">
+                        <div class="step__dot" data-page-node-id="HoDZe9Dm7G3DeGdIb2FYm6">4</div>
+                        <div class="step__body" data-page-node-id="TbJbEnRDDXmEPCJVAT1HLe">
+                            <strong data-zh="启用插件" data-en="Enable the plugin" data-page-node-id="IJEDMsNDhazf04KHlxwIQG">启用插件</strong>
+                            <span data-zh="重启 Obsidian（或按 Ctrl/Cmd + R 重新加载），打开设置 → 第三方插件 → 已安装插件，找到 TaskFlow 并打开开关。" data-en="Restart Obsidian (or press Ctrl/Cmd + R), then Settings → Community plugins → Installed plugins, find TaskFlow and toggle it on." data-page-node-id="JksrfZZKgItDTe75gc52Au">重启 Obsidian（或按 Ctrl/Cmd + R 重新加载），打开设置 → 第三方插件 → 已安装插件，找到 TaskFlow 并打开开关。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 关于作者 ============ -->
+<section id="author" class="section section-t" data-page-node-id="tv1ZevJpcEgvlXPJ8jU8t2">
+    <div class="wrap-n" data-page-node-id="5PWkyteNNw0P6UAcqJwzjh">
+        <div class="author-card" data-page-node-id="WDRW2tERFl90rDWAFPRx8d">
+            <div class="author__avatar" data-page-node-id="3nSrxRJmbmse14fpjtg2iF">Lifein</div>
+            <div data-page-node-id="W0jziclt6TXfsBSTSMZ4FA">
+                <h3 class="author__name" data-zh="猎人科叔" data-en="Chris (Hunter Uncle)" data-page-node-id="K7BLR9OQPaVVofq5uS6GSr">猎人科叔</h3>
+                <p class="author__bio" data-page-node-id="8DPKKsNb78oS0ov3kalkkV">
+                    <span data-zh="科技行业人才专家，15 年老猎头，互联网 / AI / 机器人，面试超万人。" data-en="Tech talent expert, 15+ years headhunting across Internet, AI &amp; Robotics; 10,000+ interviews." data-page-node-id="9nuYthKS7JNSHGklP3d9nv">科技行业人才专家，15 年老猎头，互联网 / AI / 机器人，面试超万人。</span><br data-page-node-id="I9QF8z3alfFay6wlhT1sHY">
+                    <span data-zh="生产力系统专家，专注 16 年+，打造高效工作和成长体系。" data-en="Productivity systems specialist (16+ yrs), building frameworks for work and growth." data-page-node-id="nsWm1CdCm3YOQqYDsBu09s">生产力系统专家，专注 16 年+，打造高效工作和成长体系。</span><br data-page-node-id="n6KdEYDd7ygZTRtTWli6wE">
+                    <span data-zh="自媒体全网同名：猎人科叔。" data-en="Content creator, same handle everywhere: 猎人科叔." data-page-node-id="DdP9xRv0WJNofDNAZt1Rdo">自媒体全网同名：猎人科叔。</span>
+                </p>
+                <a class="author__link" href="https://lifein.vip" target="_blank" rel="noopener" data-page-node-id="KpWclUcYHx5jhjg3cqHztg">
+                    <span data-zh="探索科叔的 Obsidian 生产力与知识管理实践（lifein.vip）" data-en="Explore Chris’s Obsidian PKM practice (lifein.vip)" data-page-node-id="Jk4jwfDeImaVnqjfhCvDCr">探索科叔的 Obsidian 生产力与知识管理实践（lifein.vip）</span>
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="nyHTv8OsAghcBtoGzDbvAO"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" data-page-node-id="3C2ojhkXqEvGG57Xxg7nBz"></path></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ Footer ============ -->
+</main>
+<footer class="site-footer" data-page-node-id="GzQ4t50JsHKzTnUSmqYDN2">
+    <div class="wrap site-footer__inner" data-page-node-id="IPub1sLIBRxT9gnB344iaC">
+        <div data-page-node-id="fvJJKBLptq0m7BVdySKEZ1">
+            <strong data-page-node-id="Pz5AyXprPWQ3qpbCEGotuF">TaskFlow</strong>
+            <span data-zh=" — 从任务管理，到行动。" data-en=" — From managing tasks to taking action." data-page-node-id="CDHAQIVbHpDkEeVWO9OhX3"> — 从任务管理，到行动。</span>
+        </div>
+        <div data-page-node-id="mYQEyir3KaCcNfjm1rrLmP">
+            <a href="https://github.com/ichris007/obsidian-taskflow" target="_blank" rel="noopener" data-page-node-id="YjzZyvmBTTMPBhYoltszAp">GitHub</a>
+            <span data-page-node-id="c1yW0k6r9ELDHLoHKNYnx6"> • </span>
+            <a href="https://lifein.vip" target="_blank" rel="noopener" data-page-node-id="RH3HkPkE5QugAWXB6buJED">LifeIn VIP</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // 主题切换
+    var themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', function () {
+        var isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // 中英切换
+    var currentLang = 'ZH';
+    var langToggle = document.getElementById('langToggle');
+    langToggle.addEventListener('click', function () {
+        currentLang = currentLang === 'ZH' ? 'EN' : 'ZH';
+        langToggle.textContent = currentLang === 'ZH' ? 'EN' : 'ZH';
+        document.documentElement.lang = currentLang === 'ZH' ? 'zh-CN' : 'en';
+
+        document.querySelectorAll('[data-zh][data-en]').forEach(function (el) {
+            var text = currentLang === 'ZH' ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+            if (!text) return;
+            if (el.children.length === 0) {
+                el.innerHTML = text;
+            } else {
+                el.childNodes.forEach(function (node) {
+                    if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
+                        node.nodeValue = text;
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+
+
+</body></html>
