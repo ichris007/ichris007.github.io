@@ -65,7 +65,7 @@
   "operatingSystem": "Windows, macOS, Linux, iOS, Android",
   "description": "建立在 Obsidian Tasks 之上的轻量行动工作台。不改变既有任务语法，通过时间、GTD、场景三个维度降低选择成本，让行动更快发生。",
   "url": "https://ichris007.github.io/obsidian-taskflow/",
-  "downloadUrl": "https://github.com/ichris007/obsidian-taskflow/releases",
+  "downloadUrl": "https://github.com/ichris007/taskflow/releases",
   "softwareRequirements": "Obsidian + Obsidian Tasks 插件",
   "image": "https://ichris007.github.io/obsidian-taskflow/image/tf_full.webp",
   "screenshot": [
@@ -156,7 +156,7 @@
       "name": "如何安装 TaskFlow？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TaskFlow 尚未上架 Obsidian 社区插件中心，可通过两种方式手动安装：一是用 BRAT 插件添加仓库地址 https://github.com/ichris007/obsidian-taskflow 自动安装与更新（推荐）；二是从 Releases 页面下载 main.js、manifest.json、styles.css 三个文件，放入 Vault 的 .obsidian/plugins/taskflow/ 目录后重启 Obsidian 启用。"
+        "text": "TaskFlow 已上架 Obsidian 官方社区插件中心，推荐直接在 Obsidian 内搜索安装：设置 → 第三方插件 → 浏览，搜索 TaskFlow，点击安装并启用，插件主页为 https://obsidian.md/plugins?id=taskflow。也可以选择另外两种方式：一是用 BRAT 插件添加仓库地址 https://github.com/ichris007/taskflow 自动安装与更新；二是从 Releases 页面下载 main.js、manifest.json、styles.css 三个文件，放入 Vault 的 .obsidian/plugins/taskflow/ 目录后重启 Obsidian 启用。"
       }
     },
     {
@@ -164,7 +164,7 @@
       "name": "TaskFlow 是免费的吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "是的，TaskFlow 是开源免费插件，仓库地址为 https://github.com/ichris007/obsidian-taskflow。"
+        "text": "是的，TaskFlow 是开源免费插件，仓库地址为 https://github.com/ichris007/taskflow。"
       }
     }
   ]
@@ -220,7 +220,7 @@
             <a href="#how" data-zh="怎么解决" data-en="How" data-page-node-id="y4FvtlUagJIAoSxA6aG002">怎么解决</a>
             <a href="#value" data-zh="得到什么" data-en="Benefits" data-page-node-id="kyW00svWz0DMjl92idWJeh">得到什么</a>
             <a href="#install" data-zh="安装指南" data-en="Install" data-page-node-id="Sfd1UYfLfXKYLF7KiS4DDN">安装指南</a>
-            <a href="#author" data-zh="关于作者" data-en="Author" data-page-node-id="KrqQ4MW58weyku26xSz0Se">关于作者</a>
+            <a id="guideLink" href="https://lifein.vip/%E6%8F%92%E4%BB%B6/TaskFlow-guide/" target="_blank" rel="noopener" data-zh="使用指南" data-en="User Guide" data-zh-href="https://lifein.vip/%E6%8F%92%E4%BB%B6/TaskFlow-guide/" data-en-href="https://lifein.vip/%E6%8F%92%E4%BB%B6/TaskFlow-guide/en/taskflow-guide" data-page-node-id="KrqQ4MW58weyku26xSz0Se">使用指南</a>
         </nav>
 
         <div class="header-actions" data-page-node-id="dkPJqh5oW4lqnx8NStPGxO">
@@ -229,7 +229,7 @@
                 <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="qdDp1QtG2zqwcJIDrC9Mtz"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" data-page-node-id="nfIyMCfPFAaZlPIUrDXCxi"></path></svg>
             </button>
             <button id="langToggle" class="lang-btn" data-page-node-id="EjmHgl88jLxoKGzZFRx1pH">EN</button>
-            <a href="https://github.com/ichris007/obsidian-taskflow" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-page-node-id="WsouAGxdBKADRzD4oHovLN">
+            <a href="https://github.com/ichris007/taskflow" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-page-node-id="WsouAGxdBKADRzD4oHovLN">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="K4qA5XCjUABx665Fc52iVr"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" data-page-node-id="rvBVmNndN6hqPYXvlXgjsS"></path></svg>
                 <span data-page-node-id="2PftYHlhAy024usZSVlKNw">GitHub</span>
             </a>
@@ -254,7 +254,7 @@
         <p class="hero__lead" data-zh="TaskFlow 不改变你任何既有的任务记录语法与查询逻辑，而是在任务列表之上，构建了一层动态的行动空间（Action Space）。它重新组织你的任务，通过时间、GTD 和场景三个维度降低选择成本，让行动更快发生。" data-en="TaskFlow changes none of your existing task syntax or queries. It builds a dynamic Action Space on top of your task list — reorganising tasks across Time, GTD and Context, so that action happens faster." data-page-node-id="MVrAAYncNBajbVsBqnvgU8">TaskFlow 不改变你任何既有的任务记录语法与查询逻辑，而是在任务列表之上，构建了一层动态的行动空间（Action Space）。它重新组织你的任务，通过时间、GTD 和场景三个维度降低选择成本，让行动更快发生。</p>
 
         <div class="btn-row" data-page-node-id="sN6B2Z4ARZwBCLWXGMQ2Fj">
-            <a href="https://github.com/ichris007/obsidian-taskflow" target="_blank" rel="noopener" class="btn btn--primary" data-page-node-id="qRx45YezYpRXGoY4bz1qZk">
+            <a href="https://github.com/ichris007/taskflow" target="_blank" rel="noopener" class="btn btn--primary" data-page-node-id="qRx45YezYpRXGoY4bz1qZk">
                 <span data-zh="GitHub 仓库" data-en="GitHub Repository" data-page-node-id="Agu9k9iSTreGApiQexfP9h">GitHub 仓库</span>
                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="PXElSHNgJkH7Qpzni8YzKW"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" data-page-node-id="OIGXlp9yJo2ZwVrbwZk4wd"></path></svg>
             </a>
@@ -576,14 +576,48 @@
     <div class="wrap" data-page-node-id="G8GACrMED3GhKg4TP9Kmw6">
         <div class="eyebrow" data-page-node-id="ZWNqParpEzFs4l3RaPrRh8">06 / INSTALL</div>
         <h2 class="h2" data-zh="安装指南" data-en="Install Guide" data-page-node-id="ICF2xEifduoIRpjLi1VTPg">安装指南</h2>
-        <p class="lead mb-8" data-zh="TaskFlow 目前尚未上架 Obsidian 社区插件中心，你需要通过以下两种方式之一手动安装。" data-en="TaskFlow is not yet on the Obsidian community plugin directory — install it manually via one of the two methods below." data-page-node-id="Ywq9NtrSMAse1NBT0mpDRH">TaskFlow 目前尚未上架 Obsidian 社区插件中心，你需要通过以下两种方式之一手动安装。</p>
+        <p class="lead mb-8" data-zh="TaskFlow 已上架 Obsidian 官方社区插件中心，推荐直接在 Obsidian 内搜索安装；如果你想抢先体验最新版本，也可以用 BRAT 或手动安装。" data-en="TaskFlow is now on the official Obsidian community plugin directory — the recommended way is to search and install it inside Obsidian. Prefer the newest builds? Use BRAT or install manually." data-page-node-id="Ywq9NtrSMAse1NBT0mpDRH">TaskFlow 已上架 Obsidian 官方社区插件中心，推荐直接在 Obsidian 内搜索安装；如果你想抢先体验最新版本，也可以用 BRAT 或手动安装。</p>
+
+        <!-- 方式一：社区插件中心 -->
+        <div class="card mb-8">
+            <span class="method-tag method-tag--hot" data-zh="方式一 · 推荐" data-en="Method 1 · Recommended">方式一 · 推荐</span>
+            <h3 class="feat__title mb-4" data-zh="从 Obsidian 社区插件中心安装" data-en="Install from the Community Plugins directory">从 Obsidian 社区插件中心安装</h3>
+            <p class="feat__desc mb-6" data-zh="这是最简单、也是官方推荐的方式：在 Obsidian 里搜索 TaskFlow 即可安装，之后每次发布新版本都能在 Obsidian 内一键更新。" data-en="The easiest and officially recommended route: search for TaskFlow inside Obsidian and install it. New releases can then be updated with one click inside Obsidian.">这是最简单、也是官方推荐的方式：在 Obsidian 里搜索 TaskFlow 即可安装，之后每次发布新版本都能在 Obsidian 内一键更新。</p>
+
+            <div class="steps steps--row">
+                <div class="step">
+                    <div class="step__dot">1</div>
+                    <div class="step__body">
+                        <strong data-zh="打开第三方插件设置" data-en="Open Community plugins settings">打开第三方插件设置</strong>
+                        <span data-zh="打开 Obsidian → 设置 → 第三方插件。如果你还没安装过社区插件，需要先关闭「安全模式」（Restricted mode）。" data-en="In Obsidian, go to Settings → Community plugins. If this is your first community plugin, turn off Restricted mode first.">打开 Obsidian → 设置 → 第三方插件。如果你还没安装过社区插件，需要先关闭「安全模式」（Restricted mode）。</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__dot">2</div>
+                    <div class="step__body">
+                        <strong data-zh="搜索并安装 TaskFlow" data-en="Search and install TaskFlow">搜索并安装 TaskFlow</strong>
+                        <span data-zh="点击「浏览」，在搜索框输入 TaskFlow，找到插件后点击「安装」。" data-en="Click Browse, type “TaskFlow” into the search box, then click Install.">点击「浏览」，在搜索框输入 TaskFlow，找到插件后点击「安装」。</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__dot">3</div>
+                    <div class="step__body">
+                        <strong data-zh="启用插件" data-en="Enable the plugin">启用插件</strong>
+                        <span data-zh="回到「已安装插件」列表，找到 TaskFlow，打开开关即可开始使用。" data-en="Back in Installed plugins, find TaskFlow and toggle it on — you’re ready to go.">回到「已安装插件」列表，找到 TaskFlow，打开开关即可开始使用。</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tree"><a href="https://obsidian.md/plugins?id=taskflow" target="_blank" rel="noopener">https://obsidian.md/plugins?id=taskflow</a></div>
+            <p class="note" data-zh="社区插件中心会随新版本发布推送更新提醒；也可以在网页端打开上面的插件主页查看版本与更新说明。" data-en="The directory notifies you when a new version ships. You can also open the plugin page above to check versions and release notes.">社区插件中心会随新版本发布推送更新提醒；也可以在网页端打开上面的插件主页查看版本与更新说明。</p>
+        </div>
 
         <div class="grid-2" data-page-node-id="jeDrCgIf2eKfrEm3w91Ro3">
             <!-- BRAT -->
             <div class="card" data-page-node-id="0rskt3DpfEzLY7uEW0Xz43">
-                <span class="method-tag method-tag--hot" data-zh="方式一 · 推荐" data-en="Method 1 · Recommended" data-page-node-id="bXnXatzyyiAyQZ8pzNLVAL">方式一 · 推荐</span>
+                <span class="method-tag" data-zh="方式二" data-en="Method 2" data-page-node-id="bXnXatzyyiAyQZ8pzNLVAL">方式二</span>
                 <h3 class="feat__title mb-4" data-zh="通过 BRAT 插件安装" data-en="Install via BRAT" data-page-node-id="adfbDvIVuB37RlVZss6QUD">通过 BRAT 插件安装</h3>
-                <p class="feat__desc mb-6" data-zh="BRAT（Beta Reviewers Auto-update Tool）是社区中安装与自动更新未上架插件的常用工具。安装后插件可自动跟随 GitHub 仓库更新，无需每次手动下载。" data-en="BRAT (Beta Reviewers Auto-update Tool) is the standard way to install and auto-update plugins not yet in the directory — it follows the GitHub repo automatically." data-page-node-id="Ol4k13JWGFR2ZIHF2eHHsI">BRAT（Beta Reviewers Auto-update Tool）是社区中安装与自动更新未上架插件的常用工具。安装后插件可自动跟随 GitHub 仓库更新，无需每次手动下载。</p>
+                <p class="feat__desc mb-6" data-zh="想抢先体验还没发布到社区插件中心的最新版本时，可以用 BRAT 直接跟随 GitHub 仓库，自动下载与更新，不用每次手动下载。" data-en="Want the newest build before it reaches the directory? BRAT follows the GitHub repo and keeps TaskFlow updated automatically — no manual downloads." data-page-node-id="Ol4k13JWGFR2ZIHF2eHHsI">想抢先体验还没发布到社区插件中心的最新版本时，可以用 BRAT 直接跟随 GitHub 仓库，自动下载与更新，不用每次手动下载。</p>
 
                 <div class="steps" data-page-node-id="lm5xtOqdNpSQ8Mf5tTEXBB">
                     <div class="step" data-page-node-id="xh1n2JlRXagqueM8rQDJep">
@@ -598,7 +632,7 @@
                         <div class="step__body" data-page-node-id="96LTXSA40XLfStrJbpVbvD">
                             <strong data-zh="通过 BRAT 添加 TaskFlow" data-en="Add TaskFlow via BRAT" data-page-node-id="kyuToiK5ePMdc6EumNRlb7">通过 BRAT 添加 TaskFlow</strong>
                             <span data-zh="打开 BRAT 插件 → Add Beta Plugin → 粘贴仓库地址，点击 Add Plugin，BRAT 会自动下载并安装最新版本。" data-en="Open BRAT → Add Beta Plugin → paste the repo URL, then Add Plugin. BRAT downloads and installs the latest version." data-page-node-id="pyjTNDc9qRXRgOnX6ZVyah">打开 BRAT 插件 → Add Beta Plugin → 粘贴仓库地址，点击 Add Plugin，BRAT 会自动下载并安装最新版本。</span>
-                            <div class="tree" data-page-node-id="IqxYFyX9TDWTpI0sq6D6TQ">https://github.com/ichris007/obsidian-taskflow</div>
+                            <div class="tree" data-page-node-id="IqxYFyX9TDWTpI0sq6D6TQ">https://github.com/ichris007/taskflow</div>
                         </div>
                     </div>
                     <div class="step" data-page-node-id="rKmx7bKoCcg3NSz60Vd9uf">
@@ -615,7 +649,7 @@
 
             <!-- 手动 -->
             <div class="card" data-page-node-id="OuTspPTG0cFsSqAzxeGGif">
-                <span class="method-tag" data-zh="方式二" data-en="Method 2" data-page-node-id="jz6OhgwBV3qmnnG6lDhBNM">方式二</span>
+                <span class="method-tag" data-zh="方式三" data-en="Method 3" data-page-node-id="jz6OhgwBV3qmnnG6lDhBNM">方式三</span>
                 <h3 class="feat__title mb-4" data-zh="手动安装" data-en="Manual install" data-page-node-id="Se3E5eGE2f5mUIJZE2WXTQ">手动安装</h3>
                 <p class="feat__desc mb-6" data-zh="如果不想使用 BRAT，也可以直接从 GitHub 下载文件，手动放入插件目录。" data-en="If you’d rather not use BRAT, download the files from GitHub and drop them into your plugins folder." data-page-node-id="5fUSe4LBqsZb9kqdDXhOaQ">如果不想使用 BRAT，也可以直接从 GitHub 下载文件，手动放入插件目录。</p>
 
@@ -625,7 +659,7 @@
                         <div class="step__body" data-page-node-id="TA2sGYxQA8EmEcGmAPGbks">
                             <strong data-zh="下载插件文件" data-en="Download the plugin files" data-page-node-id="b0MCVnNWlGtBmGU5zyLm7H">下载插件文件</strong>
                             <span data-zh="打开仓库 Releases 页面，下载最新版本中的三个文件：main.js、manifest.json、styles.css。" data-en="Open the Releases page and download three files from the latest release: main.js, manifest.json, styles.css." data-page-node-id="4ABKkcjGkcU9IVIAUMSBkQ">打开仓库 Releases 页面，下载最新版本中的三个文件：main.js、manifest.json、styles.css。</span>
-                            <div class="tree" data-page-node-id="VvVvv0HigtAmYBew6Am7nK"><a href="https://github.com/ichris007/obsidian-taskflow/releases" target="_blank" rel="noopener">https://github.com/ichris007/obsidian-taskflow/releases</a></div>
+                            <div class="tree" data-page-node-id="VvVvv0HigtAmYBew6Am7nK"><a href="https://github.com/ichris007/taskflow/releases" target="_blank" rel="noopener">https://github.com/ichris007/taskflow/releases</a></div>
                         </div>
                     </div>
                     <div class="step" data-page-node-id="qfZ7pN5WuGo0zHX0k4AYk5">
@@ -686,7 +720,7 @@
             <span data-zh=" — 从任务管理，到行动。" data-en=" — From managing tasks to taking action." data-page-node-id="CDHAQIVbHpDkEeVWO9OhX3"> — 从任务管理，到行动。</span>
         </div>
         <div data-page-node-id="mYQEyir3KaCcNfjm1rrLmP">
-            <a href="https://github.com/ichris007/obsidian-taskflow" target="_blank" rel="noopener" data-page-node-id="YjzZyvmBTTMPBhYoltszAp">GitHub</a>
+            <a href="https://github.com/ichris007/taskflow" target="_blank" rel="noopener" data-page-node-id="YjzZyvmBTTMPBhYoltszAp">GitHub</a>
             <span data-page-node-id="c1yW0k6r9ELDHLoHKNYnx6"> • </span>
             <a href="https://lifein.vip" target="_blank" rel="noopener" data-page-node-id="RH3HkPkE5QugAWXB6buJED">LifeIn VIP</a>
         </div>
@@ -721,6 +755,11 @@
                     }
                 });
             }
+        });
+
+        // 链接地址随语言切换（使用指南 / User Guide）
+        document.querySelectorAll('[data-zh-href][data-en-href]').forEach(function (el) {
+            el.setAttribute('href', currentLang === 'ZH' ? el.getAttribute('data-zh-href') : el.getAttribute('data-en-href'));
         });
     });
 </script>

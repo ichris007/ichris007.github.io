@@ -116,10 +116,12 @@ p { margin: 0; }
     border: 1px solid var(--c-brand-line); font-weight: 500;
 }
 
-.nav { display: none; gap: 2rem; font-size: .875rem; font-weight: 500; color: var(--c-muted); }
-.nav a { transition: color .2s ease; }
+.nav { display: none; gap: 1.25rem; font-size: .875rem; font-weight: 500; color: var(--c-muted); }
+.nav a { transition: color .2s ease; white-space: nowrap; }
 .nav a:hover { color: var(--c-brand); }
-@media (min-width: 768px) { .nav { display: flex; } }
+/* 导航在 <1024px 隐藏：7 项 + 品牌 + 操作区在此宽度以下装不进一行，会被挤成竖排 */
+@media (min-width: 1024px) { .nav { display: flex; } }
+@media (min-width: 1280px) { .nav { gap: 2rem; } }
 
 .header-actions { display: flex; align-items: center; gap: .75rem; }
 
@@ -365,6 +367,12 @@ table.cmp td.good { color: var(--c-emerald); font-weight: 600; }
 
 /* ---------- 12. Steps (install) ---------- */
 .steps { counter-reset: step; }
+/* 横向排布的步骤（用于「社区插件中心安装」这类整宽卡片）：<1024px 仍纵向堆叠 */
+.steps--row { display: grid; gap: 1.25rem; }
+@media (min-width: 1024px) {
+    .steps--row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .steps--row .step { margin-bottom: 0; }
+}
 .step { display: flex; gap: 1rem; margin-bottom: 1.25rem; }
 .step:last-child { margin-bottom: 0; }
 .step__dot {
