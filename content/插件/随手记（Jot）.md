@@ -1,6 +1,7 @@
 ---
 title:
 aliases:
+  - Jot
 description:
 publish: "true"
 enableToc: "true"

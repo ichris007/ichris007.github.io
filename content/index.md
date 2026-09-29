@@ -33,7 +33,7 @@ permalink:
     <div class="description">将猎头经验转化为可复用的人才管理系统</div>
   </a>
   
-  <a href="/插件与脚本/插件与脚本" class="grid-item" target="_blank" rel="noopener noreferrer">
+  <a href="/General/插件与脚本" class="grid-item" target="_blank" rel="noopener noreferrer">
     <div class="icon">🔧</div>
     <div class="title">插件与脚本</div>
     <div class="description">科叔开发与优化的 Obsidian 插件、脚本与工作流方法</div>
