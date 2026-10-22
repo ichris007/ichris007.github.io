@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://ichris007.github.io/obsidian-taskflow/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
+    <image:image>
+      <image:loc>https://ichris007.github.io/obsidian-taskflow/image/tf_full.webp</image:loc>
+      <image:title>TaskFlow 行动空间界面</image:title>
+      <image:caption>TaskFlow 行动空间：轻量、灵活、为行动而生的任务前端</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ichris007.github.io/obsidian-taskflow/image/split_full_cn.png</image:loc>
+      <image:title>TaskFlow 界面详情</image:title>
+      <image:caption>TaskFlow 界面详情：行动空间、上下文分组与任务列表</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ichris007.github.io/obsidian-taskflow/image/tf-GTD.webp</image:loc>
+      <image:title>TaskFlow GTD 上下文视图</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ichris007.github.io/obsidian-taskflow/image/tf_time.webp</image:loc>
+      <image:title>TaskFlow 时间上下文视图</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ichris007.github.io/obsidian-taskflow/image/tf_tag.webp</image:loc>
+      <image:title>TaskFlow 标签与场景上下文视图</image:title>
+    </image:image>
+
+    <video:video>
+      <video:thumbnail_loc>https://ichris007.github.io/obsidian-taskflow/image/tf_full.webp</video:thumbnail_loc>
+      <video:title>TaskFlow 插件功能演示</video:title>
+      <video:description>TaskFlow 行动空间实际操作演示：用时间、GTD、场景三个上下文切换快速定位下一步行动。</video:description>
+      <video:content_loc>https://ichris007.github.io/obsidian-taskflow/image/taskflow_video.mp4</video:content_loc>
+      <video:duration>343</video:duration>
+    </video:video>
+  </url>
+</urlset>

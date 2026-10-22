@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# 图片与视频允许被抓取，便于搜索结果展示缩略图
+Allow: /image/
+
+Sitemap: https://ichris007.github.io/obsidian-taskflow/sitemap.xml

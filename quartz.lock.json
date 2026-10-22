@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "plugins": {
+    "hreflang": {
+      "source": "./hreflang",
+      "resolved": "/Users/chris/Documents/GitHub/Lifein.vip/hreflang",
+      "commit": "local",
+      "installedAt": "2026-10-22T04:45:26.495Z"
+    }
+  }
+}

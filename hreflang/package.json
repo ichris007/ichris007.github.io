@@ -1,0 +1,19 @@
+{
+  "name": "hreflang",
+  "version": "1.0.0",
+  "description": "Injects hreflang alternate links into <head> for the bilingual (zh/en) site",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "quartz": {
+    "name": "hreflang",
+    "displayName": "Hreflang Links",
+    "category": "transformer",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 95,
+    "defaultEnabled": true,
+    "defaultOptions": {}
+  }
+}

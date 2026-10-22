@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="09cKu6uIdwmv5U4U3D9Amr">
+<head data-page-node-id="f7YKr8Jhhnblf0mMoL11ML">
+  <meta charset="UTF-8" data-page-node-id="xbu2TRiB3lAIzN3GHrd4IL" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="HkGmyVpSlom8cKdgjFe1Uz" />
+  <title>AI 发展史图谱 (1900–2026)：人工智能人物·技术·事件知识图谱</title>
+  <meta name="description" content="交互式 AI 发展史知识图谱，梳理 1900–2026 年从图灵、符号主义、神经网络到深度学习、Transformer、大语言模型与 AI Agent 的关键人物、技术与历史事件。" />
+  <meta name="keywords" content="人工智能,AI发展史,知识图谱,深度学习,Transformer,大模型,图灵,神经网络,机器学习,AI Agent,符号主义" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI 发展史图谱 (1900–2026)" />
+  <meta property="og:description" content="交互式 AI 发展史知识图谱：从图灵、符号主义到深度学习、Transformer、大语言模型与 AI Agent 的关键人物·技术·事件。" />
+  <meta property="og:image" content="og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI 发展史图谱 (1900–2026)" />
+  <meta name="twitter:description" content="交互式 AI 发展史知识图谱，梳理 1900–2026 年人工智能关键人物、技术与事件。" />
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --panel: #ffffff;
+      --ink: #1f2937;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --accent: #3b82f6;
+      /* --- 扩展：控件表面 / 输入区 / 图谱底色 / 文本辅助 --- */
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --field-bg: #f8fafc;
+      --chip-bg: #eff6ff;
+      --hover-bg: rgba(0,0,0,0.06);
+      --graph-bg-1: #ffffff;
+      --graph-bg-2: #f8fafc;
+      --label-fill: #334155;
+      --label-stroke: #ffffff;
+      --tick: #94a3b8;
+      --tt-bg: #ffffff;
+      --shadow: 0 10px 30px rgba(15,23,42,.15);
+      --img-border: rgba(0,0,0,0.12);
+      /* 关键：告诉浏览器按本主题渲染原生 UI（滚动条/表单控件），
+         否则会跟随「系统偏好」——系统为深色时浅色页会出现黑滚动条 */
+      --card-shadow: 0 1px 2px rgba(15,23,42,.05), 0 2px 8px rgba(15,23,42,.04);
+      color-scheme: light;
+      --scroll-track: transparent;
+      --scroll-thumb: #cbd5e1;
+      --scroll-thumb-hover: #94a3b8;
+    }
+    /* ------------------------- 深色主题 ------------------------- */
+    [data-theme="dark"] {
+      --bg: #0b1220;
+      --panel: #111827;
+      --ink: #e5e7eb;
+      --muted: #94a3b8;
+      --line: #1f2937;
+      --accent: #60a5fa;
+      --surface: #1e293b;
+      --surface-2: #0f172a;
+      --field-bg: #0f172a;
+      --chip-bg: rgba(96,165,250,0.16);
+      --hover-bg: rgba(255,255,255,0.08);
+      --graph-bg-1: #111827;
+      --graph-bg-2: #0b1220;
+      --label-fill: #cbd5e1;
+      --label-stroke: #0b1220;
+      --tick: #64748b;
+      --tt-bg: #111827;
+      --shadow: 0 10px 30px rgba(0,0,0,.55);
+      --img-border: rgba(255,255,255,0.14);
+      --card-shadow: 0 1px 2px rgba(0,0,0,.40), 0 2px 10px rgba(0,0,0,.28);
+      color-scheme: dark;
+      --scroll-track: transparent;
+      --scroll-thumb: #334155;
+      --scroll-thumb-hover: #475569;
+    }
+    /* 主题切换时的柔和过渡（不影响图谱交互） */
+    body, header, aside, .btn, .ver-btn, .layer-btn, #search, #search::placeholder, #tooltip, .hint, .about {
+      transition: background-color .22s ease, color .22s ease, border-color .22s ease;
+    }
+
+    /* ------------------------- 滚动条跟随主题 ------------------------- */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--scroll-track); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--scroll-thumb); border-radius: 4px;
+      border: 2px solid transparent; background-clip: content-box;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--scroll-thumb-hover); background-clip: content-box; }
+    ::-webkit-scrollbar-corner { background: var(--scroll-track); }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg); color: var(--ink);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+
+    /* ---------- 顶部栏 ---------- */
+    header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 12px 20px; background: var(--panel);
+      border-bottom: 1px solid var(--line); flex: 0 0 auto;
+    }
+    header h1 { font-size: 18px; margin: 0; font-weight: 700; white-space: nowrap; }
+    header h1 small { font-weight: 400; color: var(--muted); font-size: 12px; }
+    .search-wrap { position: relative; margin-left: auto; }
+    #search {
+      width: 240px; padding: 8px 30px 8px 12px; border: 1px solid var(--line);
+      border-radius: 8px; font-size: 13px; outline: none; background: var(--field-bg);
+      color: var(--ink);
+    }
+    #search::placeholder { color: var(--muted); opacity: 1; }
+    .btn-clear {
+      position: absolute; top: 50%; right: 8px; transform: translateY(-50%);
+      border: none; background: transparent; color: var(--muted);
+      font-size: 14px; line-height: 1; cursor: pointer; padding: 2px 5px; border-radius: 4px;
+    }
+    .btn-clear:hover { color: var(--ink); background: var(--hover-bg); }
+    #search:focus { border-color: var(--accent); background: var(--surface); }
+    .btn {
+      padding: 8px 14px; border: 1px solid var(--line); border-radius: 8px;
+      background: var(--surface); color: var(--ink); font-size: 13px; cursor: pointer;
+      transition: all .15s; white-space: nowrap;
+    }
+    .btn:hover { border-color: var(--accent); color: var(--accent); }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.primary:hover { filter: brightness(1.05); color: #fff; }
+    .btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.active:hover { color: #fff; }
+
+    /* ---------- 版本切换 ---------- */
+    .version-switch { display: flex; gap: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .ver-btn {
+      padding: 8px 14px; border: none; background: var(--surface); color: var(--muted);
+      font-size: 13px; cursor: pointer; transition: all .15s; white-space: nowrap;
+    }
+    .ver-btn + .ver-btn { border-left: 1px solid var(--line); }
+    .ver-btn:hover { color: var(--accent); }
+    .ver-btn.active { background: var(--accent); color: #fff; font-weight: 600; }
+
+    /* ---------- 主体 ---------- */
+    .main { flex: 1 1 auto; display: flex; min-height: 0; }
+    aside {
+      width: 252px; flex: 0 0 auto; background: var(--surface-2);
+      border-right: 1px solid var(--line); padding: 13px; overflow-y: auto;
+    }
+    aside h3 {
+      font-size: 12px; text-transform: uppercase; letter-spacing: .05em;
+      color: var(--muted); margin: 0 0 10px;
+    }
+    /* 卡片风格容器 */
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 12px; padding: 12px 12px 13px; margin-bottom: 11px;
+      box-shadow: var(--card-shadow);
+    }
+    .card:last-child { margin-bottom: 0; }
+    .layer-buttons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+    .layer-btn {
+      display: flex; align-items: center; gap: 6px; padding: 7px 8px; min-width: 0;
+      border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2);
+      font-size: 12.5px; cursor: pointer; color: var(--ink); text-align: left;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      transition: all .15s;
+    }
+    .layer-btn:hover { border-color: var(--accent); }
+    .layer-btn.active {
+      border-color: var(--accent); background: var(--chip-bg); font-weight: 600;
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+    .layer-swatch { width: 12px; height: 12px; border-radius: 4px; flex: 0 0 auto; }
+    .layer-all { margin-top: 9px; width: 100%; }
+    #legend {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px 6px; align-content: start;
+    }
+    #legend h3 { grid-column: 1 / -1; }
+    .legend-row {
+      display: flex; align-items: center; gap: 6px; padding: 2px 0;
+      font-size: 12.5px; min-width: 0; white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
+    }
+    .legend-dot {
+      width: 20px; height: 20px; border-radius: 6px; display: inline-flex;
+      align-items: center; justify-content: center; font-size: 12px; color: #fff;
+    }
+    .hint { margin: 0; font-size: 11px; color: var(--muted); line-height: 1.65; }
+      /* ---------- 关于制作者 ---------- */
+      .about { margin: 0; }
+      .about-name { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0 0 3px; }
+      .about-wechat { font-size: 12px; font-weight: 400; color: var(--muted); margin: 0 0 9px; }
+      .about-text { font-size: 11.5px; color: var(--muted); line-height: 1.65; margin: 0 0 8px; }
+      .about-text:last-child { margin-bottom: 0; }
+      .about-text a { color: var(--accent); text-decoration: none; }
+      .about-text a:hover { text-decoration: underline; }
+
+      /* ---------- 可折叠卡片（交互提示 / 关于这张图） ---------- */
+      details.card { cursor: default; }
+      details.card > summary {
+        list-style: none; cursor: pointer; user-select: none;
+        font-size: 12px; text-transform: uppercase; letter-spacing: .05em;
+        color: var(--muted); font-weight: 700;
+      }
+      details.card > summary::-webkit-details-marker { display: none; }
+      details.card > summary::before { content: "▸ "; color: var(--muted); }
+      details.card[open] > summary::before { content: "▾ "; }
+      details.card > summary .summary-hint {
+        font-weight: 400; text-transform: none; letter-spacing: 0;
+        font-size: 10px; opacity: .65; margin-left: 2px;
+      }
+      .seo-intro h2 { font-size: 13px; margin: 8px 0 6px; color: var(--ink); }
+      .seo-intro p { font-size: 11.5px; color: var(--muted); line-height: 1.65; margin: 0; }
+      .seo-intro .seo-note { font-size: 10.5px; color: var(--muted); opacity: .82; margin-top: 9px; }
+      /* 无 JS 时的 SEO 实体清单兜底（正常浏览器不渲染，爬虫必读） */
+      .seo-entities { padding: 16px; font-family: sans-serif; max-width: 900px; margin: 0 auto; }
+      .seo-entities h2 { font-size: 16px; color: #111; }
+      .seo-entities ul { columns: 2; -webkit-columns: 2; -moz-columns: 2; }
+      .seo-entities li { font-size: 12px; color: #333; margin: 2px 0; break-inside: avoid; }
+
+    #graph { flex: 1 1 auto; position: relative; background:
+      radial-gradient(circle at 50% 40%, var(--graph-bg-1), var(--graph-bg-2)); min-width: 0; }
+    .graph-svg { display: block; }
+
+    /* ---------- 节点 / 连线 文本 ---------- */
+    .node-label { fill: var(--label-fill); font-weight: 600; pointer-events: none; paint-order: stroke;
+      stroke: var(--label-stroke); stroke-width: 3px; stroke-linejoin: round; }
+    .node-emoji { pointer-events: none; }
+    .era-label { font-size: 13px; font-weight: 700; letter-spacing: .04em; pointer-events: none;
+      paint-order: stroke; stroke: var(--label-stroke); stroke-width: 3px; stroke-linejoin: round; }
+    .year-tick { fill: var(--tick); font-size: 11px; }
+    .playhead { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 4; opacity: .65; pointer-events: none; }
+
+    /* ---------- Tooltip ---------- */
+    #tooltip {
+      position: fixed; display: none; max-width: 300px; z-index: 50;
+      background: var(--tt-bg); border: 1px solid var(--line); border-left: 4px solid var(--accent);
+      border-radius: 10px; padding: 12px 14px; box-shadow: var(--shadow);
+      font-size: 13px; line-height: 1.5; pointer-events: auto;
+    }
+    .tt-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .tt-emoji { font-size: 18px; }
+    .tt-logo { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; border: 1px solid var(--img-border); background: var(--surface); }
+    .tt-logo-org { border-radius: 6px; object-fit: contain; }
+    .tt-title { font-weight: 700; font-size: 14px; }
+    .tt-type { margin-left: auto; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 999px; }
+    .tt-meta { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    .tt-desc { color: var(--label-fill); }
+    .tt-link { margin-top: 8px; }
+    .tt-link a { color: var(--accent); text-decoration: none; font-size: 12px; }
+    .tt-link a:hover { text-decoration: underline; }
+
+    /* ---------- 底部时间轴（覆盖在图谱内，与图谱共用 xScale 对齐） ---------- */
+    #timeline {
+      position: absolute; left: 60px; right: 60px;   /* = margin.left / margin.right，与图谱映射一致 */
+      bottom: 16px; height: 52px; pointer-events: none;  /* 空白处事件穿透到图谱 */
+    }
+    #yearLabel { position: absolute; top: -4px; left: 0; font-weight: 700; font-size: 15px; color: var(--accent); }
+    .footer-note { position: absolute; bottom: -2px; right: 0; font-size: 11px; color: var(--muted); white-space: nowrap; }
+    #yearSlider {
+      width: 100%; height: 6px; -webkit-appearance: none; appearance: none; margin: 0;
+      background: linear-gradient(90deg,#f59e0b,#0d9488,#3b82f6,#8b5cf6,#f43f5e);
+      border-radius: 999px; outline: none; pointer-events: auto;
+    }
+    #yearSlider::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px;
+      border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+    #yearSlider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%;
+      background: var(--surface); border: 3px solid var(--accent); cursor: pointer; }
+    #thumbYear {
+      position: absolute; top: -26px; transform: translateX(-50%);
+      background: var(--accent); color: #fff; font-size: 11px; font-weight: 600;
+      padding: 2px 7px; border-radius: 6px; white-space: nowrap; pointer-events: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    }
+    #thumbYear::after { content: ""; position: absolute; left: 50%; top: 100%; transform: translateX(-50%);
+      border: 5px solid transparent; border-top-color: var(--accent); }
+  </style>
+  <script>
+    /* 首屏防闪：内容绘制前先定好主题（localStorage 优先，其次系统偏好） */
+    (function () {
+      try {
+        var t = localStorage.getItem("ai_graph_theme");
+        if (!t) {
+          t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <!--SEO_JSONLD_START-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "AI 发展史知识图谱 (1900–2026)",
+  "alternateName": "AI History Knowledge Graph",
+  "description": "交互式人工智能发展史知识图谱，梳理 1900–2026 年从图灵、符号主义、神经网络到深度学习、Transformer、大语言模型与 AI Agent 的关键人物、技术与历史事件。",
+  "keywords": "人工智能,AI发展史,知识图谱,深度学习,Transformer,大模型,图灵,神经网络,机器学习,AI Agent,符号主义",
+  "creator": {
+    "@type": "Person",
+    "name": "猎人科叔",
+    "url": "https://lifein.vip"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "hasPart": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Person",
+          "name": "Alan Turing",
+          "description": "1912年 · 奠基 · 英国数学家，提出图灵机与图灵测试，被视为人工智能与计算机科学的奠基人。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Person",
+          "name": "John McCarthy",
+          "description": "1927年 · 奠基 · 提出『人工智能』一词，LISP 语言发明者，达特茅斯会议发起者。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Person",
+          "name": "Marvin Minsky",
+          "description": "1927年 · 奠基 · AI 先驱，框架理论与感知机批判者，与 Papert 合著《Perceptrons》。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Person",
+          "name": "Frank Rosenblatt",
+          "description": "1928年 · 奠基 · 心理学家，1957 年提出感知机 (Perceptron) 模型。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Person",
+          "name": "Allen Newell",
+          "description": "1927年 · 奠基 · 与 Simon 共同开发逻辑理论家 (Logic Theorist) 与通用问题求解器。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "Person",
+          "name": "Herbert Simon",
+          "description": "1916年 · 奠基 · 诺贝尔经济学奖得主，符号主义 AI 与专家系统的早期推动者。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "Person",
+          "name": "Claude Shannon",
+          "description": "1916年 · 奠基 · 信息论之父，为机器学习中的学习与熵提供了理论基础。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "Person",
+          "name": "Arthur Samuel",
+          "description": "1906年 · 奠基 · 1959 年提出『机器学习』概念，开发跳棋自学程序。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "Person",
+          "name": "Seymour Papert",
+          "description": "1928年 · 奠基 · 与 Minsky 合著《Perceptrons》，指出单层感知机的局限。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": "Person",
+          "name": "Joseph Weizenbaum",
+          "description": "1923年 · 奠基 · MIT 教授，1966 年开发聊天程序 ELIZA。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 11,
+        "item": {
+          "@type": "Person",
+          "name": "Edward Feigenbaum",
+          "description": "1936年 · 专家系统 · 『专家系统之父』，推动知识工程与 DENDRAL/MYCIN。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 12,
+        "item": {
+          "@type": "Person",
+          "name": "Alain Colmerauer",
+          "description": "1938年 · 专家系统 · Prolog 逻辑编程语言的主要设计者。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 13,
+        "item": {
+          "@type": "Person",
+          "name": "Geoffrey Hinton",
+          "description": "1947年 · 深度学习 · 深度学习教父，反向传播推广者，2024 年诺贝尔物理学奖得主。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 14,
+        "item": {
+          "@type": "Person",
+          "name": "Yann LeCun",
+          "description": "1960年 · 深度学习 · 卷积神经网络与 LeNet 先驱，Meta 首席 AI 科学家。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 15,
+        "item": {
+          "@type": "Person",
+          "name": "Yoshua Bengio",
+          "description": "1964年 · 深度学习 · 深度学习三巨头之一，专注表示学习与序列建模。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 16,
+        "item": {
+          "@type": "Person",
+          "name": "David Rumelhart",
+          "description": "1942年 · 联结主义 · 1986 年与 Hinton、Williams 重新推广反向传播算法。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 17,
+        "item": {
+          "@type": "Person",
+          "name": "Ronald Williams",
+          "description": "1952年 · 联结主义 · 反向传播经典论文 (1986) 共同作者。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 18,
+        "item": {
+          "@type": "Person",
+          "name": "John Hopfield",
+          "description": "1933年 · 联结主义 · 提出 Hopfield 网络，2024 年诺贝尔物理学奖得主。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 19,
+        "item": {
+          "@type": "Person",
+          "name": "Jürgen Schmidhuber",
+          "description": "1963年 · 深度学习 · LSTM 共同提出者，长时序学习先驱。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 20,
+        "item": {
+          "@type": "Person",
+          "name": "Sepp Hochreiter",
+          "description": "1967年 · 深度学习 · LSTM 共同提出者，研究梯度消失问题。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 21,
+        "item": {
+          "@type": "Person",
+          "name": "Vladimir Vapnik",
+          "description": "1936年 · 统计学习 · 统计学习理论奠基人，SVM 共同提出者。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 22,
+        "item": {
+          "@type": "Person",
+          "name": "Corinna Cortes",
+          "description": "1962年 · 统计学习 · 支持向量机 (SVM) 共同提出者。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 23,
+        "item": {
+          "@type": "Person",
+          "name": "Gerald Tesauro",
+          "description": "1959年 · 强化学习 · 开发 TD-Gammon，将强化学习用于西洋双陆棋。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 24,
+        "item": {
+          "@type": "Person",
+          "name": "Jeffrey Elman",
+          "description": "1950年 · 联结主义 · 1990 年提出 Elman 网络，早期循环神经网络。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 25,
+        "item": {
+          "@type": "Person",
+          "name": "Fei-Fei Li",
+          "description": "1976年 · 大数据 · ImageNet 发起者，斯坦福 AI 实验室负责人。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 26,
+        "item": {
+          "@type": "Person",
+          "name": "Jia Deng",
+          "description": "1972年 · 大数据 · ImageNet 主要构建者之一。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 27,
+        "item": {
+          "@type": "Person",
+          "name": "Alex Krizhevsky",
+          "description": "1986年 · 深度学习 · AlexNet 第一作者，2012 年引爆深度学习。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 28,
+        "item": {
+          "@type": "Person",
+          "name": "Ilya Sutskever",
+          "description": "1986年 · 深度学习 · AlexNet 共同作者，OpenAI 首席科学家。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 29,
+        "item": {
+          "@type": "Person",
+          "name": "Tomáš Mikolov",
+          "description": "1980年 · 深度学习 · Word2Vec 主要作者，词向量表示先驱。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 30,
+        "item": {
+          "@type": "Person",
+          "name": "Ian Goodfellow",
+          "description": "1987年 · 深度学习 · 生成对抗网络 (GAN) 提出者。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 31,
+        "item": {
+          "@type": "Person",
+          "name": "Kaiming He",
+          "description": "1984年 · 深度学习 · ResNet 第一作者，深度残差学习。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 32,
+        "item": {
+          "@type": "Person",
+          "name": "Ashish Vaswani",
+          "description": "1986年 · 大模型 · 《Attention Is All You Need》第一作者，Transformer 提出者。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 33,
+        "item": {
+          "@type": "Person",
+          "name": "Demis Hassabis",
+          "description": "1976年 · 大模型 · DeepMind 创始人，AlphaGo/AlphaFold 领导者，2024 诺贝尔化学奖。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 34,
+        "item": {
+          "@type": "Person",
+          "name": "David Silver",
+          "description": "1972年 · 强化学习 · DeepMind 强化学习负责人，AlphaGo 核心。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 35,
+        "item": {
+          "@type": "Person",
+          "name": "Sam Altman",
+          "description": "1985年 · 大模型 · OpenAI 联合创始人兼 CEO。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 36,
+        "item": {
+          "@type": "Person",
+          "name": "Greg Brockman",
+          "description": "1987年 · 大模型 · OpenAI 联合创始人兼总裁。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 37,
+        "item": {
+          "@type": "Person",
+          "name": "Jensen Huang",
+          "description": "1963年 · 算力 · NVIDIA 创始人兼 CEO，GPU 算力推动者。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 38,
+        "item": {
+          "@type": "Organization",
+          "name": "Dartmouth College",
+          "description": "1769年 · 奠基 · 1956 年举办达特茅斯会议，AI 概念诞生地。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 39,
+        "item": {
+          "@type": "Organization",
+          "name": "MIT",
+          "description": "1861年 · 奠基 · AI 实验室 (CSAIL) 是多代 AI 研究的中心。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 40,
+        "item": {
+          "@type": "Organization",
+          "name": "Stanford",
+          "description": "1885年 · 奠基 · 人工智能实验室 (SAIL)，符号主义与统计学习重镇。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 41,
+        "item": {
+          "@type": "Organization",
+          "name": "CMU",
+          "description": "1900年 · 专家系统 · 卡内基梅隆，专家系统与机器人研究强校。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 42,
+        "item": {
+          "@type": "Organization",
+          "name": "IBM",
+          "description": "1911年 · 专家系统 · 深蓝、Watson 等标志性 AI 系统的缔造者。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 43,
+        "item": {
+          "@type": "Organization",
+          "name": "Google",
+          "description": "1998年 · 大数据 · 搜索引擎巨头，TensorFlow、Transformer、TPU 的摇篮。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 44,
+        "item": {
+          "@type": "Organization",
+          "name": "Google Brain",
+          "description": "2011年 · 深度学习 · Google 深度学习团队，DistBelief/TensorFlow 起源。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 45,
+        "item": {
+          "@type": "Organization",
+          "name": "NVIDIA",
+          "description": "1993年 · 算力 · GPU 与 CUDA 生态，大模型训练算力基石。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 46,
+        "item": {
+          "@type": "Organization",
+          "name": "Microsoft",
+          "description": "1975年 · 大模型 · OpenAI 主要投资方，Azure AI 与 Copilot。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 47,
+        "item": {
+          "@type": "Organization",
+          "name": "Meta / FAIR",
+          "description": "2004年 · 大模型 · Facebook AI Research，PyTorch、LLaMA 来源。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 48,
+        "item": {
+          "@type": "Organization",
+          "name": "OpenAI",
+          "description": "2015年 · 大模型 · 以安全 AGI 为目标的实验室，GPT/ChatGPT 出品方。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 49,
+        "item": {
+          "@type": "Organization",
+          "name": "DeepMind",
+          "description": "2010年 · 大模型 · 强化学习 + 深度学习标杆，AlphaGo、AlphaFold。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 50,
+        "item": {
+          "@type": "Organization",
+          "name": "Anthropic",
+          "description": "2021年 · 大模型 · 由前 OpenAI 成员创立，Claude 模型与 Constitutional AI。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 51,
+        "item": {
+          "@type": "Organization",
+          "name": "DARPA",
+          "description": "1958年 · 奠基 · 美国国防部高级研究计划局，长期资助 AI 研究。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 52,
+        "item": {
+          "@type": "Thing",
+          "name": "符号主义",
+          "description": "1956年 · 奠基 · 以逻辑与符号推理为核心的 AI 范式，早期主流。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 53,
+        "item": {
+          "@type": "Thing",
+          "name": "联结主义",
+          "description": "1943年 · 奠基 · 以人工神经网络模拟智能的范式，深度学习的根基。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 54,
+        "item": {
+          "@type": "Thing",
+          "name": "机器学习",
+          "description": "1959年 · 奠基 · 让系统从数据中自动改进的范式 (Samuel, 1959)。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 55,
+        "item": {
+          "@type": "Thing",
+          "name": "专家系统",
+          "description": "1970年 · 专家系统 · 基于规则的知识系统，70-80 年代 AI 商业热潮核心。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 56,
+        "item": {
+          "@type": "Thing",
+          "name": "神经网络",
+          "description": "1958年 · 联结主义 · 由神经元单元连接构成的可学习模型。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 57,
+        "item": {
+          "@type": "Thing",
+          "name": "深度学习",
+          "description": "2006年 · 深度学习 · 多层神经网络表示学习，2010 后全面领先。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 58,
+        "item": {
+          "@type": "Thing",
+          "name": "生成式 AI",
+          "description": "2014年 · 大模型 · 生成文本/图像/视频等内容的人工智能方向。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 59,
+        "item": {
+          "@type": "Thing",
+          "name": "大语言模型 (LLM)",
+          "description": "2018年 · 大模型 · 基于 Transformer 的大规模预训练语言模型。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 60,
+        "item": {
+          "@type": "Thing",
+          "name": "Scaling Law",
+          "description": "2020年 · 大模型 · 模型性能随参数量/数据/算力幂律提升的经验规律。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 61,
+        "item": {
+          "@type": "Thing",
+          "name": "强化学习",
+          "description": "1988年 · 强化学习 · 通过奖励信号学习策略的范式。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 62,
+        "item": {
+          "@type": "Thing",
+          "name": "通用人工智能 (AGI)",
+          "description": "2015年 · 大模型 · 具备人类水平通用智能的目标。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 63,
+        "item": {
+          "@type": "Thing",
+          "name": "AI 安全 / 对齐",
+          "description": "2018年 · 大模型 · 使 AI 系统目标与人类意图一致的研究方向。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 64,
+        "item": {
+          "@type": "Thing",
+          "name": "AI 智能体",
+          "description": "2023年 · 大模型 · 能自主感知、规划、使用工具完成任务的 AI 系统。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 65,
+        "item": {
+          "@type": "Thing",
+          "name": "计算机视觉 (CV)",
+          "description": "1966年 · 大数据 · 让机器理解图像与视频的领域。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 66,
+        "item": {
+          "@type": "Thing",
+          "name": "自然语言处理 (NLP)",
+          "description": "1950年 · 大模型 · 让机器理解、生成人类语言的领域。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 67,
+        "item": {
+          "@type": "Thing",
+          "name": "强化学习领域",
+          "description": "1988年 · 强化学习 · 智能体与环境交互、最大化累积奖励的研究领域。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 68,
+        "item": {
+          "@type": "Thing",
+          "name": "语音识别",
+          "description": "1952年 · 大数据 · 将语音信号转为文本的领域。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 69,
+        "item": {
+          "@type": "Thing",
+          "name": "机器人学",
+          "description": "1954年 · 强化学习 · 感知-决策-执行一体化的实体智能领域。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 70,
+        "item": {
+          "@type": "Thing",
+          "name": "感知机 (Perceptron)",
+          "description": "1957年 · 奠基 · 单层线性分类器，神经网络思想的起点。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 71,
+        "item": {
+          "@type": "Thing",
+          "name": "Logic Theorist",
+          "description": "1956年 · 奠基 · 首个 AI 程序，自动证明数学定理。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 72,
+        "item": {
+          "@type": "Thing",
+          "name": "ELIZA",
+          "description": "1966年 · 奠基 · 基于模式匹配的聊天程序，拟人对话的雏形。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 73,
+        "item": {
+          "@type": "Thing",
+          "name": "DENDRAL",
+          "description": "1965年 · 专家系统 · 首个专家系统，推断分子化学结构。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 74,
+        "item": {
+          "@type": "Thing",
+          "name": "MYCIN",
+          "description": "1976年 · 专家系统 · 基于规则的医学诊断专家系统。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 75,
+        "item": {
+          "@type": "Thing",
+          "name": "Prolog",
+          "description": "1972年 · 专家系统 · 逻辑编程语言，符号主义 AI 工具。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 76,
+        "item": {
+          "@type": "Thing",
+          "name": "反向传播 (Backprop)",
+          "description": "1986年 · 联结主义 · 通过链式法则高效计算梯度并更新网络权重。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 77,
+        "item": {
+          "@type": "Thing",
+          "name": "支持向量机 (SVM)",
+          "description": "1995年 · 统计学习 · 最大间隔分类器，90-2000 年代主导算法。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 78,
+        "item": {
+          "@type": "Thing",
+          "name": "LSTM",
+          "description": "1997年 · 深度学习 · 带门控的循环单元，缓解长程梯度消失。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 79,
+        "item": {
+          "@type": "Thing",
+          "name": "TD-Gammon",
+          "description": "1992年 · 强化学习 · 用 TD 学习自我对弈的双陆棋程序。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 80,
+        "item": {
+          "@type": "Thing",
+          "name": "Word2Vec",
+          "description": "2013年 · 深度学习 · 高效学习词向量的模型 (Skip-gram/CBOW)。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 81,
+        "item": {
+          "@type": "Thing",
+          "name": "生成对抗网络 (GAN)",
+          "description": "2014年 · 深度学习 · 生成器与判别器对抗训练的生成模型。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 82,
+        "item": {
+          "@type": "Thing",
+          "name": "扩散模型 (Diffusion)",
+          "description": "2020年 · 大模型 · 通过去噪过程生成数据的代表性方法 (DDPM)。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 83,
+        "item": {
+          "@type": "Thing",
+          "name": "注意力机制 (Attention)",
+          "description": "2014年 · 大模型 · Bahdanau 等提出，让模型聚焦相关输入位置。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 84,
+        "item": {
+          "@type": "Thing",
+          "name": "Q-Learning",
+          "description": "1989年 · 强化学习 · 无模型价值的强化学习时序差分算法。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 85,
+        "item": {
+          "@type": "Thing",
+          "name": "卷积神经网络 (CNN)",
+          "description": "1998年 · 深度学习 · 用卷积提取局部特征，视觉任务主力架构。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 86,
+        "item": {
+          "@type": "Thing",
+          "name": "LeNet",
+          "description": "1989年 · 联结主义 · LeCun 等的早期 CNN，用于手写数字识别。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 87,
+        "item": {
+          "@type": "Thing",
+          "name": "Hopfield 网络",
+          "description": "1982年 · 联结主义 · 可存储记忆的循环神经网络模型。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 88,
+        "item": {
+          "@type": "Thing",
+          "name": "玻尔兹曼机",
+          "description": "1985年 · 联结主义 · 基于能量模型的随机神经网络。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 89,
+        "item": {
+          "@type": "Thing",
+          "name": "循环神经网络 (RNN)",
+          "description": "1990年 · 联结主义 · 处理序列数据的网络，含隐藏状态传递。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 90,
+        "item": {
+          "@type": "Thing",
+          "name": "AlexNet",
+          "description": "2012年 · 深度学习 · 深度 CNN，ILSVRC 2012 夺冠，引爆深度学习。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 91,
+        "item": {
+          "@type": "Thing",
+          "name": "ResNet",
+          "description": "2015年 · 深度学习 · 残差连接使百层以上网络可训练。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 92,
+        "item": {
+          "@type": "Thing",
+          "name": "Transformer",
+          "description": "2017年 · 大模型 · 基于自注意力的架构，取代 RNN 成为基座。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 93,
+        "item": {
+          "@type": "Thing",
+          "name": "BERT",
+          "description": "2018年 · 大模型 · 双向编码器预训练，刷新 NLP 多项基准。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 94,
+        "item": {
+          "@type": "Thing",
+          "name": "GPT-1",
+          "description": "2018年 · 大模型 · OpenAI 首个生成式预训练 Transformer。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 95,
+        "item": {
+          "@type": "Thing",
+          "name": "GPT-2",
+          "description": "2019年 · 大模型 · 15 亿参数，展示规模化生成能力。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 96,
+        "item": {
+          "@type": "Thing",
+          "name": "GPT-3",
+          "description": "2020年 · 大模型 · 1750 亿参数，开启少样本/上下文学习。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 97,
+        "item": {
+          "@type": "Thing",
+          "name": "GPT-4",
+          "description": "2023年 · 大模型 · 多模态大模型，推理能力大幅提升。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 98,
+        "item": {
+          "@type": "Thing",
+          "name": "LLaMA",
+          "description": "2023年 · 大模型 · Meta 开源大模型系列，推动开放生态。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 99,
+        "item": {
+          "@type": "Thing",
+          "name": "Stable Diffusion",
+          "description": "2022年 · 大模型 · 潜空间扩散模型，开源文生图标杆。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 100,
+        "item": {
+          "@type": "Thing",
+          "name": "Sora",
+          "description": "2024年 · 大模型 · OpenAI 文生视频模型，理解时空一致性的世界模型。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 101,
+        "item": {
+          "@type": "Thing",
+          "name": "AlphaFold",
+          "description": "2020年 · 大模型 · 基于深度学习的蛋白质结构预测系统。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 102,
+        "item": {
+          "@type": "Thing",
+          "name": "AlphaGo",
+          "description": "2016年 · 强化学习 · 结合深度学习与蒙特卡洛树搜索的围棋程序。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 103,
+        "item": {
+          "@type": "Thing",
+          "name": "Gemini",
+          "description": "2023年 · 大模型 · Google 原生多模态大模型系列。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 104,
+        "item": {
+          "@type": "Thing",
+          "name": "Claude",
+          "description": "2023年 · 大模型 · Anthropic 大模型，强调安全与长上下文。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 105,
+        "item": {
+          "@type": "Thing",
+          "name": "DeepSeek",
+          "description": "2023年 · 大模型 · 高性价比开源推理模型，打破算力垄断叙事。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 106,
+        "item": {
+          "@type": "Thing",
+          "name": "PyTorch",
+          "description": "2016年 · 深度学习 · 主流深度学习框架，动态图著称。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 107,
+        "item": {
+          "@type": "Thing",
+          "name": "TensorFlow",
+          "description": "2015年 · 深度学习 · Google 开源的工业级深度学习框架。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 108,
+        "item": {
+          "@type": "Thing",
+          "name": "Mark I 感知机",
+          "description": "1958年 · 奠基 · Rosenblatt 建造的物理感知机硬件。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 109,
+        "item": {
+          "@type": "Thing",
+          "name": "LISP 机器",
+          "description": "1970年 · 专家系统 · 为运行 LISP 与专家系统定制的硬件。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 110,
+        "item": {
+          "@type": "Thing",
+          "name": "GPU 通用计算",
+          "description": "2006年 · 大数据 · CUDA 让 GPU 用于大规模并行 AI 训练。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 111,
+        "item": {
+          "@type": "Thing",
+          "name": "TPU",
+          "description": "2015年 · 深度学习 · Google 专为神经网络设计的张量处理单元。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 112,
+        "item": {
+          "@type": "Thing",
+          "name": "NVIDIA H100",
+          "description": "2022年 · 大模型 · Hopper 架构 GPU，大模型训练主力算力。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 113,
+        "item": {
+          "@type": "Article",
+          "name": "Perceptrons (书)",
+          "description": "1969年 · 奠基 · Minsky & Papert 著，揭示单层感知机局限，引发寒冬。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 114,
+        "item": {
+          "@type": "Article",
+          "name": "ImageNet (CVPR'09)",
+          "description": "2009年 · 大数据 · 大规模标注图像数据库，催生视觉革命。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 115,
+        "item": {
+          "@type": "Article",
+          "name": "AlexNet 论文",
+          "description": "2012年 · 深度学习 · 《ImageNet Classification with Deep CNN》，深度学习转折点。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 116,
+        "item": {
+          "@type": "Article",
+          "name": "Word2Vec 论文",
+          "description": "2013年 · 深度学习 · Efficient Estimation of Word Representations。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 117,
+        "item": {
+          "@type": "Article",
+          "name": "GAN 论文",
+          "description": "2014年 · 深度学习 · Generative Adversarial Nets (NIPS 2014)。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 118,
+        "item": {
+          "@type": "Article",
+          "name": "ResNet 论文",
+          "description": "2015年 · 深度学习 · Deep Residual Learning for Image Recognition。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 119,
+        "item": {
+          "@type": "Article",
+          "name": "Deep Learning (Nature)",
+          "description": "2015年 · 深度学习 · Hinton, LeCun, Bengio 综述，标志深度学习主流化。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 120,
+        "item": {
+          "@type": "Article",
+          "name": "Attention Is All You Need",
+          "description": "2017年 · 大模型 · 提出 Transformer，奠定大模型时代基石。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 121,
+        "item": {
+          "@type": "Article",
+          "name": "BERT 论文",
+          "description": "2018年 · 大模型 · Pre-training of Deep Bidirectional Transformers。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 122,
+        "item": {
+          "@type": "Article",
+          "name": "GPT-3 论文",
+          "description": "2020年 · 大模型 · Language Models are Few-Shot Learners。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 123,
+        "item": {
+          "@type": "Article",
+          "name": "AlphaFold2 论文",
+          "description": "2021年 · 大模型 · Highly accurate protein structure prediction (Nature)。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 124,
+        "item": {
+          "@type": "Event",
+          "name": "图灵测试",
+          "description": "1950年 · 奠基 · Turing 提出以对话判断机器是否智能的思想实验。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 125,
+        "item": {
+          "@type": "Event",
+          "name": "达特茅斯会议",
+          "description": "1956年 · 奠基 · McCarthy 等发起，『人工智能』一词正式诞生。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 126,
+        "item": {
+          "@type": "Event",
+          "name": "第一次 AI 寒冬",
+          "description": "1974年 · 专家系统 · 算力与承诺落差导致经费大幅削减。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 127,
+        "item": {
+          "@type": "Event",
+          "name": "第二次 AI 寒冬",
+          "description": "1984年 · 专家系统 · 专家系统商业化失败， Lisp 机器市场崩溃。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 128,
+        "item": {
+          "@type": "Event",
+          "name": "深蓝战胜卡斯帕罗夫",
+          "description": "1997年 · 统计学习 · IBM 深蓝在国际象棋中击败世界冠军。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 129,
+        "item": {
+          "@type": "Event",
+          "name": "AlexNet 夺冠 ILSVRC",
+          "description": "2012年 · 深度学习 · 深度学习在 ImageNet 竞赛中碾压传统方法。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 130,
+        "item": {
+          "@type": "Event",
+          "name": "AlphaGo 战胜李世石",
+          "description": "2016年 · 强化学习 · DeepMind 程序在围棋中击败人类顶尖棋手。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 131,
+        "item": {
+          "@type": "Event",
+          "name": "Google 收购 DeepMind",
+          "description": "2014年 · 大模型 · Google 以约 5 亿美元收购 DeepMind。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 132,
+        "item": {
+          "@type": "Event",
+          "name": "微软投资 OpenAI",
+          "description": "2019年 · 大模型 · 微软 10 亿美元投资，开启深度合作。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 133,
+        "item": {
+          "@type": "Event",
+          "name": "ChatGPT 发布",
+          "description": "2022年 · 大模型 · 两个月用户破亿，引爆生成式 AI 浪潮。"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 134,
+        "item": {
+          "@type": "Event",
+          "name": "诺奖授予 AI (2024)",
+          "description": "2024年 · 大模型 · Hopfield & Hinton 获物理奖，Hassabis 等获化学奖。"
+        }
+      }
+    ]
+  }
+}
+</script>
+<!--SEO_JSONLD_END-->
+</head>
+<body data-page-node-id="8fhhjhgZ5y4lZ223TvL3K7">
+  <header data-page-node-id="1t9OBceRItRUrNE1FwoaIx">
+    <h1 data-page-node-id="AVlGQ1O7Vq9aAbf05QKZPn">AI 发展史图谱 <small data-page-node-id="E6fX3WFPQqIxyRAPMrKo1L">1900 – 2026 · 知识图谱动态可视化</small></h1>
+    <div class="version-switch" data-page-node-id="verSwitch">
+      <button class="ver-btn active" data-version="core" data-page-node-id="verCore">核心版 134</button>
+      <button class="ver-btn" data-version="full" data-page-node-id="verFull">完整版 323</button>
+    </div>
+    <div class="search-wrap" data-page-node-id="CTNzXfphMfLMJVW7SaSQIH">
+      <input id="search" type="text" placeholder="🔍 搜索节点 (如 Transformer / Hinton)" data-page-node-id="MEFEzzw4rB9KnbN3m4q1uA" />
+      <button id="clearSearch" class="btn-clear" type="button" title="清除搜索" data-page-node-id="clearSearchBtn">✕</button>
+    </div>
+    <button id="playBtn" class="btn primary" data-page-node-id="ZhhNUGzpFQqwTH19NdU9oS">▶ 历史回放</button>
+    <button id="resetBtn" class="btn" data-page-node-id="MuSrzPTuxenDUypqD6GNPh">⤢ 复位视图</button>
+    <button id="alignBtn" class="btn" data-page-node-id="alignBtn">📅 对齐年份</button>
+    <button id="themeBtn" class="btn" title="切换深色 / 浅色模式">🌙 深色</button>
+  </header>
+
+  <div class="main" data-page-node-id="zJ3ZiQV38naxqLgZZUC8w4">
+    <aside data-page-node-id="7dmJtnZ5Kd6q7PANVQ9xtO">
+      <section class="card" data-page-node-id="cardAxis">
+        <h3 data-page-node-id="tsTePFYAHoGFGbMcmpfGpb">脉络线（单击高亮）</h3>
+        <div class="layer-buttons">
+          <button class="layer-btn" data-axis="academic" data-page-node-id="M9gOtAPH6wXOHGhSvqZiur">
+            <span class="layer-swatch" style="background:#a855f7"></span> 学术师承
+          </button>
+          <button class="layer-btn" data-axis="tech" data-page-node-id="0X1Go4o2j7OyeVaZgswCqc">
+            <span class="layer-swatch" style="background:#3b82f6"></span> 技术演进
+          </button>
+          <button class="layer-btn" data-axis="business" data-page-node-id="HVzwW9moW7BWcGAyrAG3N7">
+            <span class="layer-swatch" style="background:#22c55e"></span> 商业资本
+          </button>
+          <button class="layer-btn" data-axis="event" data-page-node-id="CBA8bYUZCQ93dlULG5yUEI">
+            <span class="layer-swatch" style="background:#ea580c"></span> 重大事件
+          </button>
+        </div>
+        <button id="layerAllBtn" class="btn layer-all" data-page-node-id="allbtn">显示全部</button>
+      </section>
+
+      <div id="legend" class="card" data-page-node-id="ZBTRRcF702ZyAUdkdE6NdA">
+        <h3 data-page-node-id="yTD89HlrfRGjyAhZn69zWx">图例 (节点类型)</h3>
+      </div>
+
+      <details class="card" data-page-node-id="cardHint">
+        <summary>交互提示<span class="summary-hint">（点击查看）</span></summary>
+        <div class="hint" data-page-node-id="c5TyjVEx4HibTg7ZapYMG8">
+          · 拖拽节点 / 滚轮缩放 / 拖拽空白处平移<br data-page-node-id="BmIeBSOADKLJHjtkHolyhx">
+          · 单击节点高亮其邻居关系<br data-page-node-id="gpJFG6Uoe4nHlh8reBN74F">
+          · 悬停查看详情；单击某一脉络线=单独高亮该层(再点取消/显示全部)，其余淡化<br data-page-node-id="Fm2Ebn1Tww4iZ7IlwrMf2p">
+          · 拖动底部时间轴或点“历史回放”看演进<br data-page-node-id="alignhint">
+          · 点“对齐年份”把所有节点精确吸附到各自年份列（密集年可能堆叠）
+        </div>
+      </details>
+      <details class="card seo-intro" open data-page-node-id="seoIntro">
+        <summary>关于这张图</summary>
+        <h2>人工智能百年发展史</h2>
+        <p>本图谱梳理 1900 年至 2026 年人工智能的发展历程，从计算理论、控制论与早期机器智能思想，到符号主义、神经网络、机器学习、深度学习、Transformer、大语言模型、生成式人工智能与 AI Agent，串联重要人物、技术、机构与历史事件。</p>
+        <p class="seo-note">（数据由AI整理，难免有错误或遗漏！）</p>
+      </details>
+
+      <section class="card about" data-page-node-id="cardAbout">
+        <h3>制作</h3>
+        <p class="about-name">猎人科叔</p>
+        <p class="about-wechat">微信号：chris_pxk</p>
+        <p class="about-text">• 科技行业人才专家，15年老猎头，互联网/AI/机器人，面试超万人（年薪25w-900w）。</p>
+        <p class="about-text">• 生产力系统专家，专注16年+，打造高效工作和成长体系。<a href="https://lifein.vip" target="_blank" rel="noopener">lifein.vip</a></p>
+        <p class="about-text">• 自媒体全网同名：猎人科叔。</p>
+        <p class="about-text"><strong>帮职场人找准方向，助行动者高效成长。</strong></p>
+      </section>
+
+    </aside>
+
+    <div id="graph" data-page-node-id="R4uYOeKzYVwa8Jwn5o7bUN">
+      <div id="timeline" data-page-node-id="tl">
+        <span id="yearLabel" data-page-node-id="ulAu5ATzBJ9zv8AVHNjKka">2026 年</span>
+        <input id="yearSlider" type="range" data-page-node-id="colmYseHNHDSWTz2aCcXy2" />
+        <span class="footer-note" data-page-node-id="mwiPOPVJSitIaEHw6xUdbT">拖动时间轴：仅显示该年份及以前的节点</span>
+        <span id="thumbYear" data-page-node-id="ty">2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="tooltip" data-page-node-id="AXrFZwI9kapxR5FPKcHhAn"></div>
+
+  <!--SEO_NOSCRIPT_START-->
+<noscript>
+  <div class="seo-entities">
+    <h2>人工智能发展史关键实体（人物 · 技术 · 事件 · 机构）</h2>
+    <ul>
+      <li>Alan Turing（人物 · 1912）— 英国数学家，提出图灵机与图灵测试，被视为人工智能与计算机科学的奠基人。</li>
+      <li>John McCarthy（人物 · 1927）— 提出『人工智能』一词，LISP 语言发明者，达特茅斯会议发起者。</li>
+      <li>Marvin Minsky（人物 · 1927）— AI 先驱，框架理论与感知机批判者，与 Papert 合著《Perceptrons》。</li>
+      <li>Frank Rosenblatt（人物 · 1928）— 心理学家，1957 年提出感知机 (Perceptron) 模型。</li>
+      <li>Allen Newell（人物 · 1927）— 与 Simon 共同开发逻辑理论家 (Logic Theorist) 与通用问题求解器。</li>
+      <li>Herbert Simon（人物 · 1916）— 诺贝尔经济学奖得主，符号主义 AI 与专家系统的早期推动者。</li>
+      <li>Claude Shannon（人物 · 1916）— 信息论之父，为机器学习中的学习与熵提供了理论基础。</li>
+      <li>Arthur Samuel（人物 · 1906）— 1959 年提出『机器学习』概念，开发跳棋自学程序。</li>
+      <li>Seymour Papert（人物 · 1928）— 与 Minsky 合著《Perceptrons》，指出单层感知机的局限。</li>
+      <li>Joseph Weizenbaum（人物 · 1923）— MIT 教授，1966 年开发聊天程序 ELIZA。</li>
+      <li>Edward Feigenbaum（人物 · 1936）— 『专家系统之父』，推动知识工程与 DENDRAL/MYCIN。</li>
+      <li>Alain Colmerauer（人物 · 1938）— Prolog 逻辑编程语言的主要设计者。</li>
+      <li>Geoffrey Hinton（人物 · 1947）— 深度学习教父，反向传播推广者，2024 年诺贝尔物理学奖得主。</li>
+      <li>Yann LeCun（人物 · 1960）— 卷积神经网络与 LeNet 先驱，Meta 首席 AI 科学家。</li>
+      <li>Yoshua Bengio（人物 · 1964）— 深度学习三巨头之一，专注表示学习与序列建模。</li>
+      <li>David Rumelhart（人物 · 1942）— 1986 年与 Hinton、Williams 重新推广反向传播算法。</li>
+      <li>Ronald Williams（人物 · 1952）— 反向传播经典论文 (1986) 共同作者。</li>
+      <li>John Hopfield（人物 · 1933）— 提出 Hopfield 网络，2024 年诺贝尔物理学奖得主。</li>
+      <li>Jürgen Schmidhuber（人物 · 1963）— LSTM 共同提出者，长时序学习先驱。</li>
+      <li>Sepp Hochreiter（人物 · 1967）— LSTM 共同提出者，研究梯度消失问题。</li>
+      <li>Vladimir Vapnik（人物 · 1936）— 统计学习理论奠基人，SVM 共同提出者。</li>
+      <li>Corinna Cortes（人物 · 1962）— 支持向量机 (SVM) 共同提出者。</li>
+      <li>Gerald Tesauro（人物 · 1959）— 开发 TD-Gammon，将强化学习用于西洋双陆棋。</li>
+      <li>Jeffrey Elman（人物 · 1950）— 1990 年提出 Elman 网络，早期循环神经网络。</li>
+      <li>Fei-Fei Li（人物 · 1976）— ImageNet 发起者，斯坦福 AI 实验室负责人。</li>
+      <li>Jia Deng（人物 · 1972）— ImageNet 主要构建者之一。</li>
+      <li>Alex Krizhevsky（人物 · 1986）— AlexNet 第一作者，2012 年引爆深度学习。</li>
+      <li>Ilya Sutskever（人物 · 1986）— AlexNet 共同作者，OpenAI 首席科学家。</li>
+      <li>Tomáš Mikolov（人物 · 1980）— Word2Vec 主要作者，词向量表示先驱。</li>
+      <li>Ian Goodfellow（人物 · 1987）— 生成对抗网络 (GAN) 提出者。</li>
+      <li>Kaiming He（人物 · 1984）— ResNet 第一作者，深度残差学习。</li>
+      <li>Ashish Vaswani（人物 · 1986）— 《Attention Is All You Need》第一作者，Transformer 提出者。</li>
+      <li>Demis Hassabis（人物 · 1976）— DeepMind 创始人，AlphaGo/AlphaFold 领导者，2024 诺贝尔化学奖。</li>
+      <li>David Silver（人物 · 1972）— DeepMind 强化学习负责人，AlphaGo 核心。</li>
+      <li>Sam Altman（人物 · 1985）— OpenAI 联合创始人兼 CEO。</li>
+      <li>Greg Brockman（人物 · 1987）— OpenAI 联合创始人兼总裁。</li>
+      <li>Jensen Huang（人物 · 1963）— NVIDIA 创始人兼 CEO，GPU 算力推动者。</li>
+      <li>Dartmouth College（组织 · 1769）— 1956 年举办达特茅斯会议，AI 概念诞生地。</li>
+      <li>MIT（组织 · 1861）— AI 实验室 (CSAIL) 是多代 AI 研究的中心。</li>
+      <li>Stanford（组织 · 1885）— 人工智能实验室 (SAIL)，符号主义与统计学习重镇。</li>
+      <li>CMU（组织 · 1900）— 卡内基梅隆，专家系统与机器人研究强校。</li>
+      <li>IBM（组织 · 1911）— 深蓝、Watson 等标志性 AI 系统的缔造者。</li>
+      <li>Google（组织 · 1998）— 搜索引擎巨头，TensorFlow、Transformer、TPU 的摇篮。</li>
+      <li>Google Brain（组织 · 2011）— Google 深度学习团队，DistBelief/TensorFlow 起源。</li>
+      <li>NVIDIA（组织 · 1993）— GPU 与 CUDA 生态，大模型训练算力基石。</li>
+      <li>Microsoft（组织 · 1975）— OpenAI 主要投资方，Azure AI 与 Copilot。</li>
+      <li>Meta / FAIR（组织 · 2004）— Facebook AI Research，PyTorch、LLaMA 来源。</li>
+      <li>OpenAI（组织 · 2015）— 以安全 AGI 为目标的实验室，GPT/ChatGPT 出品方。</li>
+      <li>DeepMind（组织 · 2010）— 强化学习 + 深度学习标杆，AlphaGo、AlphaFold。</li>
+      <li>Anthropic（组织 · 2021）— 由前 OpenAI 成员创立，Claude 模型与 Constitutional AI。</li>
+      <li>DARPA（组织 · 1958）— 美国国防部高级研究计划局，长期资助 AI 研究。</li>
+      <li>符号主义（概念 · 1956）— 以逻辑与符号推理为核心的 AI 范式，早期主流。</li>
+      <li>联结主义（概念 · 1943）— 以人工神经网络模拟智能的范式，深度学习的根基。</li>
+      <li>机器学习（概念 · 1959）— 让系统从数据中自动改进的范式 (Samuel, 1959)。</li>
+      <li>专家系统（概念 · 1970）— 基于规则的知识系统，70-80 年代 AI 商业热潮核心。</li>
+      <li>神经网络（概念 · 1958）— 由神经元单元连接构成的可学习模型。</li>
+      <li>深度学习（概念 · 2006）— 多层神经网络表示学习，2010 后全面领先。</li>
+      <li>生成式 AI（概念 · 2014）— 生成文本/图像/视频等内容的人工智能方向。</li>
+      <li>大语言模型 (LLM)（概念 · 2018）— 基于 Transformer 的大规模预训练语言模型。</li>
+      <li>Scaling Law（概念 · 2020）— 模型性能随参数量/数据/算力幂律提升的经验规律。</li>
+      <li>强化学习（概念 · 1988）— 通过奖励信号学习策略的范式。</li>
+      <li>通用人工智能 (AGI)（概念 · 2015）— 具备人类水平通用智能的目标。</li>
+      <li>AI 安全 / 对齐（概念 · 2018）— 使 AI 系统目标与人类意图一致的研究方向。</li>
+      <li>AI 智能体（概念 · 2023）— 能自主感知、规划、使用工具完成任务的 AI 系统。</li>
+      <li>计算机视觉 (CV)（领域 · 1966）— 让机器理解图像与视频的领域。</li>
+      <li>自然语言处理 (NLP)（领域 · 1950）— 让机器理解、生成人类语言的领域。</li>
+      <li>强化学习领域（领域 · 1988）— 智能体与环境交互、最大化累积奖励的研究领域。</li>
+      <li>语音识别（领域 · 1952）— 将语音信号转为文本的领域。</li>
+      <li>机器人学（领域 · 1954）— 感知-决策-执行一体化的实体智能领域。</li>
+      <li>感知机 (Perceptron)（算法 · 1957）— 单层线性分类器，神经网络思想的起点。</li>
+      <li>Logic Theorist（算法 · 1956）— 首个 AI 程序，自动证明数学定理。</li>
+      <li>ELIZA（算法 · 1966）— 基于模式匹配的聊天程序，拟人对话的雏形。</li>
+      <li>DENDRAL（算法 · 1965）— 首个专家系统，推断分子化学结构。</li>
+      <li>MYCIN（算法 · 1976）— 基于规则的医学诊断专家系统。</li>
+      <li>Prolog（算法 · 1972）— 逻辑编程语言，符号主义 AI 工具。</li>
+      <li>反向传播 (Backprop)（算法 · 1986）— 通过链式法则高效计算梯度并更新网络权重。</li>
+      <li>支持向量机 (SVM)（算法 · 1995）— 最大间隔分类器，90-2000 年代主导算法。</li>
+      <li>LSTM（算法 · 1997）— 带门控的循环单元，缓解长程梯度消失。</li>
+      <li>TD-Gammon（算法 · 1992）— 用 TD 学习自我对弈的双陆棋程序。</li>
+      <li>Word2Vec（算法 · 2013）— 高效学习词向量的模型 (Skip-gram/CBOW)。</li>
+      <li>生成对抗网络 (GAN)（算法 · 2014）— 生成器与判别器对抗训练的生成模型。</li>
+      <li>扩散模型 (Diffusion)（算法 · 2020）— 通过去噪过程生成数据的代表性方法 (DDPM)。</li>
+      <li>注意力机制 (Attention)（算法 · 2014）— Bahdanau 等提出，让模型聚焦相关输入位置。</li>
+      <li>Q-Learning（算法 · 1989）— 无模型价值的强化学习时序差分算法。</li>
+      <li>卷积神经网络 (CNN)（架构 · 1998）— 用卷积提取局部特征，视觉任务主力架构。</li>
+      <li>LeNet（架构 · 1989）— LeCun 等的早期 CNN，用于手写数字识别。</li>
+      <li>Hopfield 网络（架构 · 1982）— 可存储记忆的循环神经网络模型。</li>
+      <li>玻尔兹曼机（架构 · 1985）— 基于能量模型的随机神经网络。</li>
+      <li>循环神经网络 (RNN)（架构 · 1990）— 处理序列数据的网络，含隐藏状态传递。</li>
+      <li>AlexNet（架构 · 2012）— 深度 CNN，ILSVRC 2012 夺冠，引爆深度学习。</li>
+      <li>ResNet（架构 · 2015）— 残差连接使百层以上网络可训练。</li>
+      <li>Transformer（架构 · 2017）— 基于自注意力的架构，取代 RNN 成为基座。</li>
+      <li>BERT（架构 · 2018）— 双向编码器预训练，刷新 NLP 多项基准。</li>
+      <li>GPT-1（架构 · 2018）— OpenAI 首个生成式预训练 Transformer。</li>
+      <li>GPT-2（架构 · 2019）— 15 亿参数，展示规模化生成能力。</li>
+      <li>GPT-3（架构 · 2020）— 1750 亿参数，开启少样本/上下文学习。</li>
+      <li>GPT-4（架构 · 2023）— 多模态大模型，推理能力大幅提升。</li>
+      <li>LLaMA（架构 · 2023）— Meta 开源大模型系列，推动开放生态。</li>
+      <li>Stable Diffusion（架构 · 2022）— 潜空间扩散模型，开源文生图标杆。</li>
+      <li>Sora（架构 · 2024）— OpenAI 文生视频模型，理解时空一致性的世界模型。</li>
+      <li>AlphaFold（架构 · 2020）— 基于深度学习的蛋白质结构预测系统。</li>
+      <li>AlphaGo（架构 · 2016）— 结合深度学习与蒙特卡洛树搜索的围棋程序。</li>
+      <li>Gemini（架构 · 2023）— Google 原生多模态大模型系列。</li>
+      <li>Claude（架构 · 2023）— Anthropic 大模型，强调安全与长上下文。</li>
+      <li>DeepSeek（架构 · 2023）— 高性价比开源推理模型，打破算力垄断叙事。</li>
+      <li>PyTorch（架构 · 2016）— 主流深度学习框架，动态图著称。</li>
+      <li>TensorFlow（架构 · 2015）— Google 开源的工业级深度学习框架。</li>
+      <li>Mark I 感知机（硬件 · 1958）— Rosenblatt 建造的物理感知机硬件。</li>
+      <li>LISP 机器（硬件 · 1970）— 为运行 LISP 与专家系统定制的硬件。</li>
+      <li>GPU 通用计算（硬件 · 2006）— CUDA 让 GPU 用于大规模并行 AI 训练。</li>
+      <li>TPU（硬件 · 2015）— Google 专为神经网络设计的张量处理单元。</li>
+      <li>NVIDIA H100（硬件 · 2022）— Hopper 架构 GPU，大模型训练主力算力。</li>
+      <li>Perceptrons (书)（论文 · 1969）— Minsky & Papert 著，揭示单层感知机局限，引发寒冬。</li>
+      <li>ImageNet (CVPR'09)（论文 · 2009）— 大规模标注图像数据库，催生视觉革命。</li>
+      <li>AlexNet 论文（论文 · 2012）— 《ImageNet Classification with Deep CNN》，深度学习转折点。</li>
+      <li>Word2Vec 论文（论文 · 2013）— Efficient Estimation of Word Representations。</li>
+      <li>GAN 论文（论文 · 2014）— Generative Adversarial Nets (NIPS 2014)。</li>
+      <li>ResNet 论文（论文 · 2015）— Deep Residual Learning for Image Recognition。</li>
+      <li>Deep Learning (Nature)（论文 · 2015）— Hinton, LeCun, Bengio 综述，标志深度学习主流化。</li>
+      <li>Attention Is All You Need（论文 · 2017）— 提出 Transformer，奠定大模型时代基石。</li>
+      <li>BERT 论文（论文 · 2018）— Pre-training of Deep Bidirectional Transformers。</li>
+      <li>GPT-3 论文（论文 · 2020）— Language Models are Few-Shot Learners。</li>
+      <li>AlphaFold2 论文（论文 · 2021）— Highly accurate protein structure prediction (Nature)。</li>
+      <li>图灵测试（事件 · 1950）— Turing 提出以对话判断机器是否智能的思想实验。</li>
+      <li>达特茅斯会议（事件 · 1956）— McCarthy 等发起，『人工智能』一词正式诞生。</li>
+      <li>第一次 AI 寒冬（事件 · 1974）— 算力与承诺落差导致经费大幅削减。</li>
+      <li>第二次 AI 寒冬（事件 · 1984）— 专家系统商业化失败， Lisp 机器市场崩溃。</li>
+      <li>深蓝战胜卡斯帕罗夫（事件 · 1997）— IBM 深蓝在国际象棋中击败世界冠军。</li>
+      <li>AlexNet 夺冠 ILSVRC（事件 · 2012）— 深度学习在 ImageNet 竞赛中碾压传统方法。</li>
+      <li>AlphaGo 战胜李世石（事件 · 2016）— DeepMind 程序在围棋中击败人类顶尖棋手。</li>
+      <li>Google 收购 DeepMind（事件 · 2014）— Google 以约 5 亿美元收购 DeepMind。</li>
+      <li>微软投资 OpenAI（事件 · 2019）— 微软 10 亿美元投资，开启深度合作。</li>
+      <li>ChatGPT 发布（事件 · 2022）— 两个月用户破亿，引爆生成式 AI 浪潮。</li>
+      <li>诺奖授予 AI (2024)（事件 · 2024）— Hopfield & Hinton 获物理奖，Hassabis 等获化学奖。</li>
+    </ul>
+  </div>
+</noscript>
+<!--SEO_NOSCRIPT_END-->
+
+  <script src="d3.min.js"></script>
+  <script src="data.js"></script>
+  <script src="data300.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

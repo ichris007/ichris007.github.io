@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lifein · Obsidian 主题介绍</title>
+<style>
+/* ============ 设计令牌 ============ */
+:root{
+  --bg:#fbfaff; --bg-alt:#f4f1fc; --surface:#ffffff;
+  --ink:#16121f; --ink-2:#3f3853; --muted:#6f6790;
+  --line:#e5dff5; --line-2:#efeafa;
+  --accent:#8a5cf5; --accent-2:#6b3fd6; --accent-soft:#efe8ff;
+  --mint:#0fbd8c;
+  --wire-bg:#eae2fc; --wire-pane:#ffffff; --wire-ring:rgba(138,92,245,.45);
+  --wire-ribbon:#cdb9f7; --wire-side:#f7f3ff; --wire-main:#ffffff;
+  --hero-1:#efe9ff; --hero-2:#f7f4ff; --hero-ink:#171227; --hero-sub:#4a4266;
+  --close-1:#241a44; --close-2:#14101f;
+  --logo-life:#0C9A70; --logo-in:#0B1220;
+  --radius:18px; --max:1080px;
+}
+[data-theme="dark"]{
+  --bg:#0f0e17; --bg-alt:#15141f; --surface:#191824;
+  --ink:#ece9f7; --ink-2:#c6c0dc; --muted:#918aa8;
+  --line:#2a2839; --line-2:#221f2e;
+  --accent:#a68af9; --accent-2:#c3aaff; --accent-soft:rgba(138,92,245,.16);
+  --mint:#18f2b1;
+  --wire-bg:#241f33; --wire-pane:#2e2b3e; --wire-ring:rgba(166,138,249,.55);
+  --wire-ribbon:#3b3360; --wire-side:#332e48; --wire-main:#3c3752;
+  --hero-1:#1d1836; --hero-2:#12101c; --hero-ink:#f3f0ff; --hero-sub:#b3aad0;
+  --close-1:#191334; --close-2:#0e0c17;
+  --logo-life:#18F2B1; --logo-in:#EAF1F7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.75;
+  -webkit-font-smoothing:antialiased;transition:background .3s,color .3s;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+/* ============ 工具条（语言 / 明暗） ============ */
+.toolbar{
+  position:fixed;top:14px;right:16px;z-index:80;display:flex;gap:8px;
+  padding:5px;border-radius:999px;background:var(--surface);
+  border:1px solid var(--line);box-shadow:0 6px 22px rgba(20,12,50,.12);
+}
+.toolbar button{
+  font:inherit;font-size:12.5px;font-weight:600;letter-spacing:.02em;
+  border:none;background:transparent;color:var(--muted);cursor:pointer;
+  padding:6px 13px;border-radius:999px;transition:.18s;line-height:1;
+}
+.toolbar button:hover{color:var(--accent)}
+.toolbar button.on{background:var(--accent);color:#fff}
+[data-theme="dark"] .toolbar button.on{color:#17121f}
+
+/* ============ Hero ============ */
+.hero{
+  position:relative;overflow:hidden;color:var(--hero-ink);
+  background:linear-gradient(160deg,var(--hero-1) 0%,var(--hero-2) 62%);
+  padding:92px 0 0;
+}
+.hero::after{
+  content:"";position:absolute;width:560px;height:560px;right:-190px;top:-250px;border-radius:50%;
+  background:radial-gradient(circle,rgba(138,92,245,.30),transparent 68%);
+}
+.hero::before{
+  content:"";position:absolute;width:420px;height:420px;left:-170px;bottom:-230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(24,242,177,.20),transparent 70%);
+}
+[data-theme="dark"] .hero::after{background:radial-gradient(circle,rgba(138,92,245,.42),transparent 68%)}
+.hero .wrap{position:relative;z-index:1}
+.brand{width:210px;height:auto;display:block;margin-bottom:32px}
+.brand g.lg-life{stroke:var(--logo-life)}
+.brand g.lg-life circle{fill:var(--logo-life);stroke:none}
+.brand g.lg-in{stroke:var(--logo-in)}
+.brand g.lg-in circle{fill:var(--logo-in);stroke:none}
+.hero h1{font-size:clamp(29px,4.3vw,48px);line-height:1.28;font-weight:700;letter-spacing:-.02em;max-width:17em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{margin-top:20px;font-size:clamp(15px,1.5vw,17.5px);color:var(--hero-sub);max-width:42em;line-height:1.9}
+.gh-row{margin-top:22px}
+.gh{
+  display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;
+  color:var(--ink);text-decoration:none;padding:9px 16px;border-radius:999px;
+  background:var(--surface);border:1px solid var(--line);transition:.18s;
+}
+.gh:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.gh svg{width:16px;height:16px;fill:currentColor;flex:none}
+/* 深色收尾区里的同款链接 */
+.closing .gh{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);color:#fff}
+.closing .gh:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:50px 0 0;
+}
+.stat{background:var(--surface);padding:22px 20px}
+.stat b{display:block;font-size:26px;font-weight:700;letter-spacing:-.01em;color:var(--accent)}
+.stat span{display:block;margin-top:4px;font-size:12.5px;color:var(--muted);letter-spacing:.03em}
+.hero-shot{padding:44px 0 0}
+.hint i{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+/* ============ 目录 ============ */
+.toc{
+  position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.toc ol{display:flex;gap:26px;list-style:none;overflow-x:auto;padding:15px 0;font-size:13.5px;white-space:nowrap;scrollbar-width:none}
+.toc ol::-webkit-scrollbar{display:none}
+.toc a{color:var(--ink-2);text-decoration:none;padding:2px 0;border-bottom:2px solid transparent;transition:.18s}
+.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ============ 分节 ============ */
+section{padding:78px 0}
+section.alt{background:var(--bg-alt)}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px;flex-wrap:wrap}
+.sec-num{font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--accent);font-variant-numeric:tabular-nums}
+.sec-head h2{font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.01em}
+.sec-lede{font-size:16px;color:var(--ink-2);max-width:46em;margin-bottom:34px}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+.grid2.rev{grid-template-columns:.95fr 1.05fr}
+.points{list-style:none;display:grid;gap:15px}
+.points li{position:relative;padding-left:22px;font-size:15px;color:var(--ink-2)}
+.points li::before{
+  content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);
+}
+.points b{color:var(--ink);font-weight:600}
+.sub{font-size:12.5px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin:24px 0 10px;text-transform:uppercase}
+
+/* ============ 图位（图片 + 缺失回退占位） ============ */
+/* 编号标签只在缺图占位时显示，有真图时自动隐藏 */
+.shotimg{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.shotimg.img-missing::after{
+  content:attr(data-tag);position:absolute;top:12px;left:14px;z-index:2;
+  font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--accent);
+  background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:2px 8px;
+}
+.shotimg img{width:100%;height:auto;display:block;border-radius:var(--radius)}
+.shotimg .fb{display:none}
+/* 图片缺失：虚线占位 + 期望放进去的文件名 */
+.shotimg.img-missing img{display:none}
+.shotimg.img-missing .fb{
+  display:grid;place-items:center;text-align:center;
+  min-height:240px;padding:26px;border:1.5px dashed var(--line);border-radius:var(--radius);
+}
+.shotimg.img-missing .fb svg{width:30px;height:30px;stroke:var(--accent);opacity:.45;margin-bottom:8px}
+.shotimg.img-missing .fb b{font-size:14px;font-weight:600;color:var(--ink)}
+.shotimg.img-missing .fb code{margin-top:8px;font-size:12px;color:var(--accent)}
+.shotimg.img-missing .fb .d{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:30em;line-height:1.7}
+.shotimg.tall .fb{min-height:320px}
+/* S9 插件合集不需要着重展示：收窄并居中 */
+.shotimg.wide{max-width:660px;margin-left:auto;margin-right:auto}
+.shotimg.wide .fb{min-height:220px}
+
+/* ============ 轮播（S3 四种布局） ============ */
+.carousel{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+/* 轮播编号标签：仅在第一张也缺图时显示 */
+.carousel:has(> .car-view > .car-track > .car-slide:first-child.img-missing)::after{
+  content:attr(data-tag);position:absolute;top:12px;left:14px;z-index:3;
+  font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--accent);
+  background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:2px 8px;
+}
+.car-view{overflow:hidden}
+.car-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);will-change:transform}
+.car-slide{flex:0 0 100%;min-width:0;position:relative}
+.car-slide img{width:100%;height:auto;display:block}
+.car-slide .fb{display:none}
+.car-slide.img-missing img{display:none}
+.car-slide.img-missing .fb{
+  display:grid;place-items:center;text-align:center;
+  min-height:320px;padding:26px;border:none;
+}
+.car-slide.img-missing .fb svg{width:30px;height:30px;stroke:var(--accent);opacity:.45;margin-bottom:8px}
+.car-slide.img-missing .fb b{font-size:14px;font-weight:600;color:var(--ink)}
+.car-slide.img-missing .fb code{margin-top:8px;font-size:12px;color:var(--accent)}
+.car-cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  display:flex;align-items:baseline;gap:10px;padding:12px 16px;
+  font-size:13px;color:#fff;
+  background:linear-gradient(to top,rgba(12,10,22,.78),rgba(12,10,22,0));
+}
+.car-cap b{font-size:14.5px;font-weight:700}
+.car-cap span{font-size:12px;color:#d8d2ec}
+.car-btn{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
+  background:color-mix(in srgb,var(--surface) 82%,transparent);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  color:var(--ink);font-size:20px;line-height:1;cursor:pointer;
+  display:grid;place-items:center;transition:.18s;
+}
+.car-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.car-prev{left:12px}
+.car-next{right:12px}
+.car-dots{display:flex;justify-content:center;gap:8px;padding:12px 0 14px;background:var(--surface)}
+.car-dots i{
+  width:8px;height:8px;border-radius:999px;background:var(--line);cursor:pointer;
+  transition:.22s;border:none;padding:0;
+}
+.car-dots i:hover{background:var(--accent-soft)}
+.car-dots i.on{width:22px;background:var(--accent)}
+
+/* ============ 点击查看大图（灯箱） ============ */
+.shotimg img,.car-slide img{cursor:zoom-in}
+.lb{
+  position:fixed;inset:0;z-index:200;display:none;place-items:center;
+  background:rgba(10,8,18,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  padding:3vh 3vw;
+}
+.lb.on{display:grid}
+.lb-stage{position:relative;display:grid;place-items:center;max-width:100%;max-height:100%}
+.lb img{
+  max-width:94vw;max-height:92vh;object-fit:contain;border-radius:10px;
+  box-shadow:0 24px 80px rgba(0,0,0,.55);cursor:zoom-out;display:block;
+}
+.lb-cap{
+  position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);
+  font-size:12.5px;color:#cfc7e6;white-space:nowrap;
+}
+.lb-x,.lb-nav{
+  position:fixed;z-index:210;border:1px solid rgba(255,255,255,.22);border-radius:50%;
+  background:rgba(255,255,255,.08);color:#fff;cursor:pointer;display:grid;place-items:center;
+  transition:.18s;line-height:1;
+}
+.lb-x:hover,.lb-nav:hover{background:var(--accent);border-color:var(--accent)}
+.lb-x{top:20px;right:24px;width:40px;height:40px;font-size:22px}
+.lb-nav{top:50%;transform:translateY(-50%);width:46px;height:46px;font-size:26px}
+.lb-prev{left:22px}
+.lb-next{right:22px}
+.lb[data-single="1"] .lb-nav{display:none}
+
+/* ============ 「点击查看大图」提示 ============ */
+.zoom-hint{
+  position:absolute;z-index:2;
+  font-size:11.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;
+  color:var(--ink);background:color-mix(in srgb,var(--surface) 86%,transparent);
+  border:1px solid var(--line);border-radius:999px;padding:5px 11px;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  opacity:.7;transition:.18s;pointer-events:none;
+}
+.shotimg .zoom-hint{right:12px;bottom:12px}
+.carousel .zoom-hint{right:12px;top:12px;z-index:3}
+.shotimg:hover .zoom-hint,.carousel:hover .zoom-hint{opacity:1;color:var(--accent);border-color:var(--accent)}
+
+/* ============ 配色方案卡 ============ */
+.schemes{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:26px}
+.scheme{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.scheme .chip{height:58px}
+.scheme .nm{font-size:12px;text-align:center;padding:8px 4px;color:var(--ink-2)}
+.s1{background:linear-gradient(135deg,#fdfcff,#efeafa)}
+.s2{background:linear-gradient(135deg,#fdf8f1,#f3e6d3)}
+.s3{background:linear-gradient(135deg,#f2f9f3,#d9ecdc)}
+.s4{background:linear-gradient(135deg,#f0faf9,#cfeee9)}
+.s5{background:linear-gradient(135deg,#f0f2fd,#d5dcf8)}
+.s6{background:linear-gradient(135deg,#201c30,#332c4c)}
+.s7{background:linear-gradient(135deg,#fdf3f7,#f5d9e5)}
+.s8{background:linear-gradient(135deg,#f6f6f8,#dedee5)}
+.s9{background:linear-gradient(135deg,#101014,#000)}
+.sf{background:linear-gradient(135deg,#efe7ff,#d9c8ff)}
+
+/* ============ 布局卡（线框示意图） ============ */
+.layouts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.lcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 14px 16px}
+.lcard .nm{display:flex;align-items:baseline;gap:8px;margin-bottom:11px;flex-wrap:wrap}
+.lcard .nm b{font-size:14.5px;letter-spacing:-.01em}
+.lcard .nm span{font-size:11.5px;color:var(--accent);font-weight:600}
+.lcard .cap{font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:11px}
+.wire{position:relative;display:flex;aspect-ratio:16/9;background:var(--wire-bg);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.wire i{display:block}
+.wire .p-rb{flex:0 0 5%;background:var(--wire-ribbon)}
+.wire .p-sd{flex:0 0 19%;background:var(--wire-side)}
+.wire .p-mn{flex:1;min-width:0;background:var(--wire-main)}
+/* ① Default：贴边、无间隙、无圆角 */
+.w-default{gap:0;padding:0;border-radius:6px}
+.w-default i{border-radius:0}
+/* ② Baseline：贴边 + 8px 间隙 */
+.w-baseline{gap:8px;padding:6px;border-radius:8px}
+.w-baseline i{border-radius:0}
+/* ③ Cards：圆角卡片 + 阴影 + 状态栏悬浮 */
+.w-cards{gap:8px;padding:9px;border-radius:10px}
+.w-cards i{border-radius:9px;border:1px solid var(--line);box-shadow:0 3px 8px rgba(23,15,50,.16)}
+.w-cards .dot{position:absolute;right:12px;bottom:7px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+/* ④ Frame：整窗内缩 + 每块描边 */
+.w-frame{gap:9px;padding:9px;border-radius:11px;border:2px solid var(--wire-ring);background:transparent}
+.w-frame i{border-radius:6px;border:1px solid var(--wire-ring)}
+
+/* ============ 插件 ============ */
+.plugins{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.pill{font-size:13px;padding:7px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2)}
+.pill b{color:var(--accent);font-weight:600}
+.pill em{font-style:normal;color:var(--muted);font-size:11.5px;margin-left:4px}
+
+/* ============ 收尾 ============ */
+.closing{background:linear-gradient(150deg,var(--close-1),var(--close-2));color:#fff;padding:76px 0}
+.closing h2{font-size:clamp(23px,2.8vw,32px);margin-bottom:16px}
+.closing p{color:#c6bedd;max-width:44em;font-size:15.5px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px}
+.step span{font-size:11px;letter-spacing:.14em;color:var(--mint);font-weight:700}
+.step h4{font-size:14.5px;margin:8px 0 5px;font-weight:600}
+.step p{font-size:12.5px;color:#a89ec4;line-height:1.65}
+.note{
+  margin-top:26px;padding:16px 18px;border-radius:12px;
+  background:rgba(24,242,177,.08);border:1px solid rgba(24,242,177,.22);
+  font-size:13.5px;color:#cfe9df;
+}
+footer{padding:34px 0;text-align:center;font-size:12.5px;color:var(--muted)}
+footer a.site{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);transition:.18s}
+footer a.site:hover{color:var(--accent);border-bottom-color:var(--accent)}
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;
+  background:var(--accent-soft);padding:1px 6px;border-radius:5px;color:var(--accent-2);
+}
+
+@media (max-width:860px){
+  .grid2,.grid2.rev{grid-template-columns:1fr;gap:30px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .schemes{grid-template-columns:repeat(3,1fr)}
+  .layouts{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  section{padding:56px 0}
+  .hero{padding-top:70px}
+  .toolbar{top:10px;right:10px}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar" role="group" aria-label="language and theme">
+  <button type="button" id="btn-zh" onclick="setLang('zh')">中文</button>
+  <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+  <button type="button" id="btn-theme" onclick="toggleTheme()" aria-label="switch theme">☾</button>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+
+    <svg class="brand" viewBox="-6 0 436.8 158" fill="none" role="img" aria-label="Lifein">
+      <g stroke-width="16" stroke-linejoin="round" stroke-linecap="butt">
+        <g class="lg-life">
+          <path d="M 8 150 L 8 6"/><path d="M 0 142 L 74 142"/>
+          <path transform="translate(88 0)" d="M 8 150 L 8 50"/>
+          <path transform="translate(122.8 0)" d="M 8 150 L 8 34 C 8 27.47 11.18 21.36 16.53 17.62 C 21.87 13.87 28.71 12.97 34.84 15.21"/>
+          <path transform="translate(122.8 0)" d="M -4.8 50 L 48 50"/>
+          <path transform="translate(164.8 0)" d="M 8 100 L 96 100 C 96 79.73 82.15 62.08 62.46 57.26 C 42.77 52.44 22.33 61.7 12.97 79.68 C 3.61 97.66 7.75 119.71 22.99 133.08 C 38.23 146.45 60.63 147.67 77.24 136.04"/>
+          <circle transform="translate(88 0)" cx="8" cy="14" r="8"/>
+        </g>
+        <g class="lg-in">
+          <path transform="translate(284.8 0)" d="M 8 150 L 8 50"/>
+          <path transform="translate(320.8 0)" d="M 8 150 L 8 102 C 8 77.7 27.7 58 52 58 C 76.3 58 96 77.7 96 102 L 96 150"/>
+          <circle transform="translate(284.8 0)" cx="8" cy="14" r="8"/>
+        </g>
+      </g>
+    </svg>
+
+    <h1><span data-i18n="hero.t1">让 Obsidian</span><br><em data-i18n="hero.t2">长成你喜欢的样子</em></h1>
+    <p class="lede" data-i18n="hero.lede">
+      Lifein 不是一套换色主题，而是一整套可调的界面系统：配色、布局、侧栏、排版、属性面板、插件外观，
+      全部收进同一个设置面板。想极简就极简，想有质感就有质感。
+    </p>
+    <p class="gh-row"><a class="gh" href="https://github.com/ichris007/Lifein-theme" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-2.91-.88-2.91-2.9 0-.58.21-1.16.55-1.6-.06-.15-.24-.76.05-1.58 0 0 .72-.23 2.35.88a4.9 4.9 0 0 1 2.5-.33c.28.19.6.33.94.44 1.63-1.11 2.35-.88 2.35-.88.29.82.11 1.43.05 1.58.34.44.55 1.02.55 1.6 0 2.03-1.13 2.7-2.92 2.9.3.26.56.76.56 1.54 0 1.1-.01 1.99-.01 2.26 0 .21.15.46.55.38A7.99 7.99 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      <span data-i18n="gh">GitHub 仓库</span></a></p>
+
+    <div class="stats">
+      <div class="stat"><b>225</b><span data-i18n="stat.knobs">可调参数</span></div>
+      <div class="stat"><b>9</b><span data-i18n="stat.schemes">套成品配色</span></div>
+      <div class="stat"><b>4</b><span data-i18n="stat.layouts">种整体布局</span></div>
+      <div class="stat"><b>9</b><span data-i18n="stat.plugins">插件深度适配</span></div>
+    </div>
+  </div>
+
+  <div class="wrap hero-shot">
+    <figure class="shotimg tall" data-tag="S1">
+      <img src="image/s1-workspace.png" alt="Lifein 暗色主界面全景" onerror="this.parentNode.classList.add('img-missing')" data-alt-i18n="alt.s1">
+      <span class="fb">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1-1.6h5.6l1 1.6h1.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-9Z"/><circle cx="12" cy="13" r="3.4"/></svg>
+        <b data-i18n="shot.s1.t">主界面全景</b>
+        <code>image/s1-workspace.png</code>
+        <span class="d" data-i18n="shot.s1.d">建议截：深色模式 · 悬浮侧栏展开 · 卡片布局 · 一篇带 Banner 的笔记。这是整页最重要的一张图。</span>
+      </span>
+    </figure>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <ol>
+      <li><a href="#color" data-i18n="toc.color">配色</a></li>
+      <li><a href="#layout" data-i18n="toc.layout">布局</a></li>
+      <li><a href="#sidebar" data-i18n="toc.sidebar">悬浮侧栏</a></li>
+      <li><a href="#glass" data-i18n="toc.glass">玻璃质感</a></li>
+      <li><a href="#type" data-i18n="toc.type">排版</a></li>
+      <li><a href="#detail" data-i18n="toc.detail">界面细节</a></li>
+      <li><a href="#plugins" data-i18n="toc.plugins">插件适配</a></li>
+      <li><a href="#start" data-i18n="toc.start">开始使用</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+
+<!-- 01 配色 -->
+<section id="color">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2 data-i18n="c1.h2">配色：选一个主色，整套自动配好</h2></div>
+    <p class="sec-lede" data-i18n="c1.lede">
+      你只需要定一个强调色，主题会自己算出背景、文字、边框、标签、代码高亮的整套色阶，明暗两套各自成立。
+      不想配色也没关系，内置九套成品方案，亮色和暗色可以分别选。
+    </p>
+
+    <div class="grid2">
+      <div>
+        <ul class="points">
+          <li data-i18n="c1.p1"><b>一个颜色派生出整套界面</b>——不是简单替换主色，而是按明暗与层级重新计算，保证对比度始终够用。</li>
+          <li data-i18n="c1.p2"><b>明暗分别选方案</b>：白天用「素白」，晚上用「纯黑 AMOLED」，互不影响。</li>
+          <li data-i18n="c1.p3"><b>层级强度四档</b>：扁平、标准、分明、强烈，决定侧栏、卡片、弹窗之间拉开多少明暗差。</li>
+          <li data-i18n="c1.p4"><b>阴影三档</b>：标准、轻、无。嫌投影脏就调到「无」，界面立刻变平。</li>
+          <li data-i18n="c1.p5"><b>基准色四枚</b>：绿、红、蓝、黄的实色各自可换，标签、勾选框、高亮都从这里取色。</li>
+          <li data-i18n="c1.p6"><b>背景亮度与文字对比度</b>可微调，觉得刺眼或发灰都能自己找平。</li>
+          <li data-i18n="c1.p7"><b>整站圆角一个滑杆</b>统一缩放，另有一个<b>动效时长</b>滑杆与「减少动效」开关。</li>
+        </ul>
+
+        <p class="sub" data-i18n="c1.sub">九套成品方案 · 亮色与暗色各自可选</p>
+        <div class="schemes">
+          <div class="scheme"><div class="chip s1"></div><div class="nm" data-i18n="sc.paper">素白</div></div>
+          <div class="scheme"><div class="chip s2"></div><div class="nm" data-i18n="sc.sand">暖砂</div></div>
+          <div class="scheme"><div class="chip s3"></div><div class="nm" data-i18n="sc.forest">森野</div></div>
+          <div class="scheme"><div class="chip s4"></div><div class="nm" data-i18n="sc.teal">青碧</div></div>
+          <div class="scheme"><div class="chip s5"></div><div class="nm" data-i18n="sc.indigo">靛蓝</div></div>
+          <div class="scheme"><div class="chip s6"></div><div class="nm" data-i18n="sc.ink">墨玉</div></div>
+          <div class="scheme"><div class="chip s7"></div><div class="nm" data-i18n="sc.rose">玫红</div></div>
+          <div class="scheme"><div class="chip s8"></div><div class="nm" data-i18n="sc.graphite">石墨</div></div>
+          <div class="scheme"><div class="chip s9"></div><div class="nm" data-i18n="sc.amoled">纯黑</div></div>
+          <div class="scheme"><div class="chip sf"></div><div class="nm" data-i18n="sc.follow">跟随强调色</div></div>
+        </div>
+      </div>
+
+      <figure class="shotimg tall" data-tag="S2">
+        <img src="image/s2-schemes.png" alt="Style Settings 配色方案面板" onerror="this.parentNode.classList.add('img-missing')" data-alt-i18n="alt.s2">
+        <span class="fb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor" stroke="none" opacity=".35"/></svg>
+          <b data-i18n="shot.s2.t">配色方案面板</b>
+          <code>image/s2-schemes.png</code>
+          <span class="d" data-i18n="shot.s2.d">建议截：Style Settings 里「配色方案」展开，能看到亮色/暗色两个下拉和九套方案名。</span>
+        </span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 02 布局 -->
+<section id="layout" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2 data-i18n="c2.h2">布局：四种整体形态，一键切换</h2></div>
+    <p class="sec-lede" data-i18n="c2.lede">
+      同一套主题，可以是贴边紧凑的工作台，也可以是卡片分明的阅读空间。四种布局对应四种使用心情，切换不用改任何代码。
+    </p>
+
+    <div class="layouts">
+      <div class="lcard">
+        <div class="nm"><b data-i18n="ly.d.n">Default</b><span data-i18n="ly.d.s">贴边 · 无间隙</span></div>
+        <div class="wire w-default"><i class="p-rb"></i><i class="p-sd"></i><i class="p-mn"></i></div>
+        <p class="cap" data-i18n="ly.d.c">最接近原生，信息密度最高，适合小屏。</p>
+      </div>
+      <div class="lcard">
+        <div class="nm"><b data-i18n="ly.b.n">Baseline</b><span data-i18n="ly.b.s">贴边 · 8px 间隙</span></div>
+        <div class="wire w-baseline"><i class="p-rb"></i><i class="p-sd"></i><i class="p-mn"></i></div>
+        <p class="cap" data-i18n="ly.b.c">主区贴底，侧栏与正文之间留出细缝，稳且耐看。</p>
+      </div>
+      <div class="lcard">
+        <div class="nm"><b data-i18n="ly.c.n">Cards</b><span data-i18n="ly.c.s">全部圆角卡片</span></div>
+        <div class="wire w-cards"><i class="p-rb"></i><i class="p-sd"></i><i class="p-mn"></i><span class="dot"></span></div>
+        <p class="cap" data-i18n="ly.c.c">侧栏与主区各自成卡，带阴影，状态栏悬浮。</p>
+      </div>
+      <div class="lcard">
+        <div class="nm"><b data-i18n="ly.f.n">Frame</b><span data-i18n="ly.f.s">窗口内缩 + 描边</span></div>
+        <div class="wire w-frame"><i class="p-rb"></i><i class="p-sd"></i><i class="p-mn"></i></div>
+        <p class="cap" data-i18n="ly.f.c">整窗内缩，每一块都加边框，像给界面装了个画框。</p>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-top:38px">
+      <div class="carousel" data-tag="S3" id="car-layout">
+        <div class="car-view">
+          <div class="car-track">
+            <div class="car-slide">
+              <img src="image/s3-layout-1-default.png" alt="Default 默认布局" data-alt-i18n="alt.s3a" onerror="this.closest('.car-slide').classList.add('img-missing')">
+              <span class="fb">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M9 4v16"/></svg>
+                <b data-i18n="ly.d.n">Default</b><code>image/s3-layout-1-default.png</code>
+              </span>
+              <figcaption class="car-cap"><b data-i18n="ly.d.n">Default</b><span data-i18n="ly.d.s">贴边 · 无间隙</span></figcaption>
+            </div>
+            <div class="car-slide">
+              <img src="image/s3-layout-2-baseline.png" alt="Baseline 布局" data-alt-i18n="alt.s3b" onerror="this.closest('.car-slide').classList.add('img-missing')">
+              <span class="fb">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M9 4v16"/></svg>
+                <b data-i18n="ly.b.n">Baseline</b><code>image/s3-layout-2-baseline.png</code>
+              </span>
+              <figcaption class="car-cap"><b data-i18n="ly.b.n">Baseline</b><span data-i18n="ly.b.s">贴边 · 8px 间隙</span></figcaption>
+            </div>
+            <div class="car-slide">
+              <img src="image/s3-layout-3-cards.png" alt="Cards 卡片布局" data-alt-i18n="alt.s3c" onerror="this.closest('.car-slide').classList.add('img-missing')">
+              <span class="fb">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M9 4v16"/></svg>
+                <b data-i18n="ly.c.n">Cards</b><code>image/s3-layout-3-cards.png</code>
+              </span>
+              <figcaption class="car-cap"><b data-i18n="ly.c.n">Cards</b><span data-i18n="ly.c.s">全部圆角卡片</span></figcaption>
+            </div>
+            <div class="car-slide">
+              <img src="image/s3-layout-4-frame.png" alt="Frame 画框布局" data-alt-i18n="alt.s3d" onerror="this.closest('.car-slide').classList.add('img-missing')">
+              <span class="fb">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M9 4v16"/></svg>
+                <b data-i18n="ly.f.n">Frame</b><code>image/s3-layout-4-frame.png</code>
+              </span>
+              <figcaption class="car-cap"><b data-i18n="ly.f.n">Frame</b><span data-i18n="ly.f.s">窗口内缩 + 描边</span></figcaption>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="car-btn car-prev" aria-label="previous" onclick="carGo(-1)">‹</button>
+        <button type="button" class="car-btn car-next" aria-label="next" onclick="carGo(1)">›</button>
+        <div class="car-dots" id="car-dots"></div>
+      </div>
+      <div>
+        <ul class="points">
+          <li data-i18n="c2.p1"><b>卡片模式九项细调</b>：圆角、内边距、标题左距、描边浓度、阴影开关、间隙悬停收起、文件浏览器成卡、操作按钮成卡、侧栏图标加底色。</li>
+          <li data-i18n="c2.p2"><b>状态栏可整体隐藏</b>，标题栏也能设成「悬停才显示」，把画面让给正文。</li>
+          <li data-i18n="c2.p3"><b>布局与配色互不干扰</b>：先定形态，再换配色，两个下拉不打架。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 悬浮侧栏 -->
+<section id="sidebar">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2 data-i18n="c3.h2">悬浮侧栏：给正文让出空间</h2></div>
+    <p class="sec-lede" data-i18n="c3.lede">
+      侧栏平时收成一条细边，鼠标移过去自动滑出，移开自动缩回。对 13 寸笔记本来说，这一项能实打实多出两栏文字的宽度。
+    </p>
+
+    <div class="grid2 rev">
+      <figure class="shotimg tall" data-tag="S4">
+        <img src="image/s4-hover-sidebar.gif" alt="悬浮侧栏动效" onerror="this.parentNode.classList.add('img-missing')" data-alt-i18n="alt.s4">
+        <span class="fb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M8 5v14" stroke-dasharray="2 2"/><path d="M13 12h6M16 9l3 3-3 3"/></svg>
+          <b data-i18n="shot.s4.t">悬浮侧栏动效</b>
+          <code>image/s4-hover-sidebar.gif</code>
+          <span class="d" data-i18n="shot.s4.d">建议截：收起态与展开态的两张对比图，或者一段 3 秒的录屏（GIF）。</span>
+        </span>
+      </figure>
+      <div>
+        <ul class="points">
+          <li data-i18n="c3.p1"><b>两种动画风格</b>：圆点、折叠。也可以直接关掉，回到 Obsidian 原生侧栏。</li>
+          <li data-i18n="c3.p2"><b>功能区（ribbon）同样可悬浮</b>，左侧那条图标栏不再占固定宽度。</li>
+          <li data-i18n="c3.p3"><b>面板里有活动标签时保持展开</b>，避免写着写着侧栏缩回去。</li>
+          <li data-i18n="c3.p4"><b>悬浮面两种样式</b>：实心卡片（不透明底 + 磨砂）、渐变溶边（边缘溶进编辑区）。</li>
+          <li data-i18n="c3.p5"><b>展开宽度分左右两侧</b>各设一值，触发区宽度、进入/离开延迟、溶边宽度都可调。</li>
+          <li data-i18n="c3.p6"><b>悬浮面板自身也能改色</b>：底色、不透明度、模糊强度各自独立。</li>
+          <li data-i18n="c3.p7"><b>侧栏 Tab 六种样式</b>：Index 圆角/方形、Modern 紧凑/宽、方形、下划线，圆角与下划线粗细可调。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 玻璃 -->
+<section id="glass" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2 data-i18n="c4.h2">玻璃质感：好看，但可以随时关掉</h2></div>
+    <p class="sec-lede" data-i18n="c4.lede">
+      毛玻璃、半透明、背景模糊、色彩饱和增强，四个参数各自独立。喜欢通透就调透，不喜欢花哨，一个开关切回纯实色，立刻变成极简风。
+    </p>
+
+    <div class="grid2">
+      <div>
+        <ul class="points">
+          <li data-i18n="c4.p1"><b>三层透明度</b>：面板、压暗层、浮层各一个滑杆，从全透明到接近实色都能找到舒服的那一档。</li>
+          <li data-i18n="c4.p2"><b>模糊强度 + 饱和增强</b>：模糊决定「磨砂」程度，饱和增强让背后的颜色透出来时不发灰。</li>
+          <li data-i18n="c4.p3"><b>一键关闭</b>：不喜欢玻璃，切成纯实色，所有面板恢复不透明，菜单透明度可单独留一档。</li>
+          <li data-i18n="c4.p4"><b>不挑机器</b>：玻璃只作用于侧栏、弹窗与浮层，正文区始终不透明，长时间阅读不累眼。</li>
+        </ul>
+      </div>
+      <figure class="shotimg" data-tag="S5">
+        <img src="image/s5-glass.png" alt="玻璃质感特写" onerror="this.parentNode.classList.add('img-missing')" data-alt-i18n="alt.s5">
+        <span class="fb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 14l5-5 4 4 3-3 6 6" opacity=".6"/></svg>
+          <b data-i18n="shot.s5.t">玻璃质感特写</b>
+          <code>image/s5-glass.png</code>
+          <span class="d" data-i18n="shot.s5.d">建议截：侧栏或弹窗边缘的磨砂效果特写，背景有图或文字时最能体现。</span>
+        </span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 05 排版 -->
+<section id="type">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><h2 data-i18n="c5.h2">排版：从标题到表格都管</h2></div>
+    <p class="sec-lede" data-i18n="c5.lede">
+      写长文的人会在意这些：标题层级是否清楚、表格好不好看、标签会不会太吵。Lifein 把这些都做成了可调项。
+    </p>
+
+    <div class="grid2">
+      <figure class="shotimg tall" data-tag="S6">
+        <img src="image/s6-typography.gif" alt="排版综合示例" onerror="this.parentNode.classList.add('img-missing')" data-alt-i18n="alt.s6">
+        <span class="fb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 6h16M4 11h11M4 16h14M4 21h8"/></svg>
+          <b data-i18n="shot.s6.t">排版综合示例</b>
+          <code>image/s6-typography.gif</code>
+          <span class="d" data-i18n="shot.s6.d">建议截：一篇同时含多级标题、三线表、标签、待办、引用块的笔记。</span>
+        </span>
+      </figure>
+      <div>
+        <ul class="points">
+          <li data-i18n="c5.p1"><b>标题四种风格</b>：默认、渐变、强调、多彩。六级标题的字号、字重、分割线可分别设定，页内标题另有四项参数。</li>
+          <li data-i18n="c5.p2"><b>标签四种形态</b>：默认、纯文本、胶囊、圆角；字号、高度、边框宽度、文字色、背景、悬停背景六项可调，明暗两套色板独立。</li>
+          <li data-i18n="c5.p3"><b>表格三种样式</b>：默认、无边框、<b>三线表</b>（学术论文那种）。支持斑马纹、悬停加深、表头字号与颜色、表头底色与描边。</li>
+          <li data-i18n="c5.p4"><b>复选框三种风格</b>：Lifein、Border、Baseline；另有圆角、尺寸、颜色、边框色、标记色、删除线等八项通用参数。</li>
+          <li data-i18n="c5.p5"><b>Callout 四种样式</b>：默认、Pastel、Outlined、Sleek，描边透明度可调。</li>
+          <li data-i18n="c5.p6"><b>代码高亮三档</b>：跟随主题、跟随配色方案、静默；代码块可切成纯文本模式（字号、行高、左右上下内边距各自可调）。</li>
+          <li data-i18n="c5.p7"><b>链接七项</b>：下划线开关、内部/未解析/外部三类颜色、悬停跟随、编辑态显形、缩短显示。</li>
+          <li data-i18n="c5.p8"><b>段落五项</b>：两端对齐、行高、编辑视图段距、正文段距、标题前距；另有引用块描边色、彩虹列表、进度条完成色。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 界面细节 -->
+<section id="detail" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">06</span><h2 data-i18n="c6.h2">细节：用久了才觉得舒服的地方</h2></div>
+    <p class="sec-lede" data-i18n="c6.lede">
+      这些不是「一眼惊艳」的功能，而是每天点开都会碰到的地方。改一次，之后一直舒服。
+    </p>
+
+    <div class="grid2">
+      <div>
+        <ul class="points">
+          <li data-i18n="c6.p1"><b>Banner 大图</b>：笔记顶部放横幅，高度比例、圆角、底部渐变起点可调。</li>
+          <li data-i18n="c6.p2"><b>Vault 图标</b>：侧栏顶部换成自己的 logo，可固定显示，高度、间距、透明度可调。</li>
+          <li data-i18n="c6.p3"><b>标签页五种样式</b>：Index 圆角/方形、Modern、方形、下划线；圆角与下划线粗细可调，新建标签页也能单独设成 Lifein 样式。</li>
+          <li data-i18n="c6.p4"><b>属性面板十二项</b>：三种形态（默认/Block/Card），两列显示、靠右对齐、折叠、压暗、全局隐藏、键名配色、新增行三态、标签列宽、紧凑、属性值显示成标签、隐藏标题。</li>
+          <li data-i18n="c6.p5"><b>Bases 数据库八项</b>：隐藏表头图标、卡片标题两行、悬停显示删除、标题配色、行序号、斑马纹、悬停图片变清晰、超平滑滚动。</li>
+          <li data-i18n="c6.p6"><b>弹窗与交互</b>：命令面板宽 1 项 + 配色 5 项、菜单玻璃透明度、页面预览框宽高缩放与底色。</li>
+          <li data-i18n="c6.p7"><b>专注模式</b>：一键压暗非当前内容，标签页、标题栏、状态栏悬停才显形。</li>
+          <li data-i18n="c6.p8"><b>动效系统</b>：全站动效时长一个滑杆，另有「减少动效」开关与「浅色专注」模式。</li>
+        </ul>
+      </div>
+      <div style="display:grid;gap:18px">
+        <figure class="shotimg" data-tag="S7">
+          <img src="image/s7-banner-properties.gif" alt="Banner 与属性面板" onerror="this.parentNode.classList.add('img-missing')" data-alt-i18n="alt.s7">
+          <span class="fb">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18"/><path d="M7 4v5"/></svg>
+            <b data-i18n="shot.s7.t">Banner + 属性面板</b>
+            <code>image/s7-banner-properties.gif</code>
+            <span class="d" data-i18n="shot.s7.d">建议截：带横幅的笔记，下方展开属性面板（两列 + 标签样式）。</span>
+          </span>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 插件 -->
+<section id="plugins">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">07</span><h2 data-i18n="c7.h2">插件不是「能用」，是「长得跟主题一样」</h2></div>
+    <p class="sec-lede" data-i18n="c7.lede">
+      很多主题装完插件会出现「补丁感」——插件界面还是原生风格。Lifein 对常用插件做了深度适配，面板、按钮、颜色都跟主题统一。
+    </p>
+
+    <div class="plugins">
+      <span class="pill"><b>Dataview</b><em data-i18n="pl.dv">6 项</em></span>
+      <span class="pill"><b>Dust Calendar</b><em data-i18n="pl.dc">14 项</em></span>
+      <span class="pill"><b>Calendar</b><em data-i18n="pl.ca">11 项</em></span>
+      <span class="pill"><b>Tasks</b><em data-i18n="pl.tk">3 项</em></span>
+      <span class="pill"><b>Quick Explorer</b><em data-i18n="pl.qe">弹出面板</em></span>
+      <span class="pill"><b>Floating Headings</b><em data-i18n="pl.fh">固定样式</em></span>
+      <span class="pill"><b>TaskFlow</b><em data-i18n="pl.tf">4 项</em></span>
+      <span class="pill"><b>Kanban</b><em data-i18n="pl.kb">1 项</em></span>
+      <span class="pill"><b>Style Settings</b><em data-i18n="pl.ss">2 项</em></span>
+    </div>
+
+    <figure class="shotimg wide" style="margin-top:30px" data-tag="S9">
+      <img src="image/s9-plugins.png" alt="插件界面合集" onerror="this.parentNode.classList.add('img-missing')" data-alt-i18n="alt.s9">
+      <span class="fb">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="2.5" y="6" width="8" height="12" rx="2"/><rect x="13.5" y="6" width="8" height="12" rx="2"/></svg>
+        <b data-i18n="shot.s9.t">插件界面合集</b>
+        <code>image/s9-plugins.png</code>
+        <span class="d" data-i18n="shot.s9.d">建议截：看板 + Dataview 表格 + 日历并排，展示插件与主题的视觉一致性。</span>
+      </span>
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<section id="start" class="closing">
+  <div class="wrap">
+    <h2 data-i18n="cl.h2">四步装好，之后全靠点</h2>
+    <p data-i18n="cl.p">
+      所有开关都在 Style Settings 面板里，分 85 组、共 313 条（含 225 个可调参数与 3 条说明），每项都有中英文说明。
+      改坏了点一下「重置」就回到默认，不用担心弄乱。
+    </p>
+
+    <div class="steps">
+      <div class="step"><span>STEP 1</span><h4 data-i18n="cl.s1h">放入主题</h4><p data-i18n="cl.s1p">把主题文件夹放进 <code>.obsidian/themes/Lifein/</code>。</p></div>
+      <div class="step"><span>STEP 2</span><h4 data-i18n="cl.s2h">启用主题</h4><p data-i18n="cl.s2p">设置 → 外观 → 主题，选择 Lifein。</p></div>
+      <div class="step"><span>STEP 3</span><h4 data-i18n="cl.s3h">安装 Style Settings</h4><p data-i18n="cl.s3p">这是必需插件，所有开关都靠它呈现。</p></div>
+      <div class="step"><span>STEP 4</span><h4 data-i18n="cl.s4h">挑一套配色</h4><p data-i18n="cl.s4p">从「跟随强调色」开始，再按喜好微调。</p></div>
+    </div>
+
+    <div class="note" data-i18n="cl.note">
+      建议第一次使用时先只改「配色方案」和「布局」两项，找到整体感觉后再进各个分组细调。225 个开关不需要一次看完。
+    </div>
+
+    <p class="gh-row dark"><a class="gh" href="https://github.com/ichris007/Lifein-theme" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-2.91-.88-2.91-2.9 0-.58.21-1.16.55-1.6-.06-.15-.24-.76.05-1.58 0 0 .72-.23 2.35.88a4.9 4.9 0 0 1 2.5-.33c.28.19.6.33.94.44 1.63-1.11 2.35-.88 2.35-.88.29.82.11 1.43.05 1.58.34.44.55 1.02.55 1.6 0 2.03-1.13 2.7-2.92 2.9.3.26.56.76.56 1.54 0 1.1-.01 1.99-.01 2.26 0 .21.15.46.55.38A7.99 7.99 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      <span data-i18n="gh2">在 GitHub 上查看 / 反馈</span></a></p>
+  </div>
+</section>
+
+<footer>Lifein · Obsidian Theme　|　<a class="site" href="https://lifein.vip" target="_blank" rel="noopener">https://lifein.vip</a></footer>
+
+<script>
+/* ================= 语言 ================= */
+var I18N = {
+  zh: {},
+  en: {}
+};
+I18N.zh = {
+  "hero.t1":"让 Obsidian",
+  "hero.t2":"长成你喜欢的样子",
+  "hero.lede":"Lifein 不是一套换色主题，而是一整套可调的界面系统：配色、布局、侧栏、排版、属性面板、插件外观，全部收进同一个设置面板。想极简就极简，想有质感就有质感。",
+  "gh":"GitHub 仓库",
+  "zoom.hint":"点击查看大图",
+  "gh2":"在 GitHub 上查看 / 反馈",
+  "stat.knobs":"可调参数",
+  "stat.schemes":"套成品配色",
+  "stat.layouts":"种整体布局",
+  "stat.plugins":"插件深度适配",
+  "shot.s1.t":"主界面全景",
+  "shot.s1.d":"建议截：深色模式 · 悬浮侧栏展开 · 卡片布局 · 一篇带 Banner 的笔记。这是整页最重要的一张图。",
+  "shot.s2.t":"配色方案面板",
+  "shot.s2.d":"建议截：Style Settings 里「配色方案」展开，能看到亮色/暗色两个下拉和九套方案名。",
+  "shot.s4.t":"悬浮侧栏动效",
+  "shot.s4.d":"这一张是 GIF（自动循环播放）。建议 3 秒左右：鼠标移入侧栏自动滑出、移开自动缩回的完整循环。",
+  "shot.s5.t":"玻璃质感特写",
+  "shot.s5.d":"建议截：侧栏或弹窗边缘的磨砂效果特写，背景有图或文字时最能体现。",
+  "shot.s6.t":"排版综合示例",
+  "shot.s6.d":"建议截：一篇同时含多级标题、三线表、标签、待办、引用块的笔记。",
+  "shot.s7.t":"Banner + 属性面板",
+  "shot.s7.d":"建议截：带横幅的笔记，下方展开属性面板（两列 + 标签样式）。",
+  "shot.s9.t":"插件界面合集",
+  "shot.s9.d":"建议截：看板 + Dataview 表格 + 日历并排，展示插件与主题的视觉一致性。",
+  "toc.color":"配色","toc.layout":"布局","toc.sidebar":"悬浮侧栏","toc.glass":"玻璃质感",
+  "toc.type":"排版","toc.detail":"界面细节","toc.plugins":"插件适配","toc.start":"开始使用",
+  "c1.h2":"配色：选一个主色，整套自动配好",
+  "c1.lede":"你只需要定一个强调色，主题会自己算出背景、文字、边框、标签、代码高亮的整套色阶，明暗两套各自成立。不想配色也没关系，内置九套成品方案，亮色和暗色可以分别选。",
+  "c1.p1":"一个颜色派生出整套界面——不是简单替换主色，而是按明暗与层级重新计算，保证对比度始终够用。",
+  "c1.p2":"明暗分别选方案：白天用「素白」，晚上用「纯黑 AMOLED」，互不影响。",
+  "c1.p3":"层级强度四档：扁平、标准、分明、强烈，决定侧栏、卡片、弹窗之间拉开多少明暗差。",
+  "c1.p4":"阴影三档：标准、轻、无。嫌投影脏就调到「无」，界面立刻变平。",
+  "c1.p5":"基准色四枚：绿、红、蓝、黄的实色各自可换，标签、勾选框、高亮都从这里取色。",
+  "c1.p6":"背景亮度与文字对比度可微调，觉得刺眼或发灰都能自己找平。",
+  "c1.p7":"整站圆角一个滑杆统一缩放，另有一个动效时长滑杆与「减少动效」开关。",
+  "c1.sub":"九套成品方案 · 亮色与暗色各自可选",
+  "sc.paper":"素白","sc.sand":"暖砂","sc.forest":"森野","sc.teal":"青碧","sc.indigo":"靛蓝",
+  "sc.ink":"墨玉","sc.rose":"玫红","sc.graphite":"石墨","sc.amoled":"纯黑","sc.follow":"跟随强调色",
+  "c2.h2":"布局：四种整体形态，一键切换",
+  "c2.lede":"同一套主题，可以是贴边紧凑的工作台，也可以是卡片分明的阅读空间。四种布局对应四种使用心情，切换不用改任何代码。",
+  "ly.d.n":"Default","ly.d.s":"贴边 · 无间隙","ly.d.c":"最接近原生，信息密度最高，适合小屏。",
+  "ly.b.n":"Baseline","ly.b.s":"贴边 · 8px 间隙","ly.b.c":"主区贴底，侧栏与正文之间留出细缝，稳且耐看。",
+  "ly.c.n":"Cards","ly.c.s":"全部圆角卡片","ly.c.c":"侧栏与主区各自成卡，带阴影，状态栏悬浮。",
+  "ly.f.n":"Frame","ly.f.s":"窗口内缩 + 描边","ly.f.c":"整窗内缩，每一块都加边框，像给界面装了个画框。",
+  "c2.p1":"卡片模式九项细调：圆角、内边距、标题左距、描边浓度、阴影开关、间隙悬停收起、文件浏览器成卡、操作按钮成卡、侧栏图标加底色。",
+  "c2.p2":"状态栏可整体隐藏，标题栏也能设成「悬停才显示」，把画面让给正文。",
+  "c2.p3":"布局与配色互不干扰：先定形态，再换配色，两个下拉不打架。",
+  "c3.h2":"悬浮侧栏：给正文让出空间",
+  "c3.lede":"侧栏平时收成一条细边，鼠标移过去自动滑出，移开自动缩回。对 13 寸笔记本来说，这一项能实打实多出两栏文字的宽度。",
+  "c3.p1":"两种动画风格：圆点、折叠。也可以直接关掉，回到 Obsidian 原生侧栏。",
+  "c3.p2":"功能区（ribbon）同样可悬浮，左侧那条图标栏不再占固定宽度。",
+  "c3.p3":"面板里有活动标签时保持展开，避免写着写着侧栏缩回去。",
+  "c3.p4":"悬浮面两种样式：实心卡片（不透明底 + 磨砂）、渐变溶边（边缘溶进编辑区）。",
+  "c3.p5":"展开宽度分左右两侧各设一值，触发区宽度、进入/离开延迟、溶边宽度都可调。",
+  "c3.p6":"悬浮面板自身也能改色：底色、不透明度、模糊强度各自独立。",
+  "c3.p7":"侧栏 Tab 六种样式：Index 圆角/方形、Modern 紧凑/宽、方形、下划线，圆角与下划线粗细可调。",
+  "c4.h2":"玻璃质感：好看，但可以随时关掉",
+  "c4.lede":"毛玻璃、半透明、背景模糊、色彩饱和增强，四个参数各自独立。喜欢通透就调透，不喜欢花哨，一个开关切回纯实色，立刻变成极简风。",
+  "c4.p1":"三层透明度：面板、压暗层、浮层各一个滑杆，从全透明到接近实色都能找到舒服的那一档。",
+  "c4.p2":"模糊强度 + 饱和增强：模糊决定「磨砂」程度，饱和增强让背后的颜色透出来时不发灰。",
+  "c4.p3":"一键关闭：不喜欢玻璃，切成纯实色，所有面板恢复不透明，菜单透明度可单独留一档。",
+  "c4.p4":"不挑机器：玻璃只作用于侧栏、弹窗与浮层，正文区始终不透明，长时间阅读不累眼。",
+  "c5.h2":"排版：从标题到表格都管",
+  "c5.lede":"写长文的人会在意这些：标题层级是否清楚、表格好不好看、标签会不会太吵。Lifein 把这些都做成了可调项。",
+  "c5.p1":"标题四种风格：默认、渐变、强调、多彩。六级标题的字号、字重、分割线可分别设定，页内标题另有四项参数。",
+  "c5.p2":"标签四种形态：默认、纯文本、胶囊、圆角；字号、高度、边框宽度、文字色、背景、悬停背景六项可调，明暗两套色板独立。",
+  "c5.p3":"表格三种样式：默认、无边框、三线表（学术论文那种）。支持斑马纹、悬停加深、表头字号与颜色、表头底色与描边。",
+  "c5.p4":"复选框三种风格：Lifein、Border、Baseline；另有圆角、尺寸、颜色、边框色、标记色、删除线等八项通用参数。",
+  "c5.p5":"Callout 四种样式：默认、Pastel、Outlined、Sleek，描边透明度可调。",
+  "c5.p6":"代码高亮三档：跟随主题、跟随配色方案、静默；代码块可切成纯文本模式（字号、行高、左右上下内边距各自可调）。",
+  "c5.p7":"链接七项：下划线开关、内部/未解析/外部三类颜色、悬停跟随、编辑态显形、缩短显示。",
+  "c5.p8":"段落五项：两端对齐、行高、编辑视图段距、正文段距、标题前距；另有引用块描边色、彩虹列表、进度条完成色。",
+  "c6.h2":"细节：用久了才觉得舒服的地方",
+  "c6.lede":"这些不是「一眼惊艳」的功能，而是每天点开都会碰到的地方。改一次，之后一直舒服。",
+  "c6.p1":"Banner 大图：笔记顶部放横幅，高度比例、圆角、底部渐变起点可调。",
+  "c6.p2":"Vault 图标：侧栏顶部换成自己的 logo，可固定显示，高度、间距、透明度可调。",
+  "c6.p3":"标签页五种样式：Index 圆角/方形、Modern、方形、下划线；圆角与下划线粗细可调，新建标签页也能单独设成 Lifein 样式。",
+  "c6.p4":"属性面板十二项：三种形态（默认/Block/Card），两列显示、靠右对齐、折叠、压暗、全局隐藏、键名配色、新增行三态、标签列宽、紧凑、属性值显示成标签、隐藏标题。",
+  "c6.p5":"Bases 数据库八项：隐藏表头图标、卡片标题两行、悬停显示删除、标题配色、行序号、斑马纹、悬停图片变清晰、超平滑滚动。",
+  "c6.p6":"弹窗与交互：命令面板宽度 1 项 + 配色 5 项、菜单玻璃透明度、页面预览框宽高缩放与底色。",
+  "c6.p7":"专注模式：一键压暗非当前内容，标签页、标题栏、状态栏悬停才显形。",
+  "c6.p8":"动效系统：全站动效时长一个滑杆，另有「减少动效」开关与「浅色专注」模式。",
+  "c7.h2":"插件不是「能用」，是「长得跟主题一样」",
+  "c7.lede":"很多主题装完插件会出现「补丁感」——插件界面还是原生风格。Lifein 对常用插件做了深度适配，面板、按钮、颜色都跟主题统一。",
+  "pl.dv":"6 项","pl.dc":"14 项","pl.ca":"11 项","pl.tk":"3 项","pl.qe":"弹出面板",
+  "pl.fh":"固定样式","pl.tf":"4 项","pl.kb":"1 项","pl.ss":"2 项",
+  "cl.h2":"四步装好，之后全靠点",
+  "cl.p":"所有开关都在 Style Settings 面板里，分 85 组、共 313 条（含 225 个可调参数与 3 条说明），每项都有中英文说明。改坏了点一下「重置」就回到默认，不用担心弄乱。",
+  "cl.s1h":"放入主题","cl.s1p":"把主题文件夹放进 .obsidian/themes/Lifein/。",
+  "cl.s2h":"启用主题","cl.s2p":"设置 → 外观 → 主题，选择 Lifein。",
+  "cl.s3h":"安装 Style Settings","cl.s3p":"这是必需插件，所有开关都靠它呈现。",
+  "cl.s4h":"挑一套配色","cl.s4p":"从「跟随强调色」开始，再按喜好微调。",
+  "cl.note":"建议第一次使用时先只改「配色方案」和「布局」两项，找到整体感觉后再进各个分组细调。225 个开关不需要一次看完。",
+  "alt.s1":"Lifein 暗色主界面全景","alt.s2":"Style Settings 配色方案面板",
+  "alt.s3a":"Default 默认布局","alt.s3b":"Baseline 布局","alt.s3c":"Cards 卡片布局","alt.s3d":"Frame 画框布局",
+  "alt.s4":"悬浮侧栏动效","alt.s5":"玻璃质感特写","alt.s6":"排版综合示例",
+  "alt.s7":"Banner 与属性面板","alt.s9":"插件界面合集"
+};
+I18N.en = {
+  "hero.t1":"Make Obsidian",
+  "hero.t2":"look the way you like",
+  "hero.lede":"Lifein is not a recolour pack — it is a full interface system you can tune: colour schemes, layouts, sidebars, typography, the properties panel and plugin skins, all in one settings panel. Go minimal, or go rich.",
+  "gh":"GitHub repository",
+  "zoom.hint":"Click to enlarge",
+  "gh2":"View it on GitHub / give feedback",
+  "stat.knobs":"adjustable options",
+  "stat.schemes":"ready-made schemes",
+  "stat.layouts":"workspace layouts",
+  "stat.plugins":"plugins themed",
+  "shot.s1.t":"Workspace overview",
+  "shot.s1.d":"Suggested shot: dark mode · hover sidebar open · Cards layout · a note with a banner. The most important image on the page.",
+  "shot.s2.t":"Colour scheme panel",
+  "shot.s2.d":"Suggested shot: Style Settings → Colour schemes, showing the light/dark dropdowns and the nine scheme names.",
+  "shot.s4.t":"Hover sidebar in motion",
+  "shot.s4.d":"Suggested shot: collapsed vs. expanded, or a 3-second GIF.",
+  "shot.s5.t":"Glass finish close-up",
+  "shot.s5.d":"Suggested shot: a sidebar or modal edge with frosted glass over text or an image.",
+  "shot.s6.t":"Typography sampler",
+  "shot.s6.d":"Suggested shot: one note with multi-level headings, a three-line table, tags, tasks and a callout.",
+  "shot.s7.t":"Banner + properties panel",
+  "shot.s7.d":"Suggested shot: a note with a banner, with the properties panel expanded below (two columns, tag style).",
+  "shot.s9.t":"Plugin skins",
+  "shot.s9.d":"Suggested shot: Kanban + Dataview table + calendar side by side, showing visual consistency.",
+  "toc.color":"Colours","toc.layout":"Layout","toc.sidebar":"Hover sidebar","toc.glass":"Glass",
+  "toc.type":"Typography","toc.detail":"Details","toc.plugins":"Plugins","toc.start":"Get started",
+  "c1.h2":"Colours: pick one accent, the rest is computed",
+  "c1.lede":"You choose a single accent colour; the theme derives the whole scale — backgrounds, text, borders, tags, code highlighting — with light and dark each standing on their own. Prefer not to pick? Nine ready-made schemes ship with the theme, selectable separately for light and dark.",
+  "c1.p1":"One accent derives the whole UI — not a flat replacement, but a re-computation by lightness and hierarchy so contrast always holds up.",
+  "c1.p2":"Light and dark pick separately: Paper by day, AMOLED pure black by night, no interference.",
+  "c1.p3":"Four levels of hierarchy: Flat, Standard, Defined, Strong — how much separation between sidebar, cards and modals.",
+  "c1.p4":"Three shadow levels: Standard, Soft, None. Find shadows too heavy? Switch to None and the UI flattens instantly.",
+  "c1.p5":"Four base colours: solid green, red, blue and yellow, each replaceable — tags, checkboxes and highlights draw from them.",
+  "c1.p6":"Background lift and text contrast are both slider-adjustable when things feel harsh or washed out.",
+  "c1.p7":"One slider scales every corner radius in the app; plus an animation-duration slider and a Reduce motion switch.",
+  "c1.sub":"Nine ready-made schemes · light and dark chosen separately",
+  "sc.paper":"Paper","sc.sand":"Sand","sc.forest":"Forest","sc.teal":"Teal","sc.indigo":"Indigo",
+  "sc.ink":"Ink","sc.rose":"Rose","sc.graphite":"Graphite","sc.amoled":"AMOLED","sc.follow":"Follow accent",
+  "c2.h2":"Layout: four shapes, one click",
+  "c2.lede":"The same theme can be a tight edge-to-edge workspace or a card-divided reading space. Four layouts for four moods — no code involved.",
+  "ly.d.n":"Default","ly.d.s":"Edge-to-edge · no gap","ly.d.c":"Closest to stock Obsidian; highest information density, best for small screens.",
+  "ly.b.n":"Baseline","ly.b.s":"Edge-to-edge · 8px gap","ly.b.c":"Content sits flush with hairline gaps between panels. Steady and easy on the eyes.",
+  "ly.c.n":"Cards","ly.c.s":"All rounded cards","ly.c.c":"Sidebar and main area each become a card with shadow; the status bar floats.",
+  "ly.f.n":"Frame","ly.f.s":"Inset window + outlines","ly.f.c":"The whole window pulls in and every block gets an outline, like framing the interface.",
+  "c2.p1":"Cards mode has nine knobs: radius, padding, header left inset, border alpha, shadow toggle, hover-collapsed gaps, file browser as card, action buttons as card, sidebar icon backgrounds.",
+  "c2.p2":"The status bar can be hidden entirely, and the title bar can show only on hover — more room for the text.",
+  "c2.p3":"Layout and colour never conflict: pick the shape first, then the palette. Two independent dropdowns.",
+  "c3.h2":"Hover sidebar: give the text its space",
+  "c3.lede":"The sidebar collapses to a thin edge and slides out when the pointer comes near, then tucks back when it leaves. On a 13-inch laptop that is two extra columns of text.",
+  "c3.p1":"Two animation styles: Dot and Fold. Or switch it off entirely and return to the stock sidebar.",
+  "c3.p2":"The ribbon can hover too — that icon column stops taking a fixed width.",
+  "c3.p3":"The panel stays open while a tab is active, so the sidebar never slides away mid-sentence.",
+  "c3.p4":"Two hover surfaces: solid card (opaque + frosted) and fade edge (dissolving into the editor).",
+  "c3.p5":"Left and right open widths are set separately; trigger area, enter/leave delays and fade width are all adjustable.",
+  "c3.p6":"The hover panel itself can be recoloured: background, opacity and blur each on their own slider.",
+  "c3.p7":"Six sidebar tab styles: Index round/square, Modern compact/wide, Square, Underline — with radius and underline thickness.",
+  "c4.h2":"Glass: pretty, and switchable",
+  "c4.lede":"Frosting, translucency, background blur and saturation boost are four independent parameters. Like it airy? Push it. Prefer plain? One switch returns everything to solid colour.",
+  "c4.p1":"Three opacity layers — panel, scrim and float — each with a slider from fully transparent to near-solid.",
+  "c4.p2":"Blur strength plus saturation boost: blur sets how frosted it looks; saturation boost keeps colours behind the glass from going grey.",
+  "c4.p3":"One switch turns glass off; menu translucency can keep its own level if you like.",
+  "c4.p4":"Cheap on resources: glass only touches sidebars, modals and floats — the editor stays opaque for long reading sessions.",
+  "c5.h2":"Typography: from headings to tables",
+  "c5.lede":"Long-form writers care about these: are heading levels legible, do tables look good, are tags too loud. In Lifein, all of it is adjustable.",
+  "c5.p1":"Four heading styles: Default, Gradient, Accent, Colorful. Size, weight and divider per level (h1–h6), plus four options for the inline title.",
+  "c5.p2":"Four tag shapes: Default, Plain, Pill, Rounded; font size, height, border width, text colour, background and hover background — separate palettes for light and dark.",
+  "c5.p3":"Three table styles: Default, Borderless and Three-line (the academic kind). Zebra rows, hover highlight, header size, header colour, header background and borders.",
+  "c5.p4":"Three checkbox styles: Lifein, Border, Baseline; plus eight shared options — radius, size, fill, border, marker colour, strikethrough and more.",
+  "c5.p5":"Four callout styles: Default, Pastel, Outlined and Sleek, with adjustable border opacity.",
+  "c5.p6":"Three syntax-highlighting modes: Follow theme, Follow scheme, Quiet; code blocks can switch to plain-text mode (size, line height, padding on all four sides).",
+  "c5.p7":"Seven link options: underline switch, three colour slots (internal / unresolved / external), hover-to-follow, show in editing view, shorten display.",
+  "c5.p8":"Five paragraph options: justified text, line height, editing spacing, body spacing, space before headings; plus callout border colour, rainbow lists and progress-bar completion colour.",
+  "c6.h2":"Details you only notice after a month",
+  "c6.lede":"None of these are first-glance features. They are the things you touch every single day — set them once and they stay comfortable.",
+  "c6.p1":"Banner image: a banner at the top of a note, with height ratio, radius and gradient start point.",
+  "c6.p2":"Vault icon: put your own logo at the top of the sidebar; sticky display, height, gap and opacity.",
+  "c6.p3":"Five tab styles: Index round/square, Modern, Square, Underline — radius and underline thickness too, plus a Lifein style for new tabs.",
+  "c6.p4":"Twelve properties-panel options: three forms (Default / Block / Card), two columns, right-aligned, collapse, dim, hide globally, key colour, add-row states, label width, compact, values as tags, hide the heading.",
+  "c6.p5":"Eight Bases options: hide header icons, two-line card titles, delete on hover, title colour, row numbers, zebra rows, sharp-on-hover images, ultra-smooth scrolling.",
+  "c6.p6":"Modals and interaction: command palette width plus five colour slots, menu glass opacity, page-preview width/height/scale/background.",
+  "c6.p7":"Focus mode dims everything but the current block; tabs, title bar and status bar appear on hover.",
+  "c6.p8":"Motion system: one slider for animation duration across the app, a Reduce motion switch and a light focus mode.",
+  "c7.h2":"Plugins that look like they belong",
+  "c7.lede":"Many themes leave plugins looking patched-on — the plugin UI still looks stock. Lifein themes the common ones deeply: panels, buttons and colours all match.",
+  "pl.dv":"6 options","pl.dc":"14 options","pl.ca":"11 options","pl.tk":"3 options","pl.qe":"popup panel",
+  "pl.fh":"fixed style","pl.tf":"4 options","pl.kb":"1 option","pl.ss":"2 options",
+  "cl.h2":"Four steps, then it is all clicking",
+  "cl.p":"Every switch lives in the Style Settings panel: 85 groups, 313 entries in total (225 adjustable options plus 3 notes), each documented in Chinese and English. Hit Reset to return to defaults — you cannot break it.",
+  "cl.s1h":"Drop in the theme","cl.s1p":"Put the theme folder into .obsidian/themes/Lifein/.",
+  "cl.s2h":"Enable it","cl.s2p":"Settings → Appearance → Themes, choose Lifein.",
+  "cl.s3h":"Install Style Settings","cl.s3p":"It is required — every switch is rendered through it.",
+  "cl.s4h":"Pick a scheme","cl.s4p":"Start with Follow accent, then fine-tune to taste.",
+  "cl.note":"On first run, change only Colour scheme and Layout to find the overall feel, then dig into the groups. No need to read all 225 switches at once.",
+  "alt.s1":"Lifein dark-mode workspace overview","alt.s2":"Style Settings colour scheme panel",
+  "alt.s3a":"Default layout","alt.s3b":"Baseline layout","alt.s3c":"Cards layout","alt.s3d":"Frame layout",
+  "alt.s4":"Hover sidebar in motion","alt.s5":"Glass finish close-up","alt.s6":"Typography sampler",
+  "alt.s7":"Banner and properties panel","alt.s9":"Plugin skins"
+};
+
+/* ================= 明暗 ================= */
+function applyTheme(t){
+  document.documentElement.setAttribute("data-theme", t);
+  var b = document.getElementById("btn-theme");
+  if (b) b.textContent = (t === "dark") ? "☀" : "☾";
+  try { localStorage.setItem("li-theme", t); } catch(e){}
+}
+function toggleTheme(){
+  var cur = document.documentElement.getAttribute("data-theme");
+  applyTheme(cur === "dark" ? "light" : "dark");
+}
+
+/* ================= 语言 ================= */
+function applyLang(l){
+  document.documentElement.setAttribute("lang", l === "en" ? "en" : "zh-CN");
+  document.title = (l === "en") ? "Lifein · Obsidian Theme" : "Lifein · Obsidian 主题介绍";
+  var dict = I18N[l] || I18N.zh, nodes = document.querySelectorAll("[data-i18n]");
+  for (var i = 0; i < nodes.length; i++){
+    var k = nodes[i].getAttribute("data-i18n");
+    if (dict[k] != null) nodes[i].textContent = dict[k];
+  }
+  var alts = document.querySelectorAll("[data-alt-i18n]");
+  for (var j = 0; j < alts.length; j++){
+    var ak = alts[j].getAttribute("data-alt-i18n");
+    if (dict[ak] != null) alts[j].setAttribute("alt", dict[ak]);
+  }
+  document.getElementById("btn-zh").classList.toggle("on", l !== "en");
+  document.getElementById("btn-en").classList.toggle("on", l === "en");
+  try { localStorage.setItem("li-lang", l); } catch(e){}
+}
+function setLang(l){ applyLang(l); }
+
+/* ================= 「点击查看大图」提示（注入到每个图位/轮播） ================= */
+(function zoomHint(){
+  var boxes = document.querySelectorAll(".shotimg, #car-layout");
+  for (var i = 0; i < boxes.length; i++){
+    var s = document.createElement("span");
+    s.className = "zoom-hint";
+    s.setAttribute("data-i18n", "zoom.hint");
+    s.textContent = "点击查看大图";
+    boxes[i].appendChild(s);
+  }
+})();
+
+/* ================= 点击查看大图（灯箱） ================= */
+var LB = {list: [], idx: 0, open: false};
+function lbBuild(){
+  if (document.getElementById("lb")) return;
+  var el = document.createElement("div");
+  el.className = "lb"; el.id = "lb";
+  el.innerHTML =
+    '<button type="button" class="lb-x" aria-label="close" onclick="lbClose()">×</button>' +
+    '<button type="button" class="lb-nav lb-prev" aria-label="previous" onclick="lbStep(-1)">‹</button>' +
+    '<button type="button" class="lb-nav lb-next" aria-label="next" onclick="lbStep(1)">›</button>' +
+    '<div class="lb-stage"><img id="lb-img" alt=""><div class="lb-cap" id="lb-cap"></div></div>';
+  document.body.appendChild(el);
+  el.addEventListener("click", function(e){ if (e.target === el) lbClose(); });
+  document.getElementById("lb-img").addEventListener("click", lbClose);
+  document.addEventListener("keydown", function(e){
+    if (!LB.open) return;
+    if (e.key === "Escape") lbClose();
+    else if (e.key === "ArrowLeft") lbStep(-1);
+    else if (e.key === "ArrowRight") lbStep(1);
+  });
+}
+function lbOpen(list, i){
+  lbBuild();
+  LB.list = list; LB.idx = i; LB.open = true;
+  var box = document.getElementById("lb");
+  box.setAttribute("data-single", list.length > 1 ? "0" : "1");
+  lbRender();
+  box.classList.add("on");
+  document.body.style.overflow = "hidden";
+}
+function lbRender(){
+  var img = document.getElementById("lb-img");
+  var cur = LB.list[LB.idx];
+  img.src = cur.getAttribute("src");
+  img.alt = cur.getAttribute("alt") || "";
+  document.getElementById("lb-cap").textContent =
+    (LB.list.length > 1 ? (LB.idx + 1) + " / " + LB.list.length + "　" : "") + (img.alt || "");
+  var dots = document.querySelectorAll("#car-dots i");
+  if (dots.length && cur.closest(".car-slide")){
+    var slides = [].slice.call(document.querySelectorAll("#car-layout .car-slide"));
+    carTo(slides.indexOf(cur.closest(".car-slide")));
+  }
+}
+function lbStep(step){
+  var n = LB.list.length; if (n < 2) return;
+  LB.idx = (LB.idx + step + n) % n;
+  lbRender();
+}
+function lbClose(){
+  var box = document.getElementById("lb");
+  if (box) box.classList.remove("on");
+  document.body.style.overflow = "";
+  LB.open = false;
+}
+/* 点图打开：轮播 → 组内 4 张可左右翻；单图 → 只看这一张 */
+document.addEventListener("click", function(e){
+  var img = e.target;
+  if (!(img instanceof HTMLImageElement)) return;
+  var slide = img.closest(".car-slide");
+  if (slide){
+    var slides = [].slice.call(document.querySelectorAll("#car-layout .car-slide"));
+    var list = slides.map(function(s){ return s.querySelector("img"); });
+    lbOpen(list, slides.indexOf(slide));
+    return;
+  }
+  if (img.closest(".shotimg")) lbOpen([img], 0);
+});
+
+/* ================= 轮播（S3 四种布局） ================= */
+var carIdx = 0;
+function carN(){ return document.querySelectorAll("#car-layout .car-slide").length; }
+function carRender(){
+  var t = document.querySelector("#car-layout .car-track");
+  if (!t) return;
+  t.style.transform = "translateX(" + (-carIdx * 100) + "%)";
+  var dots = document.querySelectorAll("#car-dots i");
+  for (var i = 0; i < dots.length; i++) dots[i].classList.toggle("on", i === carIdx);
+}
+function carGo(step){
+  var n = carN(); if (!n) return;
+  carIdx = (carIdx + step + n) % n;
+  carRender();
+}
+function carTo(i){ carIdx = i; carRender(); }
+(function carInit(){
+  var box = document.getElementById("car-dots");
+  if (!box) return;
+  var slides = document.querySelectorAll("#car-layout .car-slide");
+  for (var i = 0; i < slides.length; i++){
+    var d = document.createElement("i");
+    d.setAttribute("role", "button");
+    d.dataset.i = i;
+    d.addEventListener("click", function(){ carTo(+this.dataset.i); });
+    box.appendChild(d);
+  }
+  carRender();
+  /* 键盘左右切换（轮播在视口内时） */
+  document.addEventListener("keydown", function(e){
+    var r = document.getElementById("car-layout").getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) return;
+    if (e.key === "ArrowLeft") carGo(-1);
+    if (e.key === "ArrowRight") carGo(1);
+  });
+  /* 触摸滑动 */
+  var x0 = null, el = document.querySelector("#car-layout .car-view");
+  el.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  el.addEventListener("touchend", function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) carGo(dx < 0 ? 1 : -1);
+    x0 = null;
+  }, {passive:true});
+})();
+
+(function init(){
+  var t = "light", l = "zh";
+  try {
+    t = localStorage.getItem("li-theme") || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    l = localStorage.getItem("li-lang") || (navigator.language && navigator.language.indexOf("zh") === 0 ? "zh" : "zh");
+  } catch(e){}
+  applyTheme(t);
+  applyLang(l);
+})();
+</script>
+
+</body>
+</html>

@@ -1,3 +1,448 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// ============================================================
+// Lifein OS 自定义样式（2026-10-22 从 Quartz v4 迁移）
+// 注意：v4 的头部是 @use "./base.scss"; —— v5 的构建管线会
+// 单独编译 base.scss 与 custom.scss，这里必须只引用 variables，
+// 否则整套基础样式会被重复编译两遍。
+// ============================================================
+
+html {
+  font-size: 17px;
+}
+
+article p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+
+/* ======================================== */
+/* 标签和评论区之间的分割线                 */
+/* ======================================== */
+
+ul.tags {
+  border-bottom: none !important;
+  margin-bottom: 4rem !important;
+  padding-bottom: 0 !important;
+  position: relative;
+}
+
+ul.tags::after {
+  content: "";
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--lightgray);
+}
+
+/* ======================================== */
+/* 1. 通用卡片样式（右侧悬浮信息卡）        */
+/* ======================================== */
+
+/* 使用方法：在 Obsidian 中使用 > [!info-card] */
+.callout {
+  &[data-callout="info-card"] {
+    --color: #000;
+    --border: #a2a9b1;
+    --bg: #222;
+
+    width: 300px;
+    border: 1px solid var(--border);
+    background-color: var(--bg);
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: var(--color);
+    float: right;
+    margin: -10px 10px 10px 10px;
+  }
+
+  /* 隐藏默认图标 */
+  &[data-callout="info-card"] .callout-icon {
+    display: none;
+  }
+
+  /* 卡片标题样式 */
+  &[data-callout="info-card"] .callout-title {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #84beff;
+    padding: 5px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    margin: -10px -10px 10px -10px;
+  }
+
+  /* 卡片内容样式 */
+  &[data-callout="info-card"] .callout-content {
+    padding: 5px 0;
+  }
+
+  &[data-callout="info-card"] .callout-content h3 {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  &[data-callout="info-card"] .callout-content p {
+    margin: 5px 0;
+  }
+
+  /* 卡片内图片 */
+  &[data-callout="info-card"] .callout-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 600px) {
+    &[data-callout="info-card"] {
+      float: none;
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    &[data-callout="info-card"] .callout-title {
+      margin: 0;
+    }
+  }
+}
+
+/* ======================================== */
+/* 2. 首页网格布局 - 统一卡片样式           */
+/* ======================================== */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* 基础样式 + 强制覆盖所有链接状态 */
+.grid-item,
+.grid-item:link,
+.grid-item:visited,
+.grid-item:active {
+  background-color: var(--bg) !important;
+  color: var(--darkgray) !important;
+  text-decoration: none !important;
+  padding: 15px !important;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.2s ease;
+  border: 1px solid var(--lightgray) !important;
+}
+
+/* 悬停效果单独保留（不被上面覆盖） */
+.grid-item:hover {
+  background-color: var(--lightgray) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* 内部元素样式 */
+.grid-item .icon {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.grid-item .icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin: 5px;
+}
+
+.grid-item .title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--dark);
+}
+
+.grid-item .description {
+  font-size: 0.85em;
+  color: var(--darkgray);
+  line-height: 1.4;
+}
+
+/* ======================================== */
+/* 3. 图片高级控制                          */
+/* ======================================== */
+
+/* 基础变量定义 */
+body {
+  --micro: 70px;
+  --tiny: 65px;
+  --small: 200px;
+  --small-med: 300px;
+  --med-small: 400px;
+  --medium: 500px;
+  --med-tall: 600px;
+  --tall: 700px;
+  --image-border-color: var(--border);
+  --image-border-width: 1px;
+  --image-border-padding: 8px;
+  --image-border-background: var(--td);
+}
+
+/* 移动端适配 */
+@media (max-width: 500px) {
+  body {
+    --micro: 70px;
+    --tiny: 100px;
+    --small: 150px;
+    --small-med: 200px;
+    --med-small: 250px;
+    --medium: 300px;
+    --med-tall: 450px;
+    --tall: 500px;
+  }
+}
+
+/* ----- 固定尺寸 ----- */
+/* 高度控制 */
+img[alt*="hmicro"] { height: var(--micro); }
+img[alt*="htiny"] { height: var(--tiny); }
+img[alt*="hsmall"] { height: var(--small); }
+img[alt*="hs-med"] { height: var(--small-med); }
+img[alt*="hm-sm"] { height: var(--med-small); }
+img[alt*="hmed"] { height: var(--medium); }
+img[alt*="hm-tl"] { height: var(--med-tall); }
+img[alt*="htall"] { height: var(--tall); }
+img[alt*="hfull"] { height: 100%; }
+
+/* 宽度控制 */
+img[alt*="wmicro"] { width: var(--micro); }
+img[alt*="wtiny"] { width: var(--tiny); }
+img[alt*="wsmall"] { width: var(--small); }
+img[alt*="ws-med"] { width: var(--small-med); }
+img[alt*="wm-sm"] { width: var(--med-small); }
+img[alt*="wmed"] { width: var(--medium); }
+img[alt*="wm-tl"] { width: var(--med-tall); }
+img[alt*="wtall"] { width: var(--tall); }
+img[alt*="wfull"] { width: 100%; }
+
+/* ----- 相对尺寸（百分比）----- */
+img[alt*="relative"][alt*="wmicro"] { width: 10%; }
+img[alt*="relative"][alt*="wtiny"] { width: 20%; }
+img[alt*="relative"][alt*="wsmall"] { width: 30%; }
+img[alt*="relative"][alt*="ws-med"] { width: 40%; }
+img[alt*="relative"][alt*="wm-sm"] { width: 50%; }
+img[alt*="relative"][alt*="wmed"] { width: 60%; }
+img[alt*="relative"][alt*="wm-tl"] { width: 70%; }
+img[alt*="relative"][alt*="wtall"] { width: 85%; }
+
+img[alt*="relative"] {
+  display: block;
+  margin: auto;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* ----- 对齐方式 ----- */
+/* 居中 */
+img[alt*="center"], img[alt*="ctr"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 左浮动 */
+img[alt*="left"], img[alt*="locl"] {
+  float: left;
+  margin-right: 2%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 右浮动 */
+img[alt*="right"], img[alt*="locr"] {
+  float: right;
+  margin-left: 2%;
+  margin-bottom: 0;
+}
+
+/* 清除浮动 */
+img[alt*="clear"] { clear: both; }
+
+/* ----- 图片裁剪位置 ----- */
+img[alt*="p+c"] { object-position: center; }
+img[alt*="p+t"] { object-position: top; }
+img[alt*="p+b"] { object-position: bottom; }
+img[alt*="p+l"] { object-position: left; }
+img[alt*="p+r"] { object-position: right; }
+img[alt*="p+cl"] { object-position: 15%; }
+img[alt*="p+cr"] { object-position: 60%; }
+img[alt*="p+tc"] { object-position: 50% 10%; }
+img[alt*="p+ct"] { object-position: 50% 40%; }
+img[alt*="p+cb"] { object-position: 50% 60%; }
+img[alt*="p+bc"] { object-position: 50% 80%; }
+
+/* 覆盖模式（不拉伸） */
+img[alt*="cover"], img[alt*="cvr"] {
+  object-fit: cover;
+}
+
+/* ----- 图片形状与特效 ----- */
+/* 圆形 */
+img[alt*="circle"] { border-radius: 50%; }
+
+/* 方形 */
+img[alt*="square"] { border-radius: 0; }
+
+/* 边框 */
+img[alt*="border"] {
+  border: var(--image-border-width) solid var(--image-border-color);
+  padding: var(--image-border-padding);
+  background: var(--image-border-background);
+}
+
+/* 颜色反转（暗色模式） */
+.theme-dark img[alt*="invertb"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* 颜色反转（亮色模式） */
+.theme-light img[alt*="invertw"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* 镜像翻转 */
+img[alt*="flip-x"] { transform: scale(-1, 1); }
+img[alt*="flip-y"] { transform: scale(1, -1); }
+img[alt*="flip-xy"] { transform: scale(-1, -1); }
+
+/* ----- 特殊用途 ----- */
+/* 头像（圆形 + 固定小尺寸） */
+img[alt*="profile"] {
+  object-fit: cover;
+  border-radius: 50%;
+  height: var(--tiny);
+  width: var(--tiny);
+}
+
+/* Banner 横幅 */
+img[alt*="banner"] {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  margin-bottom: 0;
+  clear: both;
+  height: var(--small);
+}
+
+img[alt*="banner+small"] { height: var(--tiny); }
+img[alt*="banner+tall"] { height: var(--medium); }
+
+/* 肖像 */
+img[alt*="portrait"] {
+  object-fit: cover;
+  height: var(--small-med);
+  width: 40%;
+}
+
+/* 核心布局 - 保持简洁 */
+.section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section .meta {
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 110px;
+}
+
+.section .meta time {
+  white-space: nowrap;
+}
+
+.section .desc {
+  min-width: 0;
+  flex: 1;
+}
+
+/* 唯一需要调整的：Tags 区域 */
+.section .tags {
+  display: flex;
+  flex-wrap: wrap;      /* 允许换行 */
+  gap: 0.4rem;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  max-width: 400px;     /* 可选：限制最大宽度，避免太长 */
+}
+
+/* Tag 样式保持简洁 */
+.section .tags a {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--secondary) 10%, transparent);
+  color: var(--secondary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.section .tags a:hover {
+  background: var(--secondary);
+  color: white;
+}
+
+
+
+/*====================================*/
+/*  最近更新列表样式                     */
+/*====================================*/
+
+.recent-notes {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0.2rem 0;           /* 减小列表上下边距 */
+}
+
+.recent-notes li {
+  margin: 0rem 0;           /* 减小条目间距 */
+  padding: 0rem 0;          /* 减小内边距 */
+  /*border-bottom: none;        /* 去掉分割线（更紧凑） */
+  border-bottom: 1px solid var(--lightgray);
+}
+
+.recent-notes li:last-child {
+  border-bottom: none;
+}
+
+.recent-notes a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 0.9rem;
+  display: block;
+  line-height: 1.2;           /* 减小行高（关键） */
+  padding: 0.1rem 0;          /* 控制点击区域 */
+  transition: color 0.2s ease;
+}
+
+.recent-notes a:hover {
+  color: var(--secondary);
+}
+
+/* v4 的 RecentNotes 组件设置了 showDate: false（不显示日期）。
+   v5 的 recent-notes 插件没有 showDate 选项，日期会一直渲染，
+   这里用 CSS 隐藏以保持与 v4 线上站一致。
+   想改为显示日期，删掉下面这条规则即可。 */
+.recent-notes .meta {
+  display: none;
+}
