@@ -14,7 +14,14 @@ const SiteNav = (userOpts) => {
     const links = (opts.links ?? []).map((link) => {
       const external = /^https?:\/\//.test(link.href)
       const href = external ? link.href : resolveRelative(fileData.slug, link.href)
-      const extra = external ? { target: "_blank", rel: "noopener noreferrer" } : {}
+      // 外链默认新窗口；站内链接也可通过配置项 newTab: true 显式新窗口打开
+      // （如指向 web/ 下独立 HTML 页面，避免 SPA 导航把用户带离当前文档）
+      const newTab = external || link.newTab === true
+      const extra = newTab ? { target: "_blank", rel: "noopener noreferrer" } : {}
+      // 双保险：data-router-ignore 是 Quartz SPA 的显式放行标记
+      // （spa.inline.ts getOpts 见到即不拦截），确保即使 target 失效
+      // （中键点击、浏览器行为差异等）也不会被 SPA 导航吞掉
+      if (!external && link.newTab === true) extra["data-router-ignore"] = ""
       return h("li", { children: h("a", { href, ...extra, children: link.text }) })
     })
 

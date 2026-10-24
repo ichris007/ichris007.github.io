@@ -323,6 +323,7 @@ plugins:
           href: lifein-os实践与思考
         - text: Lifein主题
           href: lifein_theme/index.html
+          newTab: true
         - text: 插件
           href: 插件
         - text: 脚本
