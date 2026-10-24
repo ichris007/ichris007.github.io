@@ -75,6 +75,13 @@ const TopNavFrame = {
 }
 .page[data-frame="top-nav"] .top-nav-bar {
   grid-area: grid-topnav;
+  /* 固定顶栏：sticky 包含块为 #quartz-body（无 overflow 裁剪，高度=全页），
+     滚动时吸附视口顶部；背景必须不透明（var(--light) 经 light-dark() 随主题翻转），
+     否则下方内容会透过导航条 */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--light);
   border-bottom: 0.5px solid var(--lightgray);
   margin: 0 0 0.75rem 0;
   padding: 0 0.5rem;

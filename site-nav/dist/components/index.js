@@ -88,7 +88,7 @@ html[saved-theme="light"] .site-nav-logo-dark {
   align-items: center;
   gap: 1.25rem;
   list-style: none;
-  margin: 0;
+  margin: 0 0 0 auto;
   padding: 0;
   overflow-x: auto;
   scrollbar-width: none;
