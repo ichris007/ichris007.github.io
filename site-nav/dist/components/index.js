@@ -24,7 +24,26 @@ const SiteNav = (userOpts) => {
         h("a", {
           class: "site-nav-brand",
           href: resolveRelative(fileData.slug, "index"),
-          children: opts.brand,
+          "aria-label": opts.brand,
+          children: [
+            // 双主题 logo：Quartz v5 在 <html saved-theme="dark|light"> 上标记主题
+            // （prescript 同步设置，无闪烁）；SVG 颜色为硬编码 presentation
+            // attribute，img 嵌入不受 Obsidian 式 style 清洗影响
+            h("img", {
+              class: "site-nav-logo site-nav-logo-dark",
+              src: resolveRelative(fileData.slug, "static/logo-dark.svg"),
+              alt: opts.brand,
+              width: 437,
+              height: 158,
+            }),
+            h("img", {
+              class: "site-nav-logo site-nav-logo-light",
+              src: resolveRelative(fileData.slug, "static/logo-light.svg"),
+              alt: opts.brand,
+              width: 437,
+              height: 158,
+            }),
+          ],
         }),
         h("ul", { class: "site-nav-links", children: links }),
       ],
@@ -39,14 +58,30 @@ const SiteNav = (userOpts) => {
   min-height: 3rem;
 }
 .site-nav-brand {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--dark);
+  display: flex;
+  align-items: center;
   text-decoration: none;
   white-space: nowrap;
 }
-.site-nav-brand:hover {
-  color: var(--secondary);
+.site-nav-logo {
+  display: block;
+  height: 2rem;
+  width: auto;
+}
+/* 主题切换：dark 版默认显示，light 主题下换浅色版 */
+.site-nav-logo-light {
+  display: none;
+}
+html[saved-theme="light"] .site-nav-logo-light {
+  display: block;
+}
+html[saved-theme="light"] .site-nav-logo-dark {
+  display: none;
+}
+@media all and (max-width: 600px) {
+  .site-nav-logo {
+    height: 1.6rem;
+  }
 }
 .site-nav-links {
   display: flex;

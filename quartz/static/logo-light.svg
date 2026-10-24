@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6.0 0 436.8 158.0" width="437" height="158" fill="none" role="img" aria-label="Lifein">
+<g stroke-width="16" stroke-linejoin="round" stroke-linecap="butt">
+<path transform="translate(0.00 0)" d="M 8.00 150.00 L 8.00 6.00" stroke="#0C9A70"/>
+<path transform="translate(0.00 0)" d="M 0.00 142.00 L 74.00 142.00" stroke="#0C9A70"/>
+<path transform="translate(88.00 0)" d="M 8.00 150.00 L 8.00 50.00" stroke="#0C9A70"/>
+<path transform="translate(122.80 0)" d="M 8.00 150.00 L 8.00 34.00 C 8.00 27.47 11.18 21.36 16.53 17.62 C 21.87 13.87 28.71 12.97 34.84 15.21" stroke="#0C9A70"/>
+<path transform="translate(122.80 0)" d="M -4.80 50.00 L 48.00 50.00" stroke="#0C9A70"/>
+<path transform="translate(164.80 0)" d="M 8.00 100.00 L 96.00 100.00 C 96.00 79.73 82.15 62.08 62.46 57.26 C 42.77 52.44 22.33 61.70 12.97 79.68 C 3.61 97.66 7.75 119.71 22.99 133.08 C 38.23 146.45 60.63 147.67 77.24 136.04" stroke="#0C9A70"/>
+<path transform="translate(284.80 0)" d="M 8.00 150.00 L 8.00 50.00" stroke="#0B1220"/>
+<path transform="translate(320.80 0)" d="M 8.00 150.00 L 8.00 102.00 C 8.00 77.70 27.70 58.00 52.00 58.00 C 76.30 58.00 96.00 77.70 96.00 102.00 L 96.00 150.00" stroke="#0B1220"/>
+</g>
+<path transform="translate(0.00 0)" d="M 8.00 150.00 L 8.00 6.00" stroke="#0C9A70"/>
+<path transform="translate(0.00 0)" d="M 0.00 142.00 L 74.00 142.00" stroke="#0C9A70"/>
+<path transform="translate(88.00 0)" d="M 8.00 150.00 L 8.00 50.00" stroke="#0C9A70"/>
+<circle transform="translate(88.00 0)" cx="8.00" cy="14.00" r="8.00" fill="#0C9A70"/>
+<path transform="translate(122.80 0)" d="M 8.00 150.00 L 8.00 34.00 C 8.00 27.47 11.18 21.36 16.53 17.62 C 21.87 13.87 28.71 12.97 34.84 15.21" stroke="#0C9A70"/>
+<path transform="translate(122.80 0)" d="M -4.80 50.00 L 48.00 50.00" stroke="#0C9A70"/>
+<path transform="translate(164.80 0)" d="M 8.00 100.00 L 96.00 100.00 C 96.00 79.73 82.15 62.08 62.46 57.26 C 42.77 52.44 22.33 61.70 12.97 79.68 C 3.61 97.66 7.75 119.71 22.99 133.08 C 38.23 146.45 60.63 147.67 77.24 136.04" stroke="#0C9A70"/>
+<path transform="translate(284.80 0)" d="M 8.00 150.00 L 8.00 50.00" stroke="#0B1220"/>
+<circle transform="translate(284.80 0)" cx="8.00" cy="14.00" r="8.00" fill="#0B1220"/>
+<path transform="translate(320.80 0)" d="M 8.00 150.00 L 8.00 102.00 C 8.00 77.70 27.70 58.00 52.00 58.00 C 76.30 58.00 96.00 77.70 96.00 102.00 L 96.00 150.00" stroke="#0B1220"/>
+</svg>
