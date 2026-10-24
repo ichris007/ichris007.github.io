@@ -1,0 +1,28 @@
+{
+  "name": "tag-listing",
+  "version": "1.0.0",
+  "description": "Tag page type with reference-style listing: date | title + tags below, divider between items",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "quartz": {
+    "name": "tag-listing",
+    "displayName": "Tag Listing",
+    "category": "pageType",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 50,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "numPages": 10,
+      "prefixTags": true,
+      "showCount": true,
+      "showTags": true,
+      "tagPrefix": ""
+    }
+  }
+}

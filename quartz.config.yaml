@@ -166,8 +166,19 @@ plugins:
       showTags: true
       tagPrefix: "#"
       prefixFolders: false
+  # 官方 tag-page 的列表为「日期 | 标题 | 右侧标签」，已由本地
+  # tag-listing 插件替代（参考样式：日期 | 标题 + 标签下方一行 + 分割线）
   - source: "@quartz-community/tag-page"
+    enabled: false
+  # 本地插件：标签页列表——日期左列 + 标题 + 标签（下方纯文本）+ 条目分割线
+  - source: ./tag-listing
     enabled: true
+    options:
+      numPages: 10
+      prefixTags: true
+      showCount: true
+      showTags: true
+      tagPrefix: ""
   - source: "@quartz-community/explorer"
     enabled: true
     layout:
