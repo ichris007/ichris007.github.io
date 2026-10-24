@@ -237,7 +237,9 @@ const FolderListing = (userOpts) => {
                     children: tags.map((tag) =>
                       h("li", {
                         children: h("a", {
-                          class: "internal tag-link",
+                          // 只挂 internal：tag-link 类会触发核心 CSS
+                          // a.internal.tag-link:before{content:"#"}，与 tagPrefix 叠成 ##
+                          class: "internal",
                           href: resolveRelative(slug, joinSegments("tags", tag)),
                           children: `${opts.tagPrefix}${tag}`,
                         }),
@@ -344,7 +346,9 @@ const FolderListing = (userOpts) => {
   padding: 0;
 }
 
-.folder-listing-tags a {
+/* a.internal 后缀：核心 index.css 有 a.internal{background:var(--highlight);
+   border-radius:5px;padding:0 .1rem}，同特异度靠源顺序不稳，升到 (0,2,1) 稳妥压过 */
+.folder-listing-tags a.internal {
   display: inline-block;
   padding: 0.05rem 0.55rem;
   border: 1px solid var(--lightgray);
@@ -356,7 +360,7 @@ const FolderListing = (userOpts) => {
   text-decoration: none;
 }
 
-.folder-listing-tags a:hover {
+.folder-listing-tags a.internal:hover {
   color: var(--secondary);
   border-color: var(--secondary);
 }
