@@ -1,0 +1,44 @@
+{
+  "name": "homepage-graph",
+  "version": "1.0.0",
+  "description": "Homepage-only full-width global graph section, wrapping @quartz-community/graph",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./components": "./dist/components/index.js"
+  },
+  "quartz": {
+    "name": "homepage-graph",
+    "displayName": "Homepage Graph",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": ["@quartz-community/graph"],
+    "defaultOrder": 55,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "title": "关系图谱",
+      "caption": "全站关系图谱 · 悬停查看 · 点击跳转",
+      "height": "420px",
+      "localGraph": {
+        "drag": true,
+        "zoom": true,
+        "depth": -1,
+        "scale": 0.9,
+        "repelForce": 0.5,
+        "centerForce": 0.2,
+        "linkDistance": 30,
+        "fontSize": 0.6
+      }
+    },
+    "components": {
+      "HomepageGraph": {
+        "displayName": "Homepage Graph",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 28
+      }
+    }
+  }
+}

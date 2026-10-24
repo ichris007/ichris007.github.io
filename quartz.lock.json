@@ -1,11 +1,35 @@
 {
   "version": "1.0.0",
   "plugins": {
+    "graph-libs": {
+      "source": "./graph-libs",
+      "resolved": "/Users/chris/Documents/GitHub/Lifein.vip/graph-libs",
+      "commit": "local",
+      "installedAt": "2026-10-24T13:37:31.103Z"
+    },
+    "homepage-graph": {
+      "source": "./homepage-graph",
+      "resolved": "/Users/chris/Documents/GitHub/Lifein.vip/homepage-graph",
+      "commit": "local",
+      "installedAt": "2026-10-22T17:53:12.472Z"
+    },
+    "homepage-notes": {
+      "source": "./homepage-notes",
+      "resolved": "/Users/chris/Documents/GitHub/Lifein.vip/homepage-notes",
+      "commit": "local",
+      "installedAt": "2026-10-22T17:53:12.460Z"
+    },
     "hreflang": {
       "source": "./hreflang",
       "resolved": "/Users/chris/Documents/GitHub/Lifein.vip/hreflang",
       "commit": "local",
       "installedAt": "2026-10-22T04:45:26.495Z"
+    },
+    "site-nav": {
+      "source": "./site-nav",
+      "resolved": "/Users/chris/Documents/GitHub/Lifein.vip/site-nav",
+      "commit": "local",
+      "installedAt": "2026-10-22T17:53:12.452Z"
     }
   }
 }

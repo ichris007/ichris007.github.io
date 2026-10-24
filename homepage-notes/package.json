@@ -1,0 +1,35 @@
+{
+  "name": "homepage-notes",
+  "version": "1.0.0",
+  "description": "Homepage-only recent notes list with new/updated badges, driven by contentIndex",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./components": "./dist/components/index.js"
+  },
+  "quartz": {
+    "name": "homepage-notes",
+    "displayName": "Homepage Notes",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 56,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "title": "最近更新",
+      "limit": 8,
+      "newDays": 30,
+      "showMoreLink": true
+    },
+    "components": {
+      "HomepageNotes": {
+        "displayName": "Homepage Notes",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 25
+      }
+    }
+  }
+}

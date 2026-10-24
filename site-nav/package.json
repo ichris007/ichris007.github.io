@@ -1,0 +1,46 @@
+{
+  "name": "site-nav",
+  "version": "1.0.0",
+  "description": "Full-width top navigation bar: SiteNav component (header slot) + top-nav page frame",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./components": "./dist/components/index.js",
+    "./frames": "./dist/frames/index.js"
+  },
+  "quartz": {
+    "name": "site-nav",
+    "displayName": "Site Nav",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 40,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "brand": "Lifein OS",
+      "links": [
+        { "text": "首页", "href": "index" },
+        { "text": "Lifein OS", "href": "lifein-os实践与思考" },
+        { "text": "General", "href": "general" },
+        { "text": "Obsidian资料", "href": "obsidian资料" },
+        { "text": "标签", "href": "tags" },
+        { "text": "GitHub", "href": "https://github.com/ichris007" }
+      ]
+    },
+    "components": {
+      "SiteNav": {
+        "displayName": "Site Nav",
+        "defaultPosition": "header",
+        "defaultPriority": 10
+      }
+    },
+    "frames": {
+      "TopNavFrame": {
+        "displayName": "Top Nav Frame"
+      }
+    }
+  }
+}

@@ -1,15 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
-# Lifein OS — Quartz v5 配置
-# 本文件由 v4 的 quartz.config.ts + quartz.layout.ts 迁移而来（2026-10-22）。
-# v4 → v5 映射备忘：
-#   configuration.*           → configuration.*（字段基本不变；head 自定义标签已移除，见 hreflang 本地插件）
-#   Plugin.X() transformers   → plugins: - source: "@quartz-community/x"
-#   Component.X() 布局        → 各插件的 layout.position / layout.priority / condition / display
-#   quartz.layout.ts 的 Flex  → layout.groups.toolbar + 插件 layout.group: toolbar
-#   MobileOnly/DesktopOnly    → layout.display: mobile-only / desktop-only
-#   ConditionalRender         → layout.condition: not-index
 configuration:
-  pageTitle: "Lifein OS"
+  pageTitle: Lifein OS
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -92,7 +83,7 @@ plugins:
     order: 50
     layout:
       position: right
-      priority: 30
+      priority: 10
       display: desktop-only
   - source: "@quartz-community/crawl-links"
     enabled: true
@@ -110,7 +101,6 @@ plugins:
   - source: "@quartz-community/citations"
     enabled: false
     order: 85
-  # v4 未启用硬换行（v4 代码中无 remark-breaks），保持关闭以维持原有渲染
   - source: "@quartz-community/hard-line-breaks"
     enabled: false
     order: 90
@@ -122,10 +112,8 @@ plugins:
     order: 92
   - source: "@quartz-community/quartz-fonts"
     enabled: true
-  # v4 无此插件；Obsidian 字体桥接用不到（已显式配置 Inter），关闭
   - source: "@quartz-themes/core"
     enabled: false
-  # v4 的 filters 为空数组（草稿笔记实际在发布状态），关闭以保持原行为
   - source: "@quartz-community/remove-draft"
     enabled: false
   - source: "@quartz-community/explicit-publish"
@@ -160,7 +148,6 @@ plugins:
     enabled: true
   - source: "@quartz-community/cname"
     enabled: true
-  # content 里有一个 .canvas 文件，v4 中仅作为原始文件存在；关闭以保持原行为
   - source: "@quartz-community/canvas-page"
     enabled: false
   - source: "@quartz-community/content-page"
@@ -178,7 +165,7 @@ plugins:
     enabled: true
     layout:
       position: right
-      priority: 10
+      priority: 30
   - source: "@quartz-community/search"
     enabled: true
     layout:
@@ -187,11 +174,10 @@ plugins:
       group: toolbar
       groupOptions:
         grow: true
-  # v4 中 Backlinks 在正文底部（afterBody），v5 默认在右栏，此处移回 afterBody
   - source: "@quartz-community/backlinks"
     enabled: true
     layout:
-      position: afterBody
+      position: right
       priority: 20
   - source: "@quartz-community/article-title"
     enabled: true
@@ -203,7 +189,6 @@ plugins:
     layout:
       position: beforeBody
       priority: 20
-  # v4 中 TagList 在正文底部（afterBody 第一位），v5 默认在 beforeBody，此处移回 afterBody
   - source: "@quartz-community/tag-list"
     enabled: true
     layout:
@@ -254,15 +239,15 @@ plugins:
     options:
       links:
         GitHub: https://github.com/jackyzha0/quartz
-        "科叔": https://github.com/ichris007
-        "Obsidian Garden Gallery": https://vaults.obsidian-community.com/
+        科叔: https://github.com/ichris007
+        Obsidian Garden Gallery: https://vaults.obsidian-community.com/
     layout:
       position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
-    enabled: true
+    enabled: false
     options:
-      title: "最近更新"
+      title: 最近更新
       limit: 5
       showTags: false
       linkToMore: tags
@@ -281,7 +266,6 @@ plugins:
     enabled: true
     options: {}
     order: 50
-  # v4 的 FrontMatter 不渲染属性面板，hidePropertiesView: true 保持原观感
   - source: "@quartz-community/note-properties"
     enabled: true
     options:
@@ -292,21 +276,67 @@ plugins:
         - aliases
       excludedProperties: []
       hidePropertiesView: true
-      delimiters: "---"
+      delimiters: ---
       language: yaml
     order: 5
     layout:
       position: beforeBody
       priority: 15
       display: all
-  # content 中无 .excalidraw 文件，关闭
   - source: "@quartz-community/obsidian-plugin-excalidraw"
     enabled: false
     order: 50
-  # 本地插件：v4 configuration.head 的 hreflang 双语文案（v5 已移除 head 配置字段）
-  - source: "./hreflang"
+  - source: ./hreflang
     enabled: true
     order: 95
+  - source: ./site-nav
+    enabled: true
+    options:
+      brand: Lifein OS
+      links:
+        - text: 首页
+          href: index
+        - text: Lifein OS
+          href: lifein-os实践与思考
+        - text: General
+          href: general
+        - text: Obsidian资料
+          href: obsidian资料
+        - text: 标签
+          href: tags
+        - text: GitHub
+          href: https://github.com/ichris007
+    order: 40
+    layout:
+      position: header
+      priority: 10
+  - source: ./homepage-notes
+    enabled: true
+    options:
+      title: 最近更新
+      limit: 8
+      newDays: 30
+      showMoreLink: true
+    order: 56
+    layout:
+      position: afterBody
+      priority: 25
+  - source: ./homepage-graph
+    enabled: true
+    options:
+      title: 关系图谱
+      caption: 全站关系图谱 · 悬停查看 · 点击跳转
+      height: 420px
+    order: 55
+    layout:
+      position: afterBody
+      priority: 28
+  # 本地插件：图谱库本地化——把 graph 插件动态加载的 jsdelivr d3/pixi
+  # 重定向到站内副本（quartz/static/vendor-libs/），国内网络也能渲染图谱
+  - source: ./graph-libs
+    enabled: true
+    options: {}
+    order: 94
 layout:
   groups:
     toolbar:
@@ -319,15 +349,16 @@ layout:
         beforeBody: []
         left: []
         right: []
-    content: {}
-    # v4 的列表页布局：保留 reader-mode 与右栏 TOC/Graph，
-    # 仅排除正文页独有的 Backlinks / Comments / RecentNotes
+    content:
+      template: top-nav
     folder:
+      template: top-nav
       exclude:
         - comments
         - recent-notes
         - backlinks
     tag:
+      template: top-nav
       exclude:
         - comments
         - recent-notes

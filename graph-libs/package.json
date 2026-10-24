@@ -1,0 +1,21 @@
+{
+  "name": "graph-libs",
+  "version": "1.0.0",
+  "description": "Vendor d3/pixi locally and redirect graph plugin's runtime CDN script loads to site copies",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "quartz": {
+    "name": "graph-libs",
+    "displayName": "Graph Libs Localizer",
+    "category": "transformer",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 94,
+    "defaultEnabled": true
+  }
+}
