@@ -152,8 +152,20 @@ plugins:
     enabled: false
   - source: "@quartz-community/content-page"
     enabled: true
+  # 官方 folder-page 仅提供「日期 | 标题 | 标签」简版列表，已由本地
+  # folder-listing 插件替代（ssp.sh/brain 风格：日期 | 标题+描述+标签）
   - source: "@quartz-community/folder-page"
+    enabled: false
+  # 本地插件：文件夹页列表——日期左列 + 标题 + 描述 + #标签 pill
+  - source: ./folder-listing
     enabled: true
+    options:
+      showFolderCount: true
+      showSubfolders: true
+      showDescription: true
+      showTags: true
+      tagPrefix: "#"
+      prefixFolders: false
   - source: "@quartz-community/tag-page"
     enabled: true
   - source: "@quartz-community/explorer"

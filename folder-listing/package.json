@@ -1,0 +1,29 @@
+{
+  "name": "folder-listing",
+  "version": "1.0.0",
+  "description": "Folder page type with ssp.sh/brain-style listing: date | title + description + tags",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "quartz": {
+    "name": "folder-listing",
+    "displayName": "Folder Listing",
+    "category": "pageType",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 50,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "showFolderCount": true,
+      "showSubfolders": true,
+      "showDescription": true,
+      "showTags": true,
+      "tagPrefix": "#",
+      "prefixFolders": false
+    }
+  }
+}
