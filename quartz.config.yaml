@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Lifein OS
+  pageTitle: Lifein 栖身·精进
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -329,10 +329,10 @@ plugins:
           href: 样式
         - text: Obsidian资料
           href: obsidian资料
-        - text: 标签
-          href: tags
-        - text: GitHub
-          href: https://github.com/ichris007
+        - text: 关于
+          href: 关于-lifein
+        - text: EN
+          href: en
     order: 40
     layout:
       position: header

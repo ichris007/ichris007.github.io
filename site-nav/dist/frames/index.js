@@ -96,6 +96,34 @@ const TopNavFrame = {
 .page[data-frame="top-nav"] .left.sidebar {
   padding-top: 34px;
 }
+/* 左栏独立滚动（仅桌面端）：长文阅读到中间时，鼠标悬停左栏即可滚动查看
+   左栏自身内容；左栏滚到底后滚动事件继续传给页面（浏览器链式传递，
+   不设 overscroll-behavior，避免切断用户已有的页面滚动习惯）。
+   吸附位置贴顶栏底部（顶栏 sticky 高 59px，若顶栏高度变需同步此值）；
+   max-height 为视口减顶栏高与底部留白。移动端单列布局不启用，
+   否则左栏会占满视口把正文挤走。 */
+@media all and (min-width: 800px) {
+  .page[data-frame="top-nav"] .left.sidebar {
+    position: sticky;
+    top: 59px;
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+  /* 左栏是 flex column 容器，子元素默认 flex-shrink:1，容器被 max-height
+     限高时内容会被压扁（scrollHeight 恒等于 clientHeight，永远不溢出）。
+     禁止收缩，让内容保持自然高度、超出部分走 overflow 滚动。 */
+  .page[data-frame="top-nav"] .left.sidebar > * {
+    flex-shrink: 0;
+  }
+  /* explorer 的 ul.overflow 核心样式自带 max-height:100% + overflow-y:auto，
+     是第二层滚动容器——鼠标在列表区域滚动时事件被它截走，滚不到 sidebar。
+     本站左栏空间有限，收敛为一层滚动：ul 自然展开，统一由 sidebar 滚。 */
+  .page[data-frame="top-nav"] .left.sidebar ul.overflow {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
 `,
 }
 
