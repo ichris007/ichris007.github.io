@@ -89,6 +89,13 @@ const TopNavFrame = {
 .page[data-frame="top-nav"] .page-header {
   margin-top: 1.5rem;
 }
+/* 左栏上移与右侧标题齐平：Quartz 核心给 .left.sidebar 设了 102px padding-top
+   （为无顶栏布局准备）；本 frame 有 topnav 行（58px 高 + 12px 下 margin），
+   左栏首元素因此比右侧 H1 低 68px（实测 172 vs 104）。压缩至 34px 补齐。
+   注意：若以后改 topnav 高度或 page-header margin，此值需同步重算。 */
+.page[data-frame="top-nav"] .left.sidebar {
+  padding-top: 34px;
+}
 `,
 }
 
