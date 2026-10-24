@@ -321,6 +321,8 @@ plugins:
           href: index
         - text: Lifein实践
           href: lifein-os实践与思考
+        - text: Lifein主题
+          href: lifein_theme/index.html
         - text: 插件
           href: 插件
         - text: 脚本
