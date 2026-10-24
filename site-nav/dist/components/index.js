@@ -65,7 +65,7 @@ const SiteNav = (userOpts) => {
 }
 .site-nav-logo {
   display: block;
-  height: 2rem;
+  height: 1.4rem;
   width: auto;
 }
 /* 主题切换：dark 版默认显示，light 主题下换浅色版 */
@@ -80,7 +80,7 @@ html[saved-theme="light"] .site-nav-logo-dark {
 }
 @media all and (max-width: 600px) {
   .site-nav-logo {
-    height: 1.6rem;
+    height: 1.2rem;
   }
 }
 .site-nav-links {
