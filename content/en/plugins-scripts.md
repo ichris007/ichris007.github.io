@@ -34,6 +34,8 @@ Not a programmer, but I love to tinker. Sharing practical scripts, CSS snippets,
 	- It helps you capture fleeting thoughts, jot down ideas, and manage fragmented notes with ease. Features like nested tags, file attachments, a calendar overview, full‑text search, and seamless Markdown rendering make it a perfect fit for your Obsidian workflow.
 - [Birthday Reminder](https://github.com/ichris007/Obsidian-Birthday-Reminder)
 	- An Obsidian plugin designed to help you easily manage important birthday information for friends, family, colleagues, and clients. The plugin supports Gregorian/Lunar calendar conversion, zodiac and Chinese animal sign display, intelligent calendar view, and automatically adapts to sidebar and main window layouts.
+- [Nav Dock: Ribbon Navigation Page](https://github.com/ichris007/nav-dock)
+	- Keep your navigation pages, quick-reference guides, and frequently used notes right beside the Obsidian Ribbon. Hover over or click the icon to view them in a pop-up panel—without taking up another tab.
 - [Quick Toggle Plugin](https://github.com/ichris007/obsidian-quick-toggle-plugin)
 	- Switch plugins in seconds, without digging through settings.
 	- Select your frequently used plugins from a customizable list.

@@ -18,7 +18,7 @@ permalink:
 
 > 这不是一个工具合集，而是一套持续进化的人生管理系统。
 
-## 主题入口
+## 0.1 主题入口
 
 <div class="grid-container">
   <a href="https://github.com/ichris007/Obsidian_Lifein" class="grid-item" target="_blank" rel="noopener noreferrer">
@@ -58,7 +58,7 @@ permalink:
   </a>
 </div>
 
-## 完整故事
+## 0.2 完整故事
 
 Lifein 的缘起、理念、模块化体系与开始使用指南，都整理在 [**关于 Lifein**](/关于-lifein) 一页。
 
