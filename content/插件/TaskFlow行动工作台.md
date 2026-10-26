@@ -26,10 +26,6 @@ number headings: off
 ---
 ## 01 ｜TaskFlow简介
 
-[![[b3d912d11a8ad967987d4575e80ab7ae_MD5.svg]]](https://obsidian.md/plugins?id=taskflow) ![[02ae576709a38f1d8557ee2bfcf2d7b9_MD5.svg]][![[861e7d71a40eaecf80fd5f48a9b811e1_MD5.svg]]](https://github.com/ichris007/taskflow/blob/main/LICENSE)
-
-[Report a bug](https://github.com/ichris007/taskflow/issues/new) · [Request a feature](https://github.com/ichris007/taskflow/issues/new)
-
 ![[split_full_cn.jpg]]
 
 > **你不缺任务。你缺的是下一步。**
