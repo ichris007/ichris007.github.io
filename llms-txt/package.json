@@ -1,0 +1,28 @@
+{
+  "name": "llms-txt",
+  "version": "1.0.0",
+  "description": "Emitter that generates an AI-readable full-site index at /llms.txt (llms.txt standard).",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "quartz": {
+    "name": "llms-txt",
+    "displayName": "LLMs.txt Index",
+    "category": "emitter",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 50,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "summary": "",
+      "includeFullLink": true,
+      "generateFull": false,
+      "excludeFolders": [],
+      "extraLinks": []
+    }
+  }
+}

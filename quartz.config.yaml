@@ -142,6 +142,19 @@ plugins:
     options:
       enableSiteMap: true
       enableRSS: true
+  # 本地插件：生成供 AI 阅读的站点索引 /llms.txt（llms.txt 标准）
+  # 构建后在站点根目录输出 llms.txt；可选 generateFull:true 额外生成 llms-full.txt
+  - source: ./llms-txt
+    enabled: true
+    options:
+      summary: ""
+      includeFullLink: false
+      generateFull: false
+      excludeFolders: []
+      extraLinks:
+        - title: Lifein主题
+          url: https://lifein.vip/lifein_theme/
+          description: Lifein 主题样式说明与使用指南（独立页面）
   - source: "@quartz-community/favicon"
     enabled: true
   - source: "@quartz-community/og-image"

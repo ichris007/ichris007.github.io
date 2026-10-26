@@ -90,6 +90,10 @@ export default (() => {
         )}
 
         <link rel="icon" href={iconPath} />
+        {/* 供 AI 工具发现全站索引（llms.txt 标准 v2 发现机制） */}
+        {cfg.baseUrl && (
+          <link rel="describedby" href={`https://${cfg.baseUrl}/llms.txt`} type="text/plain" />
+        )}
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 
