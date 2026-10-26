@@ -26,6 +26,10 @@ socialDescription:
 comments: "true"
 permalink:
 ---
+[![[4525903dd9306cc7baa2b623f8ef6407_MD5.svg]]](https://obsidian.md/plugins?id=nav-dock) ![[f3cb433ebd7ba3be3aa53f211b7136c1_MD5.svg]][![[038c09dc596061fe34f6c49de2eafc9c_MD5.svg]]](https://github.com/ichris007/nav-dock/stargazers) [![[b9d6ff553aec9d7300133e82797fecd1_MD5.svg]]](https://github.com/ichris007/nav-dock/blob/main/LICENSE)
+
+[Report a bug](https://github.com/ichris007/nav-dock/issues/new) · [Request a feature](https://github.com/ichris007/nav-dock/issues/new)
+
 > Keep your navigation pages, quick-reference guides, and frequently used notes right beside the Obsidian Ribbon. Hover over or click the icon to view them in a pop-up panel—without taking up another tab.
 
 Nav Dock opens a pop-up panel beside a Ribbon icon and displays a Markdown document of your choice. The panel follows Obsidian's Markdown preview styling and supports common content such as wikilinks, embeds, callouts, and tables. You can also edit the document directly in the panel.
