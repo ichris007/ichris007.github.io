@@ -47,7 +47,7 @@ Building **[Lifein](https://github.com/ichris007/Obsidian_Lifein)** with [Obsidi
     <div class="description">Comprehensive Obsidian resources curated by Uncle Ke</div>
   </a>
 
-  <a href="/LifeinOS 实践与思考" class="grid-item" target="_blank" rel="noopener noreferrer">
+  <a href="/Lifein OS实践与思考" class="grid-item" target="_blank" rel="noopener noreferrer">
     <div class="icon">💭</div>
     <div class="title">LifeinOS Practice & Reflections</div>
     <div class="description">Hands-on experience and deep thinking from building the system</div>

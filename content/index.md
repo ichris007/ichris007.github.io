@@ -13,6 +13,7 @@ cssclasses:
 socialImage:
 socialDescription:
 permalink:
+banner: lifein_banner_0.png
 ---
 用 [Obsidian](https://obsidian.md) 构建 **[Lifein](https://github.com/ichris007/Obsidian_Lifein)**，将知识、关系与数据沉淀为可复利的人生资产。
 

@@ -241,7 +241,9 @@ plugins:
       position: left
       priority: 30
       group: toolbar
-  - source: "@quartz-community/reader-mode"
+  # 本地定制版阅读模式：官方 @quartz-community/reader-mode 无配置项、状态也不持久化，
+  # 这里改为桌面（>=800px）默认开启 + localStorage 记住用户上次选择
+  - source: ./reader-mode-local
     enabled: true
     layout:
       position: left
