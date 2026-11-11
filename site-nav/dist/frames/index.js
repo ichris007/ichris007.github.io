@@ -29,7 +29,20 @@ const TopNavFrame = {
             h("hr"),
             h("div", {
               class: "page-footer",
-              children: afterBody.map((BodyComponent) => h(BodyComponent, { ...componentData })),
+              children: [
+                afterBody.map((BodyComponent) => h(BodyComponent, { ...componentData })),
+                h("div", {
+                  class: "footer-reward",
+                  children: h(
+                    "a",
+                    {
+                      href: "/general/打赏作者",
+                      class: "internal",
+                    },
+                    "打赏作者",
+                  ),
+                }),
+              ],
             }),
           ],
         }),
@@ -123,6 +136,18 @@ const TopNavFrame = {
     max-height: none;
     overflow-y: visible;
   }
+}
+/* 页脚「打赏作者」链接：与上方 afterBody 内容（如反链）分隔，居中、弱化，
+   看起来像页脚元素而非正文。颜色跟随主题 --secondary。 */
+.page[data-frame="top-nav"] .page-footer .footer-reward {
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--lightgray);
+  text-align: center;
+  font-size: 0.9rem;
+}
+.page[data-frame="top-nav"] .page-footer .footer-reward a {
+  color: var(--secondary);
 }
 `,
 }
